@@ -1,0 +1,543 @@
+config-version:
+  default: '5'
+  description: 'Leaves configuration file version. DO NOT modify!'
+settings:
+  protocol:
+    bladeren:
+      protocol:
+        default: 'true'
+        description: 'Whether to enable [Bladeren](https://github.com/LeavesMC/Bladeren) support.'
+      mspt-sync-protocol:
+        default: 'false'
+        description: 'Whether to enable MSPT synchronization.'
+      mspt-sync-tick-interval:
+        default: '20'
+        description: 'MSPT synchronization frequency (ticks).'
+    syncmatica:
+      enable:
+        default: 'false'
+        description: 'Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica) support.'
+      quota:
+        default: 'false'
+        description: 'Whether to limit projection file size.'
+      quota-limit:
+        default: '40000000'
+        description: 'Projection file size limit (bytes).'
+    pca-sync-protocol:
+      default: 'false'
+      description: 'Whether to enable [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition) data synchronization.'
+    pca-sync-player-entity:
+      default: 'OPS'
+      description: |
+        Determines which players will have their data synchronized by [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition).
+
+        - `NOBODY` No player data will be synchronized.
+
+        - `BOT` Only bot data will be synchronized.
+
+        - `OPS` Bot data will be synchronized, OPs can synchronize all player data.
+
+        - `OPS_AND_SELF` Bot data will be synchronized, OPs can synchronize all player data, players can synchronize their own data.
+
+        - `EVERYONE` All player data can be synchronized.
+    bbor-protocol:
+      default: 'false'
+      description: 'Whether to enable [BBOR](https://modrinth.com/mod/bbor) support.'
+    jade-protocol:
+      default: 'false'
+      description: 'Whether to enable [Jade](https://modrinth.com/mod/jade) support.'
+    alternative-block-placement:
+      default: 'NONE'
+      description: |
+        Specifies the type of precise placement protocol.
+
+        - `NONE` No precise placement protocol support.
+
+        - `CARPET` Precise placement protocol version 2.
+
+        - `CARPET_FIX` Better precise placement protocol version 2 (requires [MasaGadget](https://modrinth.com/mod/masa-gadget)).
+
+        - `LITEMATICA` Precise placement protocol version 3.
+    appleskin-protocol:
+      default: 'false'
+      description: 'Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin) support.'
+    xaero-map-protocol:
+      default: 'false'
+      description: "Whether to enable [Xaero's World Map](https://modrinth.com/mod/xaeros-world-map) support."
+    xaero-map-server-id:
+      default: $random$int
+      description: "Xaero's World Map uses this unique identifier to determine the server."
+    servux-protocol:
+      default: 'false'
+      description: 'Whether to enable [Servux](https://modrinth.com/mod/servux).'
+    leaves-carpet-support:
+      default: 'false'
+      description: 'Whether to enable [Carpet](https://modrinth.com/mod/carpet) support. The client may perceive this protocol to enable more features.'
+  misc:
+    auto-update:
+      enable:
+        default: 'false'
+        description: 'Whether to enable automatic updates for Leaves.'
+      time:
+        default:
+          - "'14:00'"
+          - "'2:00'"
+        description: 'Time points for automatic updates of Leaves.'
+    extra-yggdrasil-service:
+      enable:
+        default: 'false'
+        description: 'Whether to enable extra Yggdrasil authentication service.'
+      login-protect:
+        default: 'false'
+        description: 'Whether to enable login protection, which disallows players with the same username but different UUIDs from joining.'
+      urls:
+        default:
+          - 'https://url.with.authlib-injector-yggdrasil'
+        description: 'Specify the Yggdrasil API addresses.'
+    disable-method-profiler:
+      default: 'true'
+      description: 'Whether to disable the method profiler. This may impact debugging but does not affect production environments and can improve performance.'
+    no-chat-sign:
+      default: 'true'
+      description: 'Whether to disable chat reporting.'
+    dont-respond-ping-before-start-fully:
+      default: 'true'
+      description: 'Whether to **not** respond to client requests before the server is fully started.'
+    server-lang:
+      default: 'en_us'
+      description: |
+        Specify the server language.
+
+        - `en_us` English (US)
+
+        - `zh_cn` Simplified Chinese (China)
+    server-mod-name:
+      default: 'Leaves'
+      description: 'Specify the server name.'
+    bstats-privacy-mode:
+      default: 'false'
+      description: 'Whether to enable bStats privacy mode. When enabled, Leaves will stop collecting server version, player count, and Java version.'
+    force-minecraft-command:
+      default: 'true'
+      description: 'Whether to force the use of vanilla commands over plugin commands.'
+  region:
+    format:
+      default: 'ANVIL'
+      description: |
+        Specify the region file format.
+
+        - `ANVIL` Use [Anvil file format](https://minecraft.wiki/w/Anvil_file_format) (.mca).
+
+        - `LINEAR` Use [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear).
+    linear:
+      flush-frequency:
+        default: '10'
+        description: 'Specify the region save frequency (seconds).'
+      flush-max-threads:
+        default: '1'
+        description: 'Specify the maximum number of threads to use when saving regions. Set to `-1` to use all threads.'
+      compression-level:
+        default: '1'
+        description: 'Compression level for region files. Should be a number between `1` and `22`.'
+      crash-on-broken-symlink:
+        default: 'true'
+        description: 'Whether to crash when reading region files fails.'
+  fix:
+    vanilla-hopper:
+      default: 'false'
+      description: |
+        Use an aggressive approach to restore hoppers to their vanilla behavior.
+        ::: warning
+        Enabling this may reduce performance.
+        :::
+  modify:
+    fakeplayer:
+      enable:
+        default: 'true'
+        description: 'Whether to enable fake player functionality.'
+      unable-fakeplayer-names:
+        default:
+          - player-name
+        description: 'List of names that fake players are not allowed to use.'
+      limit:
+        default: '10'
+        description: 'Specify the maximum number of fake players.'
+      prefix:
+        default: "''"
+        description: 'Specify the prefix for fake player names. Must comply with Minecraft username rules.'
+      suffix:
+        default: "''"
+        description: 'Specify the suffix for fake player names. Must comply with Minecraft username rules.'
+      always-send-data:
+        default: 'true'
+        description: 'Whether to always send fake player data to players in the same world.'
+      resident-fakeplayer:
+        default: 'false'
+        description: 'Whether to save fake players when the server shuts down and restore them when the server restarts.'
+      open-fakeplayer-inventory:
+        default: 'false'
+        description: 'Whether to allow players to press use on to open fake player inventory.'
+      skip-sleep-check:
+        default: 'false'
+        description: 'Whether to count fake players in the sleep number.'
+      spawn-phantom:
+        default: 'false'
+        description: 'Whether to allow fake players to spawn phantoms.'
+      regen-amount:
+        default: '0.01'
+        description: 'The amount of health that fake players regenerate per tick.'
+    elytra-aeronautics:
+      no-chunk-load:
+        default: 'false'
+        description: 'Whether to not load chunks when players fly at the set height and speed.'
+      no-chunk-height:
+        default: '500.0'
+        description: 'The flight height required for players to enter the no-chunk-load state.'
+      no-chunk-speed:
+        default: '-1.0'
+        description: 'The flight speed required for players to enter the no-chunk-load state.'
+      message:
+        default: 'true'
+        description: 'Whether to display a message when players enter the no-chunk-load state.'
+      message-start:
+        default: 'Flight enter cruise mode'
+        description: 'The message displayed when players enter the no-chunk-load state.'
+      message-end:
+        default: 'Flight exit cruise mode'
+        description: 'The message displayed when players exit the no-chunk-load state.'
+    redstone-shears-wrench:
+      default: 'true'
+      description: 'Whether to allow players to use shears to rotate redstone component blocks.'
+    budding-amethyst-can-push-by-piston:
+      default: 'false'
+      description: 'Whether to allow pistons to push budding amethysts.'
+    spectator-dont-get-advancement:
+      default: 'false'
+      description: 'Whether to prevent spectators from getting advancements.'
+    stick-change-armorstand-arm-status:
+      default: 'true'
+      description: 'Whether to allow players to use sticks to switch armor stand arms while sneaking.'
+    snowball-and-egg-can-knockback-player:
+      default: 'true'
+      description: 'Whether to allow eggs and snowballs to knock back players.'
+    flatten-triangular-distribution:
+      default: 'false'
+      description: 'Whether to change the random generator to a uniform distribution. This will make edge events more likely to occur.'
+    player-operation-limiter:
+      default: 'false'
+      description: "Whether to limit the player's action speed. When enabled, each tick can only break 1 block or place 2 blocks per second."
+    renewable-elytra:
+      default: '-1.0'
+      description: 'The probability of dropping a damaged elytra when a shulker kills a phantom. Set to `-1` to disable this feature.'
+    stackable-shulker-boxes:
+      default: "'false'"
+      description: |
+        Specify the maximum stack size of empty shulker boxes. Enter a number between `1` and `64`, or set to `false` to disable this feature.
+        ::: tip
+        Empty shulker boxes automatically stack when dropped and picked up by players, and can also be manually stacked in the inventory if the player has installed a supported mod. To avoid breaking machines, empty shulker boxes will not be stacked in hoppers, and stacked empty shulker boxes will be separated when the hopper runs.
+        :::
+    force-void-trade:
+      default: 'false'
+      description: 'Whether to force enable void trading. Players passing through the end gateway are considered void trading, without waiting for the chunk to unload.'
+    disable-moved-wrongly-threshold:
+      default: 'false'
+      description: "Whether to disable the player's movement speed detection."
+    mc-technical-survival-mode:
+      default: 'true'
+      description: |
+        Whether to enable the technical survival mode. When enabled, some Paper modifications will be disabled, and these configuration items will be forcibly overwritten:
+        - paper-global.yml `item-validation.resolve-selectors-in-books: true`
+        - paper-global.yml `packet-limiter.all-packets.max-packet-rate: 5000.0`
+        - paper-global.yml `packet-limiter.overrides: {}`
+        - paper-global.yml `unsupported-settings.allow-headless-pistons: true`
+        - paper-global.yml `unsupported-settings.allow-permanent-block-break-exploits: true`
+        - paper-global.yml `unsupported-settings.allow-piston-duplication: true`
+        - paper-global.yml `unsupported-settings.allow-grindstone-overstacking: true`
+
+        - paper-world.yml `chunks.delay-chunk-unloads-by: 0`
+        - paper-world.yml `entities.spawning.count-all-mobs-for-spawning: true`
+        - paper-world.yml `fixes.disable-unloaded-chunk-enderpearl-exploit: false`
+        - paper-world.yml `unsupported-settings.fix-invulnerable-end-crystal-exploit: false`
+
+        - spigot.yml `world-settings.max-tnt-per-tick: 2000`
+    return-nether-portal-fix:
+      default: 'false'
+      description: |
+        Whether to fix the problem of abnormal portal position when the player returns to the overworld from the nether.
+        ::: warning
+        This may cause the original Nether Portal link to be unavailable.
+        :::
+    use-vanilla-random:
+      default: 'false'
+      description: 'Whether to use the vanilla random number. When enabled, it will slightly reduce the performance, but it can crack the random generator.'
+    fix-update-suppression-crash:
+      default: 'true'
+      description: 'Whether to fix the crash caused by update suppression.'
+    bedrock-break-list:
+      default: 'false'
+      description: 'Whether to enable the bedrock breaking list. This feature behaves the same as [FZBBL](https://gitee.com/harvey-husky/YH-BBL).'
+    disable-distance-check-for-use-item:
+      default: 'false'
+      description: 'Whether to disable the distance check when using an item.'
+    no-feather-falling-trample:
+      default: 'false'
+      description: 'Whether to prevent farmland from degrading when the boots have the Feather Falling enchantment.'
+    shared-villager-discounts:
+      default: 'false'
+      description: 'Whether to allow multiple players to share the same villager discount.'
+    disable-check-out-of-order-command:
+      default: 'false'
+      description: 'Whether to disable the chat message order check.'
+    despawn-enderman-with-block:
+      default: 'false'
+      description: 'Whether to allow endermen holding blocks to despawn naturally.'
+    creative-no-clip:
+      default: 'false'
+      description: |
+        Whether to disable the collision box when flying in creative mode.
+        ::: tip
+        This feature requires enabling [`settings.protocol.leaves-carpet-support`](#settings.protocol.leaves-carpet-support).
+        :::
+    shave-snow-layers:
+      default: 'true'
+      description: 'Whether to reduce the snow layers instead of dropping snowballs when using a shovel to break snow.'
+    ignore-lc:
+      default: 'false'
+      description: 'Whether to allow mobs to ignore the highest block height (lc value) for spawning.'
+    disable-packet-limit:
+      default: 'false'
+      description: 'Whether to disable the packet limit.'
+    lava-riptide:
+      default: 'false'
+      description: |
+        Whether to allow players to use Riptide in lava.
+        ::: tip
+        This feature requires enabling [`settings.protocol.bladeren.protocol`](#settings.protocol.bladeren.protocol).
+    no-block-update-command:
+      default: 'false'
+      description: 'Whether to enable the `/leaves blockupdate` command.'
+    no-tnt-place-update:
+      default: 'false'
+      description: 'Whether to prevent block updates when placing TNT.'
+    raider-die-skip-self-raid-check:
+      default: 'false'
+      description: |
+        Whether to skip some raid checks.
+        ::: warning
+        Enabling this will significantly reduce the server's performance.
+        :::
+    container-passthrough:
+      default: 'false'
+      description: 'Whether to directly open the chest supported by the sign when pressing the use key with no item in the main or off hand.'
+    avoid-anvil-too-expensive:
+      default: 'false'
+      description: |
+        Whether to disable the "Too Expensive!" limit.
+        ::: tip
+        To display the actual experience cost level correctly, you need to enable [`settings.protocol.leaves-carpet-support`](#settings.protocol.leaves-carpet-support) and install [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition).
+    bow-infinity-fix:
+      default: 'false'
+      description: 'Whether to use a bow with the Infinity enchantment when there are no arrows in the inventory, just like being in creative mode.'
+    hopper-counter:
+      default: 'false'
+      description: 'Whether to enable [hopper counters](https://github.com/gnembon/quick-carpet/blob/master/README.md#hoppercounters) and the corresponding command `/leaves counter`.'
+    spider-jockeys-drop-gapples:
+      default: '-1.0'
+      description: 'The probability of dropping an enchanted golden apple when a spider jockey is killed. Set to `-1` to disable this feature.'
+    renewable-deepslate:
+      default: 'false'
+      description: 'Whether to turn lava flows into deepslate cobblestone when they touch water sources or flowing water horizontally or above.'
+    renewable-sponges:
+      default: 'false'
+      description: 'Whether to turn guardians into elder guardians when they are hit by lightning.'
+    renewable-coral:
+      default: 'FALSE'
+      description: |
+        Whether to allow using bone meal to grow coral plants.
+        - `FALSE` Do not allow using bone meal to grow coral plants.
+        - `TRUE` Allow using bone meal to grow coral.
+        - `EXPANDED` Allow using bone meal to grow coral and coral fans.
+    fast-resume:
+      default: 'false'
+      description: 'Whether to save chunk loading data when the server shuts down and load it the next time it starts.'
+    force-peaceful-mode:
+      default: '-1'
+      description: 'Specify the frequency (ticks) of detecting fake peaceful mode. Set to `-1` to disable this feature.'
+    minecraft-old:
+      shears-in-dispenser-can-zero-amount:
+        default: 'false'
+        description: 'Whether to allow shears in dispensers to be used to negative durability and not break.'
+      instant-block-updater-reintroduced:
+        default: 'false'
+        description: 'Whether to reintroduce the instant block update mechanism from before 1.19.'
+      armor-stand-cant-kill-by-mob-projectile:
+        default: 'false'
+        description: 'Whether to **not** allow projectiles from mobs to destroy armor stands.'
+      cce-update-suppression:
+        default: 'false'
+        description: |
+          Whether to allow using ClassCastException for update suppression.
+          ::: tip
+          For more detailed instructions, please refer to [Notes on the Cast Suppressor](https://www.bilibili.com/read/cv24323749/).
+          :::
+      villager-infinite-discounts:
+        default: 'false'
+        description: 'Whether to allow villagers to double their discounts after being infected and cured multiple times.'
+      copper-bulb-1gt-delay:
+        default: 'false'
+        description: 'Whether to delay the copper lamp by 1 tick when the redstone signal changes.'
+      crafter-1gt-delay:
+        default: 'false'
+        description: 'Whether to reduce the frequency of the crafter outputting items to 1 tick.'
+      redstone-wire-dont-connect-if-on-trapdoor:
+        default: 'false'
+        description: 'Whether to prevent the redstone wire around the trapdoor from connecting to the redstone wire on the upper side of the trapdoor when the trapdoor is open.'
+      mending-compatibility-infinity:
+        default: 'false'
+        description: 'Whether to make Mending and Infinity no longer incompatible.'
+      zero-tick-plants:
+        default: 'false'
+        description: 'Whether to allow [Zero-tick plant farms](https://minecraft.wiki/w/Tutorials/Zero-ticking#Zero-tick_plant_farms).'
+      rng-fishing:
+        default: 'false'
+        description: 'Whether to allow cracking the fishing random generator.'
+      protection-stacking:
+        default: 'false'
+        description: 'Whether to make protection enchantments no longer mutually exclusive.'
+    performance:
+      remove:
+        tick-guard-lambda:
+          default: 'true'
+          description: 'Whether to remove `Lambda`.'
+        inventory-contains-iterators:
+          default: 'true'
+          description: 'Whether to remove `iterators` in the inventory.'
+        get-nearby-players-streams:
+          default: 'true'
+          description: 'Whether to remove `streams` in getting nearby player data.'
+        range-check-streams-and-iterators:
+          default: 'true'
+          description: 'Whether to remove `streams` and `iterators` in distance checks.'
+        damage-lambda:
+          default: 'true'
+          description: 'Whether to remove `Lambda` in damage detection.'
+      optimized-dragon-respawn:
+        default: 'false'
+        description: |
+          Whether to optimize the ender dragon fight.
+          ::: warning
+          This feature is not completely consistent with the original performance.
+          :::
+      dont-send-useless-entity-packets:
+        default: 'true'
+        description: |
+          Whether to reduce sending useless entity packets.
+          ::: warning
+          This may break mods that use these useless entity packets.
+          :::
+      optimize-entity-coordinate-key:
+        default: 'true'
+        description: 'Whether to directly use the converted/rounded data provided in the blockPosition structure.'
+      enable-suffocation-optimization:
+        default: 'true'
+        description: 'Whether to increase the suffocation detection frequency to 20 ticks. Players will find it hard (but not impossible) to notice this change.'
+      strip-raytracing-for-entity:
+        default: 'true'
+        description: 'Whether to optimize the rayTrace method.'
+      check-spooky-season-once-an-hour:
+        default: 'true'
+        description: 'Whether to increase the Halloween detection frequency to 1 hour.'
+      optimize-chunk-ticking:
+        default: 'true'
+        description: |
+          Whether to optimize these chunk ticks:
+          - Lightning
+          - Ice and snow generation
+      skip-poi-find-in-vehicle:
+        default: 'true'
+        description: 'Whether to skip the point of interest calculation for villagers in vehicles.'
+      entity-target-find-optimization:
+        default: 'true'
+        description: 'Whether to stop searching when the entity cannot find a target.'
+      use-more-thread-unsafe-random:
+        default: 'true'
+        description: 'Whether to use more thread-unsafe random generators, which are unsafe, but run faster.'
+      inactive-goal-selector-disable:
+        default: 'false'
+        description: 'Whether to limit the running of the goal selector for inactive entities.'
+      reduce-entity-allocations:
+        default: 'true'
+        description: 'Whether to reduce the allocation of entities.'
+      cache-climb-check:
+        default: 'true'
+        description: 'Whether to cache the climb check results.'
+      biome-temperatures-use-aging-cache:
+        default: 'true'
+        description: 'Whether to optimize the biome temperature cache.'
+      reduce-entity-fluid-lookup:
+        default: 'true'
+        description: 'Whether to avoid inefficient fluid lookup when there is no fluid near the entity.'
+      reduce-chuck-load-and-lookup:
+        default: 'true'
+        description: 'Whether to reduce unnecessary chunk lookup and loading.'
+      improve-fluid-direction-caching:
+        default: 'true'
+        description: 'Whether to reimplement the caching system of FluidTypeFlowing and make it more efficient.'
+      cache-ignite-odds:
+        default: 'true'
+        description: 'Whether to enable a short-term cache of the block ignition probability in the fire spread detection.'
+      faster-chunk-serialization:
+        default: 'true'
+        description: 'Whether to use [Lithium](https://modrinth.com/mod/lithium) fast chunk saving serialization.'
+      optimize-world-generation-and-block-access:
+        default: 'true'
+        description: 'Whether to optimize the chunk and block access process during world generation.'
+      cache-world-generator-sea-level:
+        default: 'true'
+        description: 'Whether to cache the sea level height during world generation.'
+      skip-secondary-POI-sensor-if-absent:
+        default: 'true'
+        description: 'Whether to skip finding non-existent secondary points of interest.'
+      cache-CubeVoxelShape-shape-array:
+        default: 'true'
+        description: 'Whether to cache CubeVoxelShape.'
+      store-mob-counts-in-array:
+        default: 'true'
+        description: 'Whether to use an array in the mob spawn limit calculation.'
+      cache-BlockStatePairKey-hash:
+        default: 'true'
+        description: 'Whether to cache the hash value calculation of BlockStatePairKey.'
+      optimize-noise-generation:
+        default: 'false'
+        description: |
+          Whether to use [Concurrent Chunk Management Engine](https://modrinth.com/mod/c2me-fabric) world generation noise optimization.
+          ::: warning
+          This is an experimental feature.
+          :::
+      optimize-sun-burn-tick:
+        default: 'true'
+        description: "Whether to optimize the entity's sunlight exposure detection."
+      use-optimized-collection:
+        default: 'true'
+        description: 'Whether to use optimized collection classes instead of the original collection classes in some code execution segments that call collection classes.'
+      optimized-CubePointRange:
+        default: 'true'
+        description: 'Whether to optimize CubePointRange.'
+      check-frozen-ticks-before-landing-block:
+        default: 'true'
+        description: 'Whether to check the ticks first before checking if the block is air when trying to generate ice.'
+      cache-ominous-banner-item:
+        default: 'true'
+        description: 'Whether to cache the NBT data of the ominous banner.'
+      skip-entity-move-if-movement-is-zero:
+        default: 'true'
+        description: 'Whether to skip the displacement calculation for entities that have no movement at all.'
+      skip-cloning-advancement-criteria:
+        default: 'false'
+        description: 'Whether to skip the cloning of the advancement criteria.'
+      skip-negligible-planar-movement-multiplication:
+        default: 'true'
+        description: "Whether to skip the unnecessary multiplication calculation in the player's movement."
+      fix-villagers-dont-release-memory:
+        default: 'false'
+        description: 'Whether to fix the problem of villagers not releasing memory.'
