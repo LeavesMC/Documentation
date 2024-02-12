@@ -1,0 +1,29 @@
+name: Add new documentation
+description: Found something missing? Please report it here.
+title: '[Missing] '
+labels: ['missing']
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: What type of documentation are we missing?
+      multiple: true
+      options:
+        - Configuration
+        - Project
+        - Term
+        - Other (Please fill in "Extra information")
+    validations:
+      required: true
+  - type: textarea
+    id: add
+    attributes:
+      label: What should be added?
+      value: '1. '
+    validations:
+      required: true
+  - type: textarea
+    id: extra-information
+    attributes:
+      label: Extra information
+      placeholder: Is there any additional information that needs to be added?
