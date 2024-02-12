@@ -1,0 +1,19 @@
+{
+  "buildCommand": "vitepress build",
+  "cleanUrls": true,
+  "devCommand": "vitepress dev",
+  "framework": "vitepress",
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "outputDirectory": ".vitepress/dist",
+  "trailingSlash": false
+}
