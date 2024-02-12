@@ -5,7 +5,6 @@ import { zh_Hans, search as zhHansSearch } from './zh_Hans'
 export default defineConfigWithTheme({
   srcDir: './src',
   lastUpdated: true,
-  ignoreDeadLinks: true, // @TODO
 
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
 
