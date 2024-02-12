@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "name": "VitePress: Debug",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev"
+    },
+    {
+      "name": "VitePress: Build",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run build"
+    },
+    {
+      "name": "VitePress: Preview",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run preview"
+    }
+  ]
+}
