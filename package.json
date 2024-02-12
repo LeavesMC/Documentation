@@ -10,6 +10,7 @@
   "author": "LittleChest",
   "license": "AGPL-3.0-or-later",
   "devDependencies": {
+    "prettier": "3.2.4",
     "vitepress": "1.0.0-rc.40"
   },
   "repository": {
