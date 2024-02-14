@@ -30,15 +30,10 @@ settings:
       default: 'OPS'
       description: |
         Determines which players will have their data synchronized by [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition).
-
         - `NOBODY` No player data will be synchronized.
-
         - `BOT` Only bot data will be synchronized.
-
         - `OPS` Bot data will be synchronized, OPs can synchronize all player data.
-
         - `OPS_AND_SELF` Bot data will be synchronized, OPs can synchronize all player data, players can synchronize their own data.
-
         - `EVERYONE` All player data can be synchronized.
     bbor-protocol:
       default: 'false'
@@ -50,13 +45,9 @@ settings:
       default: 'NONE'
       description: |
         Specifies the type of precise placement protocol.
-
         - `NONE` No precise placement protocol support.
-
         - `CARPET` Precise placement protocol version 2.
-
         - `CARPET_FIX` Better precise placement protocol version 2 (requires [MasaGadget](https://modrinth.com/mod/masa-gadget)).
-
         - `LITEMATICA` Precise placement protocol version 3.
     appleskin-protocol:
       default: 'false'
@@ -107,9 +98,7 @@ settings:
       default: 'en_us'
       description: |
         Specify the server language.
-
         - `en_us` English (US)
-
         - `zh_cn` Simplified Chinese (China)
     server-mod-name:
       default: 'Leaves'
@@ -125,14 +114,19 @@ settings:
       default: 'ANVIL'
       description: |
         Specify the region file format.
-
-        - `ANVIL` Use [Anvil file format](https://minecraft.wiki/w/Anvil_file_format) (.mca).
-
-        - `LINEAR` Use [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear).
+        - `ANVIL` Use [Anvil file format](https://minecraft.wiki/w/Anvil_file_format) (.mca)
+        - `LINEAR` Use [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear)
     linear:
       flush-frequency:
         default: '10'
         description: 'Specify the region save frequency (seconds).'
+      auto-convert-anvil-to-linear:
+        default: 'false'
+        description: |
+          Automatically converts [Anvil file format](https://minecraft.wiki/w/Anvil_file_format) (.mca) to [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear).
+          ::: danger
+          Make sure you have a full backup of the world before turning this option on.
+          :::
       flush-max-threads:
         default: '1'
         description: 'Specify the maximum number of threads to use when saving regions. Set to `-1` to use all threads.'
