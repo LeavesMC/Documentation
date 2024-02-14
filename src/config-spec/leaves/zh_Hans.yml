@@ -124,6 +124,13 @@ settings:
       flush-frequency:
         default: '10'
         description: '指定区域保存频率（秒）。'
+      auto-convert-anvil-to-linear:
+        default: 'false'
+        description: |
+          自动将 [Anvil 文件格式](https://zh.minecraft.wiki/w/%E5%8C%BA%E5%9F%9F%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F)（.mca）转换为 [Linear 文件格式](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools)（.linear）。
+          ::: danger
+          在开启此选项之前，请确保已完整备份世界。
+          :::
       flush-max-threads:
         default: '1'
         description: '指定保存区域时使用的最大线程数。设置为 `-1` 时则使用全部线程。'
