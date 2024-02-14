@@ -1,0 +1,15 @@
+# Node.js
+/node_modules
+
+# pnpm
+pnpm-lock.yaml
+
+# Yarn
+yarn.lock
+
+# VitePress
+/.vitepress/cache
+/.vitepress/dist
+
+# IDEA
+/.idea
