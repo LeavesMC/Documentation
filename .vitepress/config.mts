@@ -32,4 +32,7 @@ export default defineConfigWithTheme({
       },
     },
   },
+  sitemap: {
+    hostname: "https://docs.leavesmc.top"
+  }
 })
