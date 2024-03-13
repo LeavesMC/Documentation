@@ -4,6 +4,7 @@ import { zh_Hans, search as zhHansSearch } from './zh_Hans'
 
 export default defineConfigWithTheme({
   srcDir: './src',
+  cleanUrls: true,
   lastUpdated: true,
 
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
@@ -33,6 +34,6 @@ export default defineConfigWithTheme({
     },
   },
   sitemap: {
-    hostname: "https://docs.leavesmc.top"
-  }
+    hostname: 'https://docs.leavesmc.top',
+  },
 })
