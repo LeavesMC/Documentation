@@ -71,7 +71,7 @@ onMounted(() => {
         <span class="line config-line" role="button">
           <span
             :class="hover[key] ? 'config-key-text-hover' : 'config-key-text'"
-            >{{ key }}</span
+          >{{ key }}</span
           >
           <span class="config-value-text">:</span>
         </span>
@@ -90,17 +90,19 @@ onMounted(() => {
         <span class="line config-line" role="button">
           <span
             :class="hover[key] ? 'config-key-text-hover' : 'config-key-text'"
-            >{{ key }}</span
+          >{{ key }}</span
           >
           <span class="config-value-text">: </span>
           <span
             v-if="typeof value.default != 'object'"
             :class="
-              isSpecial(resolveValue(value))
-                ? 'config-value-special'
-                : 'config-value-text'
+              value.default.startsWith('$')
+                ? 'config-value-random'
+                : isSpecial(resolveValue(value))
+                  ? 'config-value-special'
+                  : 'config-value-text'
             "
-            >{{ resolveValue(value) }}</span
+          >{{ resolveValue(value) }}</span
           >
         </span>
         <div
@@ -115,7 +117,7 @@ onMounted(() => {
               :class="
                 isSpecial(v) ? 'config-value-special' : 'config-value-text'
               "
-              >{{ v }}</span
+            >{{ v }}</span
             >
           </span>
         </div>
@@ -140,6 +142,7 @@ onMounted(() => {
   </div>
 </template>
 
+<!--suppress CssUnusedSymbol -->
 <style>
 .config-key-text {
   --shiki-light: #22863a;
@@ -162,6 +165,12 @@ onMounted(() => {
 .config-value-special {
   --shiki-light: #005cc5;
   --shiki-dark: #79b8ff;
+  transition: color 0.2s;
+}
+
+.config-value-random {
+  --shiki-light: #08979c;
+  --shiki-dark: #5cdbd3;
   transition: color 0.2s;
 }
 
