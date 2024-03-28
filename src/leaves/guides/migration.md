@@ -15,7 +15,7 @@ Before you begin, please ensure you have a full backup of your server.
 It's easy to migrate from CraftBukkit, Spigot or Paper to Leaves. Follow the steps below.
 
 1. Stop your server if it is running, and create a full backup.
-2. Download Leaves from [our downloads page](https://leavesmc.top/downloads/leaves).
+2. Download Leaves from [our downloads page](https://leavesmc.org/downloads/leaves).
 3. Replace your existing server jar with your freshly downloaded Leaves jar.
 4. Start your new server.
 
@@ -40,7 +40,7 @@ Should you ever want to go back to Vanilla, follow the [Vanilla Migration Guide]
 closely, as manual changes will be required.
 
 1. Stop your Vanilla server if it is running, and create a full backup.
-2. Download Leaves from [our downloads page](https://leavesmc.top/downloads/leaves) and replace your Vanilla
+2. Download Leaves from [our downloads page](https://leavesmc.org/downloads/leaves) and replace your Vanilla
    server jar with your freshly downloaded Leaves jar.
 3. Start your new Leaves server.
 

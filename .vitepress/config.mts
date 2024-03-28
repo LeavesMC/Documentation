@@ -34,6 +34,6 @@ export default defineConfigWithTheme({
     },
   },
   sitemap: {
-    hostname: 'https://docs.leavesmc.top',
+    hostname: 'https://docs.leavesmc.org',
   },
 })

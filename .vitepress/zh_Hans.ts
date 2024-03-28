@@ -64,11 +64,11 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: '主站',
-          link: 'https://leavesmc.top/?ref=docs',
+          link: 'https://leavesmc.org',
         },
         {
           text: 'Javadocs',
-          link: 'https://repo.leavesmc.top',
+          link: 'https://repo.leavesmc.org',
         },
       ],
     },

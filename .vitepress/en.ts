@@ -35,11 +35,11 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: 'Main Site',
-          link: 'https://leavesmc.top/?ref=docs',
+          link: 'https://leavesmc.org',
         },
         {
           text: 'Javadocs',
-          link: 'https://repo.leavesmc.top',
+          link: 'https://repo.leavesmc.org',
         },
       ],
     },

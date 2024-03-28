@@ -13,7 +13,7 @@ Minecraft 1.18 发布后，Leaves 现在需要 Java 17 才能运行。
 
 ## 下载 Leaves
 
-Leaves 在我们的[网站的下载页面](https://leavesmc.top/downloads/leaves) 直接提供可运行的服务端。
+Leaves 在我们的[网站的下载页面](https://leavesmc.org/downloads/leaves) 直接提供可运行的服务端。
 
 点击构建号以下载文件。
 
