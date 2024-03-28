@@ -9,7 +9,7 @@ export const zh_Hans = defineConfig({
     nav: nav(),
 
     sidebar: {
-      '/zh_Hans/Leaves/': { base: '/zh_Hans/Leaves/', items: sidebarLeaves() },
+      '/zh_Hans/leaves/': { base: '/zh_Hans/leaves/', items: sidebarLeaves() },
     },
 
     editLink: {
@@ -56,8 +56,8 @@ function nav(): DefaultTheme.NavItem[] {
     },
     {
       text: 'Leaves',
-      link: '/zh_Hans/Leaves/guides/getting-started',
-      activeMatch: '/Leaves/',
+      link: '/zh_Hans/leaves/guides/getting-started',
+      activeMatch: '/leaves/',
     },
     {
       text: '更多',
@@ -83,7 +83,7 @@ function sidebarLeaves(): DefaultTheme.SidebarItem[] {
         {
           text: '指南',
           collapsed: false,
-          base: '/zh_Hans/Leaves/guides/',
+          base: '/zh_Hans/leaves/guides/',
           items: [
             { text: '快速开始', link: 'getting-started' },
             { text: '迁移', link: 'migration' },
@@ -92,7 +92,7 @@ function sidebarLeaves(): DefaultTheme.SidebarItem[] {
         {
           text: '参考',
           collapsed: false,
-          base: '/zh_Hans/Leaves/reference/',
+          base: '/zh_Hans/leaves/reference/',
           items: [
             { text: '配置', link: 'configuration' },
             { text: '假人', link: 'fakeplayer' },

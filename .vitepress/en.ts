@@ -9,7 +9,7 @@ export const en = defineConfig({
     nav: nav(),
 
     sidebar: {
-      '/Leaves/': { base: '/Leaves/', items: sidebarLeaves() },
+      '/leaves/': { base: '/leaves/', items: sidebarLeaves() },
     },
 
     footer: {
@@ -27,8 +27,8 @@ function nav(): DefaultTheme.NavItem[] {
     },
     {
       text: 'Leaves',
-      link: '/Leaves/guides/getting-started',
-      activeMatch: '/Leaves/',
+      link: '/leaves/guides/getting-started',
+      activeMatch: '/leaves/',
     },
     {
       text: 'More',
@@ -51,7 +51,7 @@ function sidebarLeaves(): DefaultTheme.SidebarItem[] {
     {
       text: 'Guides',
       collapsed: false,
-      base: '/Leaves/guides/',
+      base: '/leaves/guides/',
       items: [
         {
           text: 'Getting Started',
@@ -66,7 +66,7 @@ function sidebarLeaves(): DefaultTheme.SidebarItem[] {
     {
       text: 'Reference',
       collapsed: false,
-      base: '/Leaves/reference/',
+      base: '/leaves/reference/',
       items: [
         {
           text: 'Configuration',
