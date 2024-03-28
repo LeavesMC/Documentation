@@ -15,7 +15,7 @@
 从 CraftBukkit、Spigot 或 Paper 迁移到 Leaves 非常简单。请按照以下步骤操作。
 
 1. 停止正在运行的服务端，并创建完整备份。
-2. 从[我们的下载页面](https://leavesmc.top/downloads/leaves)下载 Leaves。
+2. 从[我们的下载页面](https://leavesmc.org/downloads/leaves)下载 Leaves。
 3. 用新下载的 Leaves jar 替换现有的服务端 jar。
 4. 启动新服务端。
 
@@ -38,7 +38,7 @@ Leaves 保留了与所有 Paper 插件的完全兼容性，实现无缝过渡。
 如果你想回到原版，请严格遵循[原版迁移指南](#从原版)，因为需要手动更改。
 
 1. 停止正在运行的服务端，并创建完整备份。
-2. 从[我们的下载页面](https://leavesmc.top/downloads/leaves)下载 Leaves。
+2. 从[我们的下载页面](https://leavesmc.org/downloads/leaves)下载 Leaves。
 3. 用新下载的 Leaves jar 替换现有的原版 jar。
 4. 启动新服务端。
 

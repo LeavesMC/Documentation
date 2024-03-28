@@ -13,7 +13,7 @@ With the release of Minecraft 1.18, Leaves now requires Java 17 to run. We recom
 ## Downloading Leaves
 
 LeavesMC provides runnable server jars directly from our
-[website's downloads page](https://leavesmc.top/downloads/leaves).
+[website's downloads page](https://leavesmc.org/downloads/leaves).
 
 Click on the build number to download a file.
 
