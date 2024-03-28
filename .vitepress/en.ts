@@ -58,6 +58,10 @@ function sidebarLeaves(): DefaultTheme.SidebarItem[] {
           link: 'getting-started',
         },
         {
+          text: 'Next Steps',
+          link: 'next-steps',
+        },
+        {
           text: 'Migrating to or from Leaves',
           link: 'migration',
         },

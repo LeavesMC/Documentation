@@ -21,7 +21,7 @@ Click on the build number to download a file.
 
 To run the server you will need to either create a startup script or run a command in your terminal.
 
-You can generate a startup script using [Startup Script Generator](https://docs.papermc.io/misc/tools/start-script-gen).
+You can generate a startup script using [PaperMC's Startup Script Generator](https://docs.papermc.io/misc/tools/start-script-gen).
 
 You can also obtain the optimized terminal command to run the server there.
 
