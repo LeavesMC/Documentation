@@ -86,6 +86,7 @@ function sidebarLeaves(): DefaultTheme.SidebarItem[] {
           base: '/zh_Hans/leaves/guides/',
           items: [
             { text: '快速开始', link: 'getting-started' },
+            { text: '接下来的步骤', link: 'next-steps' },
             { text: '迁移', link: 'migration' },
           ],
         },

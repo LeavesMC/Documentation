@@ -19,11 +19,9 @@ Leaves 在我们的[网站的下载页面](https://leavesmc.org/downloads/leaves
 
 ## 运行服务端
 
-要运行服务端，您需要创建一个启动脚本或在终端运行一条命令。
+要运行服务端，你需要创建一个启动脚本或在终端运行一条命令。
 
-你可以使用[启动脚本生成器](https://docs.papermc.io/misc/tools/start-script-gen)生成启动脚本。
-
-你还可以在那里获得优化的启动命令。
+你可以使用 [PaperMC 的启动脚本生成器](https://docs.papermc.io/misc/tools/start-script-gen)生成启动脚本或优化的启动命令。
 
 如果你只想找一个简短的命令：
 
