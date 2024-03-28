@@ -180,6 +180,12 @@ settings:
       regen-amount:
         default: '0.01'
         description: 'The amount of health that fake players regenerate per tick.'
+      use-action:
+        default: 'true'
+        description: 'Whether or not the fake player is allowed to use the [action](fakeplayer#fake-player-actions).'
+      modify-config:
+        default: 'false'
+        description: 'Whether to allow the `/bot` command to modify the fake player configuration.'
     elytra-aeronautics:
       no-chunk-load:
         default: 'false'

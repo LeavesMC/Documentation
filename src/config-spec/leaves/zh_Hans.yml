@@ -184,6 +184,12 @@ settings:
       regen-amount:
         default: '0.01'
         description: '假人每游戏刻恢复的生命值。'
+      use-action:
+        default: 'true'
+        description: '是否允许假人使用[动作](fakeplayer#%E5%81%87%E4%BA%BA%E5%8A%A8%E4%BD%9C)。'
+      modify-config:
+        default: 'false'
+        description: '是否允许使用 `/bot` 命令修改假人配置。'
     elytra-aeronautics:
       no-chunk-load:
         default: 'false'
