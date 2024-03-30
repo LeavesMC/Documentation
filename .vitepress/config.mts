@@ -7,7 +7,10 @@ export default defineConfigWithTheme({
   cleanUrls: true,
   lastUpdated: true,
 
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['meta', { name: 'darkreader-lock' }],
+  ],
 
   locales: {
     root: { label: 'English', ...en },
