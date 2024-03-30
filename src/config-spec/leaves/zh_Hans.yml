@@ -57,7 +57,12 @@ settings:
       description: '是否开启 [Xaero 的世界地图](https://modrinth.com/mod/xaeros-world-map)支持。'
     xaero-map-server-id:
       default: $random$int
-      description: 'Xaero 的世界地图使用此唯一标识符确定服务器。'
+      description: |
+        Xaero 的世界地图使用此唯一标识符确定服务器。
+
+        ::: tip
+        这是一个 **int** 范围内的随机值。如果你不清楚这个范围，可以采用这里生成的随机值。
+        :::
     servux-protocol:
       default: 'false'
       description: '是否开启 [Servux](https://modrinth.com/mod/servux)。'

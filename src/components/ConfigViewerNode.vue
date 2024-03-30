@@ -96,9 +96,11 @@ onMounted(() => {
           <span
             v-if="typeof value.default != 'object'"
             :class="
-              isSpecial(resolveValue(value))
-                ? 'config-value-special'
-                : 'config-value-text'
+              value.default.startsWith('$')
+                ? 'config-value-random'
+                : isSpecial(resolveValue(value))
+                  ? 'config-value-special'
+                  : 'config-value-text'
             "
             >{{ resolveValue(value) }}</span
           >
@@ -140,6 +142,7 @@ onMounted(() => {
   </div>
 </template>
 
+<!--suppress CssUnusedSymbol -->
 <style>
 .config-key-text {
   --shiki-light: #22863a;
@@ -162,6 +165,12 @@ onMounted(() => {
 .config-value-special {
   --shiki-light: #005cc5;
   --shiki-dark: #79b8ff;
+  transition: color 0.2s;
+}
+
+.config-value-random {
+  --shiki-light: #08979c;
+  --shiki-dark: #5cdbd3;
   transition: color 0.2s;
 }
 

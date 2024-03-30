@@ -57,7 +57,12 @@ settings:
       description: "Whether to enable [Xaero's World Map](https://modrinth.com/mod/xaeros-world-map) support."
     xaero-map-server-id:
       default: $random$int
-      description: "Xaero's World Map uses this unique identifier to determine the server."
+      description: |
+        Xaero's World Map uses this unique identifier to determine the server.
+
+        ::: tip
+        This is a random value in **int** range. If you are not sure about the range, you can pick the value generated here.
+        :::
     servux-protocol:
       default: 'false'
       description: 'Whether to enable [Servux](https://modrinth.com/mod/servux).'
