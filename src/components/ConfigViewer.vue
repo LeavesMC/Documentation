@@ -1,19 +1,34 @@
 <script setup lang="ts">
 import ConfigViewerNode from './ConfigViewerNode.vue'
+import { Ref, ref } from 'vue'
+
+let expandAll = ref(false)
 
 const props = defineProps({
   data: Object,
   name: String,
 })
+
+const node: Ref<ConfigViewerNode> = ref()
+
+function toggleExpandAll() {
+  node.value.toggleExpandAll()
+  expandAll.value = !expandAll.value
+}
 </script>
 
 <template>
   <div class="config-lang-yml vp-adaptive-theme">
-    <span class="lang">{{ name }}</span>
+    <span class="lang">{{ name }}
+      <div @click="toggleExpandAll"
+           style="text-align: end">
+        {{ expandAll ? '收起全部' : '展开全部' }}
+      </div>
+    </span>
     <pre
       class="shiki shiki-themes github-light github-dark vp-code"
     ><code class="config-code-block"><ConfigViewerNode
-      :data="data" :padding="false" parent="" /></code></pre>
+      ref="node" :data="data" :padding="false" parent="" /></code></pre>
   </div>
 </template>
 
@@ -77,9 +92,9 @@ const props = defineProps({
 .vp-doc div[class*='config-lang-'] + div[class*='config-lang-'],
 .vp-doc div[class$='-api'] + div[class*='config-lang-'],
 .vp-doc
-  div[class*='config-lang-']
-  + div[class$='-api']
-  > div[class*='config-lang-'] {
+div[class*='config-lang-']
++ div[class$='-api']
+> div[class*='config-lang-'] {
   margin-top: -8px;
 }
 
@@ -113,16 +128,14 @@ const props = defineProps({
 .vp-doc [class*='config-lang-'] .has-focused-lines .line:not(.has-focus) {
   filter: blur(0.095rem);
   opacity: 0.4;
-  transition:
-    filter 0.35s,
-    opacity 0.35s;
+  transition: filter 0.35s,
+  opacity 0.35s;
 }
 
 .vp-doc [class*='config-lang-'] .has-focused-lines .line:not(.has-focus) {
   opacity: 0.7;
-  transition:
-    filter 0.35s,
-    opacity 0.35s;
+  transition: filter 0.35s,
+  opacity 0.35s;
 }
 
 .vp-doc [class*='config-lang-'] > button.copy {
@@ -144,10 +157,9 @@ const props = defineProps({
   background-position: 50%;
   background-size: 20px;
   background-repeat: no-repeat;
-  transition:
-    border-color 0.25s,
-    background-color 0.25s,
-    opacity 0.25s;
+  transition: border-color 0.25s,
+  background-color 0.25s,
+  opacity 0.25s;
 }
 
 .vp-doc [class*='config-lang-']:hover > button.copy,
@@ -203,9 +215,8 @@ const props = defineProps({
   font-size: 12px;
   font-weight: 500;
   color: var(--vp-code-lang-color);
-  transition:
-    color 0.4s,
-    opacity 0.4s;
+  transition: color 0.4s,
+  opacity 0.4s;
 }
 
 .vp-doc [class*='config-lang-']:hover > button.copy + span.lang,
