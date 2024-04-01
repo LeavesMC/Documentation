@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import ConfigViewerNode from './ConfigViewerNode.vue'
 import { Ref, ref } from 'vue'
-import Expand from './icons/Expand.vue'
-import Collapse from './icons/Collapse.vue'
-
-let expandAll = ref(false)
+import IconExpand from './icons/IconExpand.vue'
+import IconCollapse from './icons/IconCollapse.vue'
 
 const props = defineProps({
   data: Object,
@@ -13,9 +11,12 @@ const props = defineProps({
 
 const node: Ref<ConfigViewerNode> = ref()
 
-function toggleExpandAll() {
-  node.value.toggleExpandAll()
-  expandAll.value = !expandAll.value
+function expandAll() {
+  node.value.expandAll()
+}
+
+function collapseAll() {
+  node.value.collapseAll()
 }
 </script>
 
@@ -23,8 +24,9 @@ function toggleExpandAll() {
   <div class="config-lang-yml vp-adaptive-theme">
     <span class="lang"
       >{{ name }}
-      <div @click="toggleExpandAll" style="text-align: end">
-        <component :is="expandAll ? Collapse : Expand" style="height: 20px;width: 20px;"></component>
+      <div style="text-align: end; display: flex; flex-wrap: nowrap; gap: 2px">
+        <IconExpand @click="expandAll" style="width: 20px; height: 20px" />
+        <IconCollapse @click="collapseAll" style="width: 20px; height: 20px" />
       </div>
     </span>
     <pre

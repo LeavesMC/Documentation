@@ -5,7 +5,6 @@ import ConfigViewerNode from './ConfigViewerNode.vue'
 const hover = ref({})
 const expand = ref({})
 const children: ConfigViewerNode[] = []
-let expandAll = false
 
 const props = defineProps({
   data: Object,
@@ -38,22 +37,24 @@ function setChildRef(el: ConfigViewerNode) {
   children.push(el)
 }
 
-const toggleExpandAll = () => {
+function expandAll() {
   for (let dataKey in props.data) {
-    expand.value[dataKey] = !expandAll
+    expand.value[dataKey] = true
   }
-  const parsedValues = new Set()
   children.forEach((value) => {
-    if (parsedValues.has(value)) {
-      return
-    }
-    parsedValues.add(value)
-    value.toggleExpandAll()
+    value.expandAll()
   })
-  expandAll = !expandAll
 }
 
-defineExpose({ toggleExpandAll })
+function collapseAll() {
+  for (let dataKey in props.data) {
+    expand.value[dataKey] = false
+  }
+  children.forEach((value) => {
+    value.collapseAll()
+  })
+}
+defineExpose({ expandAll, collapseAll })
 
 function dynamicValue(value: string): string {
   const args = value.split('$')
@@ -80,9 +81,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-for="(value, key) in data"
-       :key="key"
-       style="padding-left: 8px">
+  <div v-for="(value, key) in data" :key="key" style="padding-left: 8px">
     <div
       v-if="key !== 'inline-block'"
       @mouseover="hover[key] = true"
@@ -96,7 +95,7 @@ onMounted(() => {
         <span class="line config-line" role="button">
           <span
             :class="hover[key] ? 'config-key-text-hover' : 'config-key-text'"
-          >{{ key }}</span
+            >{{ key }}</span
           >
           <span class="config-value-text">:</span>
         </span>
@@ -116,7 +115,7 @@ onMounted(() => {
         <span class="line config-line" role="button">
           <span
             :class="hover[key] ? 'config-key-text-hover' : 'config-key-text'"
-          >{{ key }}</span
+            >{{ key }}</span
           >
           <span class="config-value-text">: </span>
           <span
@@ -128,7 +127,7 @@ onMounted(() => {
                   ? 'config-value-special'
                   : 'config-value-text'
             "
-          >{{ resolveValue(value) }}</span
+            >{{ resolveValue(value) }}</span
           >
         </span>
         <div
@@ -143,7 +142,7 @@ onMounted(() => {
               :class="
                 isSpecial(v) ? 'config-value-special' : 'config-value-text'
               "
-            >{{ v }}</span
+              >{{ v }}</span
             >
           </span>
         </div>
