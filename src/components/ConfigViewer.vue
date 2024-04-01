@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import ConfigViewerNode from './ConfigViewerNode.vue'
 import { Ref, ref } from 'vue'
+import Expand from './icons/Expand.vue'
+import Collapse from './icons/Collapse.vue'
 
 let expandAll = ref(false)
 
@@ -19,10 +21,10 @@ function toggleExpandAll() {
 
 <template>
   <div class="config-lang-yml vp-adaptive-theme">
-    <span class="lang">{{ name }}
-      <div @click="toggleExpandAll"
-           style="text-align: end">
-        {{ expandAll ? '收起全部' : '展开全部' }}
+    <span class="lang"
+      >{{ name }}
+      <div @click="toggleExpandAll" style="text-align: end">
+        <component :is="expandAll ? Collapse : Expand" style="height: 20px;width: 20px;"></component>
       </div>
     </span>
     <pre
@@ -92,9 +94,9 @@ function toggleExpandAll() {
 .vp-doc div[class*='config-lang-'] + div[class*='config-lang-'],
 .vp-doc div[class$='-api'] + div[class*='config-lang-'],
 .vp-doc
-div[class*='config-lang-']
-+ div[class$='-api']
-> div[class*='config-lang-'] {
+  div[class*='config-lang-']
+  + div[class$='-api']
+  > div[class*='config-lang-'] {
   margin-top: -8px;
 }
 
@@ -128,14 +130,16 @@ div[class*='config-lang-']
 .vp-doc [class*='config-lang-'] .has-focused-lines .line:not(.has-focus) {
   filter: blur(0.095rem);
   opacity: 0.4;
-  transition: filter 0.35s,
-  opacity 0.35s;
+  transition:
+    filter 0.35s,
+    opacity 0.35s;
 }
 
 .vp-doc [class*='config-lang-'] .has-focused-lines .line:not(.has-focus) {
   opacity: 0.7;
-  transition: filter 0.35s,
-  opacity 0.35s;
+  transition:
+    filter 0.35s,
+    opacity 0.35s;
 }
 
 .vp-doc [class*='config-lang-'] > button.copy {
@@ -157,9 +161,10 @@ div[class*='config-lang-']
   background-position: 50%;
   background-size: 20px;
   background-repeat: no-repeat;
-  transition: border-color 0.25s,
-  background-color 0.25s,
-  opacity 0.25s;
+  transition:
+    border-color 0.25s,
+    background-color 0.25s,
+    opacity 0.25s;
 }
 
 .vp-doc [class*='config-lang-']:hover > button.copy,
@@ -215,8 +220,9 @@ div[class*='config-lang-']
   font-size: 12px;
   font-weight: 500;
   color: var(--vp-code-lang-color);
-  transition: color 0.4s,
-  opacity 0.4s;
+  transition:
+    color 0.4s,
+    opacity 0.4s;
 }
 
 .vp-doc [class*='config-lang-']:hover > button.copy + span.lang,
