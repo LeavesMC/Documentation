@@ -3,7 +3,7 @@
 ## Requirements
 
 ::: tip
-With the release of Minecraft 1.18, Leaves now requires Java 17 to run. We recommend using Java 21, which is easy to [download and install](https://docs.papermc.io/misc/java-install).
+With the release of Minecraft 1.20.5, Leaves now requires Java 21 to run. We recommend using Java 21, which is easy to [download and install](https://docs.papermc.io/misc/java-install).
 :::
 
 | Leaves Version | Recommended Java Version |

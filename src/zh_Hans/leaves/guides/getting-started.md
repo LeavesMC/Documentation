@@ -3,7 +3,7 @@
 ## 需求
 
 ::: tip
-Minecraft 1.18 发布后，Leaves 现在需要 Java 17 才能运行。
+在 Minecraft 1.20.5 发布后，Leaves 需要 Java 21 才能运行。
 我们建议使用 Java 21，它很容易[下载和安装](https://docs.papermc.io/misc/java-install)。
 :::
 
