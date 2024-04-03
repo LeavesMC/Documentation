@@ -23,3 +23,11 @@
   --vp-c-green-3: #059669;
   --vp-c-green-soft: rgba(167, 243, 208, 0.16);
 }
+
+.NetfilyAds {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  border-radius: 12px;
+  min-height: 256px;
+}
