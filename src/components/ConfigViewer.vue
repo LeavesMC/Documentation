@@ -1,19 +1,38 @@
 <script setup lang="ts">
 import ConfigViewerNode from './ConfigViewerNode.vue'
+import { Ref, ref } from 'vue'
+import IconExpand from './icons/IconExpand.vue'
+import IconCollapse from './icons/IconCollapse.vue'
 
 const props = defineProps({
   data: Object,
   name: String,
 })
+
+const node: Ref<ConfigViewerNode> = ref()
+
+function expandAll() {
+  node.value.expandAll()
+}
+
+function collapseAll() {
+  node.value.collapseAll()
+}
 </script>
 
 <template>
   <div class="config-lang-yml vp-adaptive-theme">
-    <span class="lang">{{ name }}</span>
+    <span class="lang"
+      >{{ name }}
+      <div style="text-align: end; display: flex; flex-wrap: nowrap; gap: 8px; margin-left: 6px; margin-top: 6px;">
+        <IconExpand role="button" aria-label="Expand all" @click="expandAll" style="width: 20px; height: 20px" />
+        <IconCollapse role="button" aria-label="Collapse all" @click="collapseAll" style="width: 20px; height: 20px" />
+      </div>
+    </span>
     <pre
       class="shiki shiki-themes github-light github-dark vp-code"
     ><code class="config-code-block"><ConfigViewerNode
-      :data="data" :padding="false" parent="" /></code></pre>
+      ref="node" :data="data" :padding="false" parent="" /></code></pre>
   </div>
 </template>
 

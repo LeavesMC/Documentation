@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import ConfigViewerNode from './ConfigViewerNode.vue'
 
-let hover = ref({})
-let expand = ref({})
+const hover = ref({})
+const expand = ref({})
+const children: ConfigViewerNode[] = []
 
 const props = defineProps({
   data: Object,
@@ -30,6 +32,29 @@ function resolveValue(value: { default: string; vId?: number }): string {
     return (valueMap[value.vId] = value.default)
   }
 }
+
+function setChildRef(el: ConfigViewerNode) {
+  children.push(el)
+}
+
+function expandAll() {
+  for (let dataKey in props.data) {
+    expand.value[dataKey] = true
+  }
+  children.forEach((value) => {
+    value.expandAll()
+  })
+}
+
+function collapseAll() {
+  for (let dataKey in props.data) {
+    expand.value[dataKey] = false
+  }
+  children.forEach((value) => {
+    value.collapseAll()
+  })
+}
+defineExpose({ expandAll, collapseAll })
 
 function dynamicValue(value: string): string {
   const args = value.split('$')
@@ -61,7 +86,6 @@ onMounted(() => {
       v-if="key !== 'inline-block'"
       @mouseover="hover[key] = true"
       @mouseleave="hover[key] = false"
-      @click="console.log(`${parent} ${JSON.stringify(expand)}`)"
       :style="{ paddingLeft: padding ? '8px' : '0' }"
     >
       <div
@@ -76,6 +100,7 @@ onMounted(() => {
           <span class="config-value-text">:</span>
         </span>
         <ConfigViewerNode
+          :ref="setChildRef"
           :data="value"
           :padding="true"
           :parent="`${parent}.${key}`"
