@@ -24,7 +24,7 @@ function collapseAll() {
   <div class="config-lang-yml vp-adaptive-theme">
     <span class="lang"
       >{{ name }}
-      <div style="text-align: end; display: flex; flex-wrap: nowrap; gap: 2px">
+      <div style="text-align: end; display: flex; flex-wrap: nowrap; gap: 8px; margin-left: 6px; margin-top: 6px;">
         <IconExpand @click="expandAll" style="width: 20px; height: 20px" />
         <IconCollapse @click="collapseAll" style="width: 20px; height: 20px" />
       </div>
