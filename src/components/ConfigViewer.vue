@@ -25,8 +25,8 @@ function collapseAll() {
     <span class="lang"
       >{{ name }}
       <div style="text-align: end; display: flex; flex-wrap: nowrap; gap: 8px; margin-left: 6px; margin-top: 6px;">
-        <IconExpand role="button" aria-placeholder="Expand all" @click="expandAll" style="width: 20px; height: 20px" />
-        <IconCollapse role="button" aria-placeholder="Collapse all" @click="collapseAll" style="width: 20px; height: 20px" />
+        <IconExpand role="button" aria-label="Expand all" @click="expandAll" style="width: 20px; height: 20px" />
+        <IconCollapse role="button" aria-label="Collapse all" @click="collapseAll" style="width: 20px; height: 20px" />
       </div>
     </span>
     <pre
