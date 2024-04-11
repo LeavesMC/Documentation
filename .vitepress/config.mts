@@ -13,7 +13,7 @@ export default defineConfigWithTheme({
   ],
 
   locales: {
-    root: { label: 'English', ...en },
+    en: { label: 'English', ...en },
     zh_Hans: { label: '简体中文', ...zh_Hans },
   },
 
