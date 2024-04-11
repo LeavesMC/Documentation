@@ -15,8 +15,8 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.16",
-    "prettier": "3.2.4",
-    "vitepress": "1.0.0-rc.40",
+    "prettier": "3.2.5",
+    "vitepress": "1.1.0",
     "vitepress-plugin-nprogress": "^0.0.4"
   },
   "repository": {
