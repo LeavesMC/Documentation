@@ -178,7 +178,7 @@ settings:
         description: 'Whether to allow players to press use on to open fake player inventory.'
       skip-sleep-check:
         default: 'false'
-        description: 'Whether to count fake players in the sleep number.'
+        description: 'Whether to **not** count fake players in the sleep number.'
       spawn-phantom:
         default: 'false'
         description: 'Whether to allow fake players to spawn phantoms.'

@@ -182,7 +182,7 @@ settings:
         description: '是否允许玩家右键打开假人背包。'
       skip-sleep-check:
         default: 'false'
-        description: '是否将假人计入睡眠人数。'
+        description: '是否**不**将假人计入睡眠人数。'
       spawn-phantom:
         default: 'false'
         description: '是否允许假人生成幻翼。'
