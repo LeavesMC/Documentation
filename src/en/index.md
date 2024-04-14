@@ -8,12 +8,11 @@ hero:
   image:
     src: /logo.svg
     alt: LeavesMC
-  actions:
-    - theme: brand
-      text: Read
-      link: ./leaves/guides/getting-started
 
 features:
-  - title: Leaves
+  - icon: 🌿
+    title: Leaves
     details: Leaves is a Minecraft game server based on Paper, aimed at repairing broken vanilla properties.
+    link: ./leaves/guides/getting-started
+    linkText: Read
 ---

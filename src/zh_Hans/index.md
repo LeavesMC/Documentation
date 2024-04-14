@@ -8,12 +8,11 @@ hero:
   image:
     src: /logo.svg
     alt: LeavesMC
-  actions:
-    - theme: brand
-      text: '开始阅读'
-      link: ./leaves/guides/getting-started
 
 features:
-  - title: Leaves
+  - icon: 🌿
+    title: Leaves
     details: Leaves 是基于 Paper 的 Minecraft 服务端，旨在修复被破坏的原版特性。
+    link: ./leaves/guides/getting-started
+    linkText: '开始阅读'
 ---
