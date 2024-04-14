@@ -14,6 +14,7 @@
     "yaml": "^2.3.4"
   },
   "devDependencies": {
+    "@nolebase/vitepress-plugin-enhanced-readabilities": "1.28.0",
     "@types/node": "^20.11.16",
     "prettier": "3.2.5",
     "vitepress": "1.1.0",

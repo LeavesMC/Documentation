@@ -3,6 +3,21 @@ import { en } from './en'
 import { zh_Hans, search as zhHansSearch } from './zh_Hans'
 
 export default defineConfigWithTheme({
+  vite: {
+    optimizeDeps: {
+      include: [
+        '@nolebase/vitepress-plugin-enhanced-readabilities > @nolebase/ui > @rive-app/canvas',
+      ],
+      exclude: [
+        '@nolebase/vitepress-plugin-enhanced-readabilities/client',
+      ],
+    },
+    ssr: {
+      noExternal: [
+        '@nolebase/vitepress-plugin-enhanced-readabilities',
+      ],
+    },
+  },
   srcDir: './src',
   cleanUrls: true,
   lastUpdated: true,
