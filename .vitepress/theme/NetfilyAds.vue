@@ -5,3 +5,13 @@
     </a>
   </div>
 </template>
+
+<style>
+.NetfilyAds {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  border-radius: 12px;
+  min-height: 256px;
+}
+</style>

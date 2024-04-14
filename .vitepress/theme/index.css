@@ -27,11 +27,3 @@
 .VPSocialLinks.VPNavBarSocialLinks.social-links {
   margin-right: 0;
 }
-
-.NetfilyAds {
-  display: flex;
-  align-items: center;
-  padding: 24px;
-  border-radius: 12px;
-  min-height: 256px;
-}
