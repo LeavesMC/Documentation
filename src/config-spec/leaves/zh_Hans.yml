@@ -360,7 +360,7 @@ settings:
       default: 'false'
       description: '是否在守卫者被闪电束击中后变成远古守卫者。'
     renewable-coral:
-      default: 'FALSE'
+      default: "'FALSE'"
       description: |
         是否允许使用骨粉催熟珊瑚类植物。
         - `FALSE` 不允许使用骨粉催熟珊瑚类植物。

@@ -356,7 +356,7 @@ settings:
       default: 'false'
       description: 'Whether to turn guardians into elder guardians when they are hit by lightning.'
     renewable-coral:
-      default: 'FALSE'
+      default: "'FALSE'"
       description: |
         Whether to allow using bone meal to grow coral plants.
         - `FALSE` Do not allow using bone meal to grow coral plants.
