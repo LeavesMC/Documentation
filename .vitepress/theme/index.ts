@@ -26,8 +26,9 @@ export default {
     return h(DefaultTheme.Layout, null, {
       'aside-ads-before': () => h(NetfilyAds),
       'nav-bar-content-after': () => h(NolebaseEnhancedReadabilitiesMenu),
-      'nav-screen-content-after': () => h(NolebaseEnhancedReadabilitiesScreenMenu),
+      'nav-screen-content-after': () =>
+        h(NolebaseEnhancedReadabilitiesScreenMenu),
+      'layout-top': () => h(Language),
     })
   },
-  Language
 }
