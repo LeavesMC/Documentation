@@ -10,15 +10,15 @@
   "author": "LittleChest",
   "license": "AGPL-3.0-or-later",
   "dependencies": {
-    "vue": "^3.0.0",
-    "yaml": "^2.3.4"
+    "vue": "^3.4.27",
+    "yaml": "^2.4.2"
   },
   "devDependencies": {
     "@nolebase/vitepress-plugin-enhanced-mark": "2.0.0-rc2",
     "@nolebase/vitepress-plugin-enhanced-readabilities": "1.28.0",
-    "@types/node": "^20.11.16",
+    "@types/node": "^20.12.12",
     "prettier": "3.2.5",
-    "vitepress": "1.1.0",
+    "vitepress": "1.2.2",
     "vitepress-plugin-nprogress": "^0.0.4"
   },
   "repository": {
