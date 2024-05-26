@@ -33,7 +33,7 @@ java -Xmx4G -Xms4G -jar leaves.jar --nogui
 
 修改 `-Xms` 和 `-Xmx` 来设置使用的内存。
 
-`nogui` 用于禁用原版的 GUI，因此在使用命令行运行时不会出现双重界面。
+`--nogui` 用于禁用原版的 GUI，因此在使用命令行运行时不会出现双重界面。
 
 要配置服务端，请查看 [Leaves 配置](../reference/configuration)
 和 [Paper 配置](https://docs.papermc.io/paper/reference/configuration)。
