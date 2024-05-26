@@ -1,83 +1,84 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import ConfigViewerNode from './ConfigViewerNode.vue'
+import { onMounted, ref } from "vue";
+import ConfigViewerNode from "./ConfigViewerNode.vue";
 
-const hover = ref({})
-const expand = ref({})
-const children: ConfigViewerNode[] = []
+const hover = ref({});
+const expand = ref({});
+const children: (typeof ConfigViewerNode)[] = [];
 
 const props = defineProps({
   data: Object,
   parent: String,
   padding: Boolean,
-})
+});
 
 function isSpecial(value: string): boolean {
-  if (value == 'true' || value == 'false') {
-    return true
+  if (value == "true" || value == "false") {
+    return true;
   }
-  return !isNaN(Number(value))
+  return !isNaN(Number(value));
 }
 
-const valueMap: string[] = []
+const valueMap: string[] = [];
 
 function resolveValue(value: { default: string; vId?: number }): string {
   if (value?.vId && valueMap[value.vId]) {
-    return valueMap[value.vId]
+    return valueMap[value.vId];
   }
-  value.vId = valueMap.length
-  if (value.default.startsWith('$')) {
-    return (valueMap[value.vId] = dynamicValue(value.default))
+  value.vId = valueMap.length;
+  if (value.default.startsWith("$")) {
+    return (valueMap[value.vId] = dynamicValue(value.default));
   } else {
-    return (valueMap[value.vId] = value.default)
+    return (valueMap[value.vId] = value.default);
   }
 }
 
-function setChildRef(el: ConfigViewerNode) {
-  children.push(el)
+function setChildRef(el: typeof ConfigViewerNode) {
+  children.push(el);
 }
 
 function expandAll() {
   for (let dataKey in props.data) {
-    expand.value[dataKey] = true
+    expand.value[dataKey] = true;
   }
   children.forEach((value) => {
-    value.expandAll()
-  })
+    value.expandAll();
+  });
 }
 
 function collapseAll() {
   for (let dataKey in props.data) {
-    expand.value[dataKey] = false
+    expand.value[dataKey] = false;
   }
   children.forEach((value) => {
-    value.collapseAll()
-  })
+    value.collapseAll();
+  });
 }
-defineExpose({ expandAll, collapseAll })
+
+defineExpose({ expandAll, collapseAll });
 
 function dynamicValue(value: string): string {
-  const args = value.split('$')
-  if (args[1] == 'random') {
-    if (args[2] == 'int') {
-      let min = -2147483648
-      let max = 2147483647
+  const args = value.split("$");
+  if (args[1] == "random") {
+    if (args[2] == "int") {
+      let min = -2147483648;
+      let max = 2147483647;
       if (args[3]) {
-        min = Number(args[3])
+        min = Number(args[3]);
       }
       if (args[4]) {
-        max = Number(args[4])
+        max = Number(args[4]);
       }
-      return String(Math.floor(Math.random() * (max - min) + min))
+      return String(Math.floor(Math.random() * (max - min) + min));
     }
   }
-  return value
+  return value;
 }
 
 onMounted(() => {
-  const dist = window.location.hash.replace('#', '.') as string
-  expand.value[dist.replace(props.parent, '').split('.')[1]] = true
-})
+  const dist = window.location.hash.replace("#", ".") as string;
+  expand.value[dist.replace(props.parent, "").split(".")[1]] = true;
+});
 </script>
 
 <template>
@@ -110,9 +111,12 @@ onMounted(() => {
         v-else
         style="white-space: pre-wrap"
         :id="`${parent}.${key}`.slice(1)"
-        @click="expand[key] = !expand[key]"
       >
-        <span class="line config-line" role="button">
+        <span
+          class="line config-line"
+          role="button"
+          @click="expand[key] = !expand[key]"
+        >
           <span
             :class="hover[key] ? 'config-key-text-hover' : 'config-key-text'"
             >{{ key }}</span
