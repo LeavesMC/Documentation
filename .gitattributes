@@ -1,0 +1,4 @@
+*.md linguist-detectable=true
+*.md linguist-documentation=false
+pnpm-lock.yaml -diff
+* text=auto
