@@ -9,7 +9,7 @@ How to get docs running on your local machine for development.
 ### Prerequisites
 
 - [Node.js](https://nodejs.org)
-- [pnpm](https://pnpm.io/installation)
+- [Bun](https://bun.sh)
 
 ### Local Development
 
@@ -22,13 +22,13 @@ git clone https://github.com/LeavesMC/Documentation.git
 2. Install all required dependencies.
 
 ```bash
-pnpm install
+bun install
 ```
 
 3. Start the development server
 
 ```bash
-pnpm run dev
+bun dev
 ```
 
 This will start a local development server and open a browser window. The majority of changes will be instantly reflected live without the need to restart the development server or reload the page in your browser. Edit away!
@@ -36,7 +36,7 @@ This will start a local development server and open a browser window. The majori
 ### Building
 
 ```bash
-pnpm run build
+bun run build
 ```
 
 This command builds a production-ready deployment into the `.vitepress/dist` directory. These files are ready to be hosted on any static content server.
