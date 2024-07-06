@@ -117,7 +117,7 @@ settings:
       default: 'false'
       description: '是否开启 bStats 隐私模式。开启后，Leaves 将停止收集服务端版本、游玩人数、Java 版本。'
     force-minecraft-command:
-      default: 'true'
+      default: 'false'
       description: '是否强制使用原版命令覆盖插件命令。'
   region:
     format:
@@ -144,9 +144,6 @@ settings:
       compression-level:
         default: '1'
         description: '区域文件的压缩等级。应填写 `1` - `22` 之间的数字。'
-      crash-on-broken-symlink:
-        default: 'true'
-        description: '是否在读取区域文件失败时崩溃。'
   fix:
     vanilla-hopper:
       default: 'false'
@@ -433,9 +430,6 @@ settings:
       inventory-contains-iterators:
         default: 'true'
         description: '是否在操作物品栏时**不**使用 `Iterator`。'
-      get-nearby-players-streams:
-        default: 'true'
-        description: '是否在获取附近的玩家数据时**不**使用 `Stream`。'
       range-check-streams-and-iterators:
         default: 'true'
         description: '是否在距离检查时**不**使用 `Stream` 和 `Iterator`。'
@@ -464,9 +458,6 @@ settings:
     enable-suffocation-optimization:
       default: 'true'
       description: '是否将窒息检测频率提高为 20 游戏刻。玩家很难（但不是不可能）注意到这一变化。'
-    strip-raytracing-for-entity:
-      default: 'true'
-      description: '是否优化 rayTrace 方法。'
     check-spooky-season-once-an-hour:
       default: 'true'
       description: '是否将万圣节检测频率提高至 1 小时。'
@@ -476,9 +467,6 @@ settings:
         是否优化这些区块刻：
         - 闪电
         - 冰和雪的生成
-    skip-poi-find-in-vehicle:
-      default: 'true'
-      description: '是否跳过位于载具内的村民的兴趣点计算。'
     entity-target-find-optimization:
       default: 'true'
       description: '是否在实体找不到目标时直接停止寻找。'
@@ -541,18 +529,12 @@ settings:
     optimize-sun-burn-tick:
       default: 'true'
       description: '是否优化实体的阳光照射检测。'
-    use-optimized-collection:
-      default: 'true'
-      description: '是否在一些调用集合类的代码执行片段中使用优化后的集合类替代原版的集合类。'
     optimized-CubePointRange:
       default: 'true'
       description: '是否优化 CubePointRange。'
     check-frozen-ticks-before-landing-block:
       default: 'true'
       description: '是否在尝试生成冰的时候优先检查游戏刻而不是先检查方块是否为空气。'
-    cache-ominous-banner-item:
-      default: 'true'
-      description: '是否缓存灾厄旗帜的 NBT 数据。'
     skip-entity-move-if-movement-is-zero:
       default: 'true'
       description: '是否跳过完全没有移动的实体的位移计算。'

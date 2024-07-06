@@ -112,7 +112,7 @@ settings:
       default: 'false'
       description: 'Whether to enable bStats privacy mode. When enabled, Leaves will stop collecting server version, player count, and Java version.'
     force-minecraft-command:
-      default: 'true'
+      default: 'false'
       description: 'Whether to force the use of vanilla commands over plugin commands.'
   region:
     format:
@@ -138,9 +138,6 @@ settings:
       compression-level:
         default: '1'
         description: 'Compression level for region files. Should be a number between `1` and `22`.'
-      crash-on-broken-symlink:
-        default: 'true'
-        description: 'Whether to crash when reading region files fails.'
   fix:
     vanilla-hopper:
       default: 'false'
@@ -417,9 +414,6 @@ settings:
         inventory-contains-iterators:
           default: 'true'
           description: 'Whether to remove `iterators` in the inventory.'
-        get-nearby-players-streams:
-          default: 'true'
-          description: 'Whether to remove `streams` in getting nearby player data.'
         range-check-streams-and-iterators:
           default: 'true'
           description: 'Whether to remove `streams` and `iterators` in distance checks.'
@@ -446,9 +440,6 @@ settings:
       enable-suffocation-optimization:
         default: 'true'
         description: 'Whether to increase the suffocation detection frequency to 20 ticks. Players will find it hard (but not impossible) to notice this change.'
-      strip-raytracing-for-entity:
-        default: 'true'
-        description: 'Whether to optimize the rayTrace method.'
       check-spooky-season-once-an-hour:
         default: 'true'
         description: 'Whether to increase the Halloween detection frequency to 1 hour.'
@@ -458,9 +449,6 @@ settings:
           Whether to optimize these chunk ticks:
           - Lightning
           - Ice and snow generation
-      skip-poi-find-in-vehicle:
-        default: 'true'
-        description: 'Whether to skip the point of interest calculation for villagers in vehicles.'
       entity-target-find-optimization:
         default: 'true'
         description: 'Whether to stop searching when the entity cannot find a target.'
@@ -522,18 +510,12 @@ settings:
       optimize-sun-burn-tick:
         default: 'true'
         description: "Whether to optimize the entity's sunlight exposure detection."
-      use-optimized-collection:
-        default: 'true'
-        description: 'Whether to use optimized collection classes instead of the original collection classes in some code execution segments that call collection classes.'
       optimized-CubePointRange:
         default: 'true'
         description: 'Whether to optimize CubePointRange.'
       check-frozen-ticks-before-landing-block:
         default: 'true'
         description: 'Whether to check the ticks first before checking if the block is air when trying to generate ice.'
-      cache-ominous-banner-item:
-        default: 'true'
-        description: 'Whether to cache the NBT data of the ominous banner.'
       skip-entity-move-if-movement-is-zero:
         default: 'true'
         description: 'Whether to skip the displacement calculation for entities that have no movement at all.'
