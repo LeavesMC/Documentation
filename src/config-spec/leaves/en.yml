@@ -74,6 +74,16 @@ settings:
       enable:
         default: 'false'
         description: 'Whether to enable automatic updates for Leaves.'
+      download-source:
+        default: 'application'
+        description: |
+          Specify the automatic update download source, optional values:
+          - `application` Download from GitHub Releases
+          - `ghproxy` Download from mirror.ghproxy.com
+          - `cloud` Download from Swordsman Cloud
+      allow-experimental:
+        default: 'false'
+        description: 'Whether to allow the download of experimental versions.'
       time:
         default:
           - "'14:00'"

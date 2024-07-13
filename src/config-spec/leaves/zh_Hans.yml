@@ -79,6 +79,16 @@ settings:
           ::: tip
           更新将在服务器重新启动后安装。
           :::
+      download-source:
+        default: 'application'
+        description: |
+          指定自动更新下载源，可选值：
+          - `application` 从 GitHub Releases 下载
+          - `ghproxy` 从 mirror.ghproxy.com 下载
+          - `cloud` 从剑客云下载
+      allow-experimental:
+        default: 'false'
+        description: '是否允许下载实验性版本。'
       time:
         default:
           - "'14:00'"
