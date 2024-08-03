@@ -243,7 +243,7 @@ settings:
         :::
     container-passthrough:
       default: 'false'
-      description: '是否允许在主副手无物品时，按下使用键能够直接打开有告示牌支撑的箱子。'
+      description: '是否允许在主副手均无物品时按下使用键直接打开支撑告示牌的箱子。'
     avoid-anvil-too-expensive:
       default: 'false'
       description: |
