@@ -40,7 +40,7 @@ settings:
         description: '假人每游戏刻恢复的生命值。'
       use-action:
         default: 'true'
-        description: '是否允许假人使用 [动作](fakeplayer#%E5%81%87%E4%BA%BA%E5%8A%A8%E4%BD%9C)。'
+        description: '是否允许假人使用[动作](fakeplayer#%E5%81%87%E4%BA%BA%E5%8A%A8%E4%BD%9C)。'
       modify-config:
         default: 'false'
         description: '是否允许使用 `/bot` 命令修改假人配置。'
@@ -60,7 +60,7 @@ settings:
           是否允许利用 ClassCastException 进行更新抑制。
 
           ::: tip
-          有关更详细的说明，请参阅 [关于强转抑制器的笔记](https://www.bilibili.com/read/cv24323749/)。
+          有关更详细的说明，请参阅[关于强转抑制器的笔记](https://www.bilibili.com/read/cv24323749/)。
           :::
       villager-infinite-discounts:
         default: 'false'
@@ -85,7 +85,7 @@ settings:
         description: '是否允许堆叠诅咒附魔书。'
       allow-entity-portal-with-passenger: 
         default: 'true'
-        description: '是否允许带有乘客（身上有骑着实体）的生物进行世界间传送。'
+        description: '是否允许带有乘客（身上有骑着实体）的生物通过传送门进行传送。'
       disable-gateway-portal-entity-ticking: 
         default: 'false'
         description: '是否**不**禁用折跃门传送后的区块强加载。'
@@ -192,7 +192,7 @@ settings:
       description: '是否禁用使用物品时距离检测。'
     no-feather-falling-trample:
       default: 'false'
-      description: '是否在靴子拥有 [摔落缓冲](https://zh.minecraft.wiki/w/%E6%91%94%E8%90%BD%E7%BC%93%E5%86%B2) 魔咒时不会导致耕地被踩坏为泥土。'
+      description: '是否在靴子拥有[摔落缓冲](https://zh.minecraft.wiki/w/%E6%91%94%E8%90%BD%E7%BC%93%E5%86%B2)魔咒时不会导致耕地被踩坏为泥土。'
     shared-villager-discounts:
       default: 'false'
       description: '是否允许多个玩家玩家共享同一村民折扣。'
@@ -243,11 +243,11 @@ settings:
         :::
     container-passthrough:
       default: 'false'
-      description: '是否允许在主副手无物品时，按下使用键能够直接打开有告示牌挂在其前方的箱子。'
+      description: '是否允许在主副手无物品时，按下使用键能够直接打开有告示牌支撑的箱子。'
     avoid-anvil-too-expensive:
       default: 'false'
       description: |
-        是否禁用铁砧“过于昂贵！”的限制。
+        是否禁用铁砧“过于昂贵！”的惩罚。
 
         ::: tip
         要正确显示真实的经验消耗等级，需要启用 [`settings.protocol.leaves-carpet-support`](#settings.protocol.leaves-carpet-support) 并安装 [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition/blob/nyan-work/dev/README_ZH_CN.md)。
@@ -257,7 +257,7 @@ settings:
       description: '是否在物品栏中无箭矢时仍可使用拥有无限魔咒的弓，就像自身处于创造模式一样。'
     hopper-counter:
       default: 'false'
-      description: '是否启用 [漏斗计数器](https://github.com/gnembon/quick-carpet/blob/master/README.md#hoppercounters) 与对应的命令 `/leaves counter`。'
+      description: '是否启用[漏斗计数器](https://github.com/gnembon/quick-carpet/blob/master/README.md#hoppercounters)与对应的命令 `/leaves counter`。'
     spider-jockeys-drop-gapples:
       default: '-1.0'
       description: '当蜘蛛骑士被击杀时掉落附魔金苹果的概率。设置为 `-1` 以禁用此功能。'
@@ -266,7 +266,7 @@ settings:
       description: '是否允许在y0以下，熔岩流在水平方向或上方触碰水源或水流时将会变为深板岩圆石而不是普通圆石，在非水平方向上将变成深板岩而非石头。'
     renewable-sponges:
       default: 'false'
-      description: '是否允许守卫者在被闪电束击中后变化为远古守卫者。'
+      description: '是否允许守卫者在被闪电束击中后转化为远古守卫者。'
     renewable-coral:
       default: "'FALSE'"
       description: |
@@ -470,10 +470,10 @@ settings:
     servux:
       structure-protocol:
         default: 'false'
-        description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的结构探测支持。如果是，那么服务端将会向客户端发送结构信息。'
+        description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的结构探测支持。'
       entity-protocol:
         default: 'false'
-        description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的生物探测支持。如果是，那么服务端将会向客户端发送生物相关信息。'
+        description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的生物探测支持。'
     leaves-carpet-support:
       default: 'false'
       description: '是否开启 [Carpet](https://modrinth.com/mod/carpet) 支持。客户端可能会感知此协议，以实现更多 Carpet 功能。'
