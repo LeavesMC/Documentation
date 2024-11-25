@@ -46,6 +46,6 @@ This command builds a production-ready deployment into the `.vitepress/dist` dir
 The Leaves Documentation (e.g., `.md` files in the `/src` folder) is [CC-BY-SA-4.0](https://github.com/LeavesMC/Documentation/blob/main/LICENSE-DOCS) licensed.
 
 The supporting code is
-[AGPL-3.0](https://github.com/LeavesMC/Documentation/blob/main/LICENSE) licensed.
+[MPL-2.0](https://github.com/LeavesMC/Documentation/blob/main/LICENSE) licensed.
 
 The LeavesMC logomark does not inherit a license from any of the projects it represents.
