@@ -8,7 +8,7 @@
     "preview": "vitepress preview"
   },
   "author": "LittleChest",
-  "license": "AGPL-3.0-or-later",
+  "license": "MPL-2.0",
   "dependencies": {
     "vue": "^3.4.27",
     "yaml": "^2.4.2"
