@@ -20,6 +20,9 @@ settings:
       suffix:
         default: "''"
         description: '指定假人名称后缀。需要符合 Minecraft 用户名规范。'
+      regen-amount:
+        default: '0.0'
+        description: '假人每游戏刻恢复的生命值。'
       always-send-data:
         default: 'true'
         description: '是否一直向位于相同世界的玩家发送假人数据。'
@@ -35,16 +38,29 @@ settings:
       spawn-phantom:
         default: 'false'
         description: '是否允许假人生成幻翼。'
-      regen-amount:
-        default: '0.01'
-        description: '假人每游戏刻恢复的生命值。'
       use-action:
         default: 'true'
         description: '是否允许假人使用[动作](fakeplayer#%E5%81%87%E4%BA%BA%E5%8A%A8%E4%BD%9C)。'
       modify-config:
         default: 'false'
         description: '是否允许使用 `/bot` 命令修改假人配置。'
+      manual-save-and-load:
+        default: 'false'
+        description: '是否允许手动保存和加载假人（/bot save 和 load）'
+      cache-skin:
+        default: 'false'
+        description: '是否允许缓存皮肤。'
     minecraft-old:
+      block-updater:
+          instant-block-updater-reintroduced: 
+            default: 'false'
+            description: '是否重新引入 1.19 前的瞬时方块更新机制。'
+          cce-update-suppression: 
+            default: 'false'
+            description: '是否允许利用 ClassCastException 进行更新抑制。'
+          redstone-wire-dont-connect-if-on-trapdoor: 
+            default: 'false'
+            description: '是否在活板门开启时阻止它四周的红石线连接活板门上侧的红石线。'
       shears-in-dispenser-can-zero-amount:
         default: 'false'
         description: '是否允许剪刀在发射器内被使用到负耐久之后不会损坏。'
@@ -95,6 +111,25 @@ settings:
       fix-fortress-mob-spawn: 
         default: 'false'
         description: '是否将堡垒刷怪机制恢复到 1.18.2 之前。参考 [这篇文章](https://blog.fallenbreath.me/zh-CN/2024/fortress-nether-bricks-pack-spawning-issue-1182/)。'
+      old-block-entity-behaviour: 
+        default: 'false'
+        description: '是否启用旧版本的方块实体行为，使 ClassCastException 更新抑制可以重新使用。'
+      old-hopper-suck-in-behavior: 
+        default: 'false'
+        description: '是否启用旧版本的漏斗吸入行为。'
+      revert-raid-changes:
+        allow-bad-omen-trigger-raid:
+          default: 'false'
+          description: '是否允许带有不祥之兆效果的玩家直接跳过 30 秒的冷却时间触发袭击。'
+        give-bad-omen-when-kill-patrol-leader:
+          default: 'false'
+          description: '是否使得玩家在击杀巡逻队队长时获得不祥之兆效果。这使得旧版本的袭击塔设计在新版本重新可用。'
+      allow-anvil-destroy-item-entities: 
+        default: 'false'
+        description: '是否允许铁砧破坏物品实体。'
+      string-tripwire-hook-duplicate: 
+        default: 'false'
+        description: '是否允许在复制绊线时复制绊线钩。'
     elytra-aeronautics:
       no-chunk-load:
         default: 'false'
@@ -149,9 +184,6 @@ settings:
     force-void-trade:
       default: 'false'
       description: '是否强制开启虚空交易。玩家穿过折跃门即视为虚空交易，无需等待区块卸载。'
-    disable-moved-wrongly-threshold:
-      default: 'false'
-      description: '是否禁用玩家移动速度检测。'
     mc-technical-survival-mode:
       default: 'true'
       description: |
@@ -280,6 +312,9 @@ settings:
     force-peaceful-mode:
       default: '-1'
       description: '指定检测伪和平的频率（游戏刻）。设置为 `-1` 以禁用此功能。'
+    disable-vault-blacklist: 
+      default: 'false'
+      description: '是否禁用宝库黑名单系统。这将使得所有玩家可以无限次打开一个宝库。'
   performance:
     remove:
       tick-guard-lambda:
@@ -288,9 +323,6 @@ settings:
       inventory-contains-iterators:
         default: 'true'
         description: '是否在操作物品栏时**不**使用 `Iterator`。'
-      range-check-streams-and-iterators:
-        default: 'true'
-        description: '是否在距离检查时**不**使用 `Stream` 和 `Iterator`。'
       damage-lambda:
         default: 'true'
         description: '是否在伤害检测时**不**使用 `Lambda`。'
@@ -310,27 +342,12 @@ settings:
         ::: warning
         这可能会破坏利用这些无用实体包的模组。
         :::
-    optimize-entity-coordinate-key:
-      default: 'true'
-      description: '是否直接使用 blockPosition 结构中已提供的已转换/舍入的数据。'
     enable-suffocation-optimization:
       default: 'true'
       description: '是否将窒息检测频率提高为 20 游戏刻。玩家很难（但不是不可能）注意到这一变化。'
     check-spooky-season-once-an-hour:
       default: 'true'
       description: '是否将万圣节检测频率提高至 1 小时。'
-    optimize-chunk-ticking:
-      default: 'true'
-      description: |
-        是否优化这些区块刻：
-        - 闪电
-        - 冰和雪的生成
-    entity-target-find-optimization:
-      default: 'true'
-      description: '是否在实体找不到目标时直接停止寻找。'
-    use-more-thread-unsafe-random:
-      default: 'true'
-      description: '是否使用更多线程不安全的随机发生器，它们虽然不安全，但是运行更快。'
     inactive-goal-selector-disable:
       default: 'false'
       description: '是否限制不活跃实体的目标查找器的运行。'
@@ -343,15 +360,9 @@ settings:
     biome-temperatures-use-aging-cache:
       default: 'true'
       description: '是否优化生态群落温度缓存。'
-    reduce-entity-fluid-lookup:
-      default: 'true'
-      description: '是否在实体附近没有流体时不进行低效率的流体查找。'
     reduce-chuck-load-and-lookup:
       default: 'true'
       description: '是否减少不必要的区块查找和加载。'
-    improve-fluid-direction-caching:
-      default: 'true'
-      description: '是否重新实现 FluidTypeFlowing 的缓存系统，并使其执行效率更高。'
     cache-ignite-odds:
       default: 'true'
       description: '是否开启对火焰蔓延检测中对方块燃烧概率的短暂缓存。'
@@ -361,21 +372,12 @@ settings:
     optimize-world-generation-and-block-access:
       default: 'true'
       description: '是否在世界生成时优化区块和方块获取流程。'
-    cache-world-generator-sea-level:
-      default: 'true'
-      description: '是否在世界生成时缓存海平面高度。'
     skip-secondary-POI-sensor-if-absent:
       default: 'true'
       description: '是否跳过寻找不存在的次要兴趣点。'
-    cache-CubeVoxelShape-shape-array:
-      default: 'true'
-      description: '是否缓存 CubeVoxelShape。'
     store-mob-counts-in-array:
       default: 'true'
       description: '是否在生物生成上限计算时使用数组。'
-    cache-BlockStatePairKey-hash:
-      default: 'true'
-      description: '是否缓存 BlockStatePairKey 的哈希值计算。'
     optimize-noise-generation:
       default: 'false'
       description: |
@@ -439,6 +441,20 @@ settings:
           - `OPS` 假人的数据可以被同步到客户端，OP 可以同步所有玩家的数据。
           - `OPS_AND_SELF` 玩家可以同步假人的数据，OP 可以同步所有玩家的数据，每个玩家可以同步自己的数据。
           - `EVERYONE` 所有的玩家数据都可以互相同步。
+    appleskin:
+      protocol: 
+        default: 'false'
+        description: '是否开启 [AppleSkin](https://modrinth.com/mod/appleskin) 协议支持。'
+      sync-tick-interval: 
+        default: '20'
+        description: 'AppleSkin 同步频率（单位：游戏刻）。'
+    servux:
+      structure-protocol:
+        default: 'false'
+        description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的结构探测支持。'
+      entity-protocol:
+        default: 'false'
+        description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的生物探测支持。'
     bbor-protocol:
       default: 'false'
       description: '是否开启 [BBOR](https://modrinth.com/mod/bbor) 协议支持。'
@@ -453,9 +469,6 @@ settings:
         - `CARPET` 服务端将会向客户端声明支持精确放置协议版本 2。
         - `CARPET_FIX` 服务端将会向客户端声明支持更好的精确放置协议版本 2（需要客户端安装 [MasaGadget](https://github.com/plusls/MasaGadget)以支持）。
         - `LITEMATICA` 服务端将会向客户端声明支持精确放置协议版本 3。
-    appleskin-protocol:
-      default: 'false'
-      description: '是否开启 [AppleSkin](https://modrinth.com/mod/appleskin) 协议支持。'
     xaero-map-protocol:
       default: 'false'
       description: '是否开启 [Xaero 的世界地图](https://modrinth.com/mod/xaeros-world-map)支持。'
@@ -467,13 +480,6 @@ settings:
         ::: tip
         这是一个 **int** 范围内的随机值。如果你不清楚这个范围，可以采用这里生成的随机值。
         :::
-    servux:
-      structure-protocol:
-        default: 'false'
-        description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的结构探测支持。'
-      entity-protocol:
-        default: 'false'
-        description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的生物探测支持。'
     leaves-carpet-support:
       default: 'false'
       description: '是否开启 [Carpet](https://modrinth.com/mod/carpet) 支持。客户端可能会感知此协议，以实现更多 Carpet 功能。'
@@ -537,6 +543,9 @@ settings:
     force-minecraft-command:
       default: 'false'
       description: '是否令插件命令不覆盖原版指令。'
+    leaves-packet-event:
+      default: 'false'
+      description: '是否启用 leaves 提供的 packet 事件系统。可能影响到服务器性能，且目前版本和 Jade 有部分冲突，所以默认关闭。'
   region:
     format:
       default: 'ANVIL'
