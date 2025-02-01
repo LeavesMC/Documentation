@@ -49,7 +49,7 @@ settings:
         description: '是否允许手动保存和加载假人（/bot save 和 load）'
       cache-skin:
         default: 'false'
-        description: '是否缓存皮肤。'
+        description: '是否允许缓存皮肤。'
     minecraft-old:
       block-updater:
           instant-block-updater-reintroduced: 
@@ -113,14 +113,14 @@ settings:
         description: '是否将堡垒刷怪机制恢复到 1.18.2 之前。参考 [这篇文章](https://blog.fallenbreath.me/zh-CN/2024/fortress-nether-bricks-pack-spawning-issue-1182/)。'
       old-block-entity-behaviour: 
         default: 'false'
-        description: '是否启用旧版本（1.21.1-）的方块实体行为，使 CCE 更新抑制可以重新使用。'
+        description: '是否启用旧版本的方块实体行为，使 ClassCastException 更新抑制可以重新使用。'
       old-hopper-suck-in-behavior: 
         default: 'false'
         description: '是否启用旧版本的漏斗吸入行为。'
       revert-raid-changes:
         allow-bad-omen-trigger-raid:
           default: 'false'
-          description: '是否允许带有不祥之兆效果的玩家直接跳过 30s 的冷却时间触发袭击。'
+          description: '是否允许带有不祥之兆效果的玩家直接跳过 30 秒的冷却时间触发袭击。'
         give-bad-omen-when-kill-patrol-leader:
           default: 'false'
           description: '是否使得玩家在击杀巡逻队队长时获得不祥之兆效果。这使得旧版本的袭击塔设计在新版本重新可用。'
@@ -314,7 +314,7 @@ settings:
       description: '指定检测伪和平的频率（游戏刻）。设置为 `-1` 以禁用此功能。'
     disable-vault-blacklist: 
       default: 'false'
-      description: '是否宝库黑名单系统。这将使得所有玩家可以无限次打开一个宝库。'
+      description: '是否禁用宝库黑名单系统。这将使得所有玩家可以无限次打开一个宝库。'
   performance:
     remove:
       tick-guard-lambda:
