@@ -104,7 +104,7 @@ settings:
         description: '是否允许带有乘客（身上有骑着实体）的生物通过传送门进行传送。'
       disable-gateway-portal-entity-ticking: 
         default: 'false'
-        description: '是否**不**禁用折跃门传送后的区块强加载。'
+        description: '是否禁用折跃门传送后的区块强加载。'
       disable-LivingEntity-ai-step-alive-check: 
         default: 'false'
         description: '是否禁用 LivingEntity 里 aistep 的存活检查。'
