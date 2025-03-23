@@ -34,50 +34,50 @@ settings:
         description: '是否允许玩家右键打开假人背包。'
       skip-sleep-check:
         default: 'false'
-        description: '是否**不**将假人计入睡眠人数。'
+        description: '是否**不**将假人计入需要睡眠的人数。'
       spawn-phantom:
         default: 'false'
         description: '是否允许假人生成幻翼。'
       use-action:
         default: 'true'
-        description: '是否允许假人使用[动作](fakeplayer#%E5%81%87%E4%BA%BA%E5%8A%A8%E4%BD%9C)。'
+        description: '是否允许假人使用[动作](fakeplayer#假人动作)。'
       modify-config:
         default: 'false'
-        description: '是否允许使用 `/bot` 命令修改假人配置。'
+        description: '是否允许修改[假人配置](fakeplayer#假人配置)。'
       manual-save-and-load:
         default: 'false'
-        description: '是否允许手动保存和加载假人（/bot save 和 load）'
+        description: '是否允许[手动保存和加载假人](fakeplayer#假人加载/保存)'
       cache-skin:
         default: 'false'
-        description: '是否允许缓存皮肤。'
+        description: '是否缓存假人皮肤，缓存只会在重启服务器后失效。'
+      tick-type:
+        default: '`NETWORK`'
+        description: '假人的默认[实体刻类型](fakeplayer#实体刻类型)'
     minecraft-old:
       block-updater:
-          instant-block-updater-reintroduced: 
-            default: 'false'
-            description: '是否重新引入 1.19 前的瞬时方块更新机制。'
-          cce-update-suppression: 
-            default: 'false'
-            description: '是否允许利用 ClassCastException 进行更新抑制。'
-          redstone-wire-dont-connect-if-on-trapdoor: 
-            default: 'false'
-            description: '是否在活板门开启时阻止它四周的红石线连接活板门上侧的红石线。'
+        instant-block-updater-reintroduced:
+          default: 'false'
+          description: '是否重新引入 1.19 前的瞬时方块更新机制。'
+        cce-update-suppression:
+          default: 'false'
+          description: |
+            是否允许利用 ClassCastException 进行更新抑制。
+            
+            ::: tip
+            有关更详细的说明，请参阅[关于强转抑制器的笔记](https://www.bilibili.com/read/cv24323749/)。
+            :::
+        redstone-wire-dont-connect-if-on-trapdoor:
+          default: 'false'
+          description: '是否在活板门开启时阻止它四周的红石线连接活板门上侧的红石线。'
+        old-block-entity-behaviour:
+          default: 'false'
+          description: '是否启用旧版本的方块实体行为，使 ClassCastException 更新抑制可以重新使用。'
       shears-in-dispenser-can-zero-amount:
         default: 'false'
-        description: '是否允许剪刀在发射器内被使用到负耐久之后不会损坏。'
-      instant-block-updater-reintroduced:
-        default: 'false'
-        description: '是否重新引入 1.19 前的瞬时方块更新机制。'
+        description: '是否允许剪刀在发射器内被使用到负耐久且不会损坏。'
       armor-stand-cant-kill-by-mob-projectile:
         default: 'false'
         description: '是否**不**允许由非玩家生物发射的弹射物破坏盔甲架。'
-      cce-update-suppression:
-        default: 'false'
-        description: |
-          是否允许利用 ClassCastException 进行更新抑制。
-
-          ::: tip
-          有关更详细的说明，请参阅[关于强转抑制器的笔记](https://www.bilibili.com/read/cv24323749/)。
-          :::
       villager-infinite-discounts:
         default: 'false'
         description: '是否允许村民感染并治愈之后的打折多次翻倍。'
@@ -86,7 +86,7 @@ settings:
         description: '是否使铜灯在红石信号变化时延迟 1 游戏刻之后切换状态。'
       crafter-1gt-delay:
         default: 'false'
-        description: '是否将合成器输出物品的频率降低为 1 游戏刻。'
+        description: '是否将合成器输出物品的最高频率改为 1 游戏刻。'
       zero-tick-plants:
         default: 'false'
         description: '是否允许[零刻作物催熟技术](https://zh.minecraft.wiki/w/Tutorial:%E9%9B%B6%E5%88%BB%E4%BD%9C%E7%89%A9%E5%82%AC%E7%86%9F%E6%8A%80%E6%9C%AF)。'
@@ -96,22 +96,19 @@ settings:
       allow-grindstone-overstacking:
         default: 'false'
         description: '是否允许堆叠诅咒附魔书。'
-      allow-entity-portal-with-passenger: 
+      allow-entity-portal-with-passenger:
         default: 'true'
         description: '是否允许带有乘客（身上有骑着实体）的生物通过传送门进行传送。'
-      disable-gateway-portal-entity-ticking: 
+      disable-gateway-portal-entity-ticking:
         default: 'false'
         description: '是否禁用折跃门传送后的区块强加载。'
-      disable-LivingEntity-ai-step-alive-check: 
+      disable-LivingEntity-ai-step-alive-check:
         default: 'false'
-        description: '是否禁用 LivingEntity 里 aistep 的存活检查。'
-      fix-fortress-mob-spawn: 
+        description: '是否禁用 LivingEntity 中 aistep 的存活检查。'
+      fix-fortress-mob-spawn:
         default: 'false'
         description: '是否将堡垒刷怪机制恢复到 1.18.2 之前。参考 [这篇文章](https://blog.fallenbreath.me/zh-CN/2024/fortress-nether-bricks-pack-spawning-issue-1182/)。'
-      old-block-entity-behaviour: 
-        default: 'false'
-        description: '是否启用旧版本的方块实体行为，使 ClassCastException 更新抑制可以重新使用。'
-      old-hopper-suck-in-behavior: 
+      old-hopper-suck-in-behavior:
         default: 'false'
         description: '是否启用旧版本的漏斗吸入行为。'
       revert-raid-changes:
@@ -121,10 +118,13 @@ settings:
         give-bad-omen-when-kill-patrol-leader:
           default: 'false'
           description: '是否使得玩家在击杀巡逻队队长时获得不祥之兆效果。这使得旧版本的袭击塔设计在新版本重新可用。'
-      allow-anvil-destroy-item-entities: 
+        skip-height-check:
+          default: 'false'
+          description: '是否在袭击者生成时跳过对生成位置的高度检查。'
+      allow-anvil-destroy-item-entities:
         default: 'false'
         description: '是否允许铁砧破坏物品实体。'
-      string-tripwire-hook-duplicate: 
+      string-tripwire-hook-duplicate:
         default: 'false'
         description: '是否允许在复制绊线时复制绊线钩。'
     elytra-aeronautics:
@@ -169,7 +169,7 @@ settings:
       description: '是否限制玩家的动作执行速度。开启后每个游戏刻只能破坏 1 个方块或放置 2 个方块。'
     renewable-elytra:
       default: '-1.0'
-      description: '当潜影贝击杀幻翼时掉落破损的鞘翅的概率。设置为 `-1` 以禁用此功能。'
+      description: '当潜影贝击杀幻翼时掉落破损的鞘翅的概率。设置为 `-1.0` 以禁用此功能。'
     stackable-shulker-boxes:
       default: "'false'"
       description: |
@@ -209,16 +209,16 @@ settings:
         :::
     use-vanilla-random:
       default: 'false'
-      description: '是否使用原版随机数。开启后将略微降低性能，但可以破解随机发生器。'
+      description: '是否使用原版随机数。开启后将略微降低性能，但允许玩家破解随机发生器。'
     fix-update-suppression-crash:
       default: 'true'
-      description: '是否修复由于更新抑制导致的崩溃。'
+      description: '是否阻止由于更新抑制导致的崩溃。'
     bedrock-break-list:
       default: 'false'
       description: '是否开启破基岩榜。此功能的行为与 [FZBBL](https://gitee.com/harvey-husky/YH-BBL) 一致。'
     disable-distance-check-for-use-item:
       default: 'false'
-      description: '是否禁用使用物品时距离检测。'
+      description: '是否禁用使用物品时的距离检测。'
     no-feather-falling-trample:
       default: 'false'
       description: '是否在靴子拥有[摔落缓冲](https://zh.minecraft.wiki/w/%E6%91%94%E8%90%BD%E7%BC%93%E5%86%B2)魔咒时不会导致耕地被踩坏为泥土。'
@@ -238,13 +238,20 @@ settings:
 
         ::: tip
         此功能需要启用 [`settings.protocol.leaves-carpet-support`](#settings.protocol.leaves-carpet-support)。
+        
+        且需要客户端安装 Carpet Mod。
         :::
     shave-snow-layers:
       default: 'true'
-      description: '是否在使用锹破坏雪时减少雪的层数，而不是掉落雪球。'
+      description: '是否允许使用锹右键雪时减少雪的层数并掉落雪球。'
     ignore-lc:
       default: 'false'
-      description: '是否允许生物忽略最高方块高度（[LC 值](https://zh.minecraft.wiki/w/%E7%94%9F%E6%88%90#cite_note-3)）生成。'
+      description: |
+        是否允许生物生成时忽略最高方块高度（[LC 值](https://zh.minecraft.wiki/w/%E7%94%9F%E6%88%90#cite_note-3)）。
+        
+        ::: warning
+        截止至本条文档更新时（Leaves-1.21.4-21），此功能暂时失效。
+        :::
     disable-packet-limit:
       default: 'false'
       description: '是否禁用发包限制。'
@@ -255,44 +262,46 @@ settings:
 
         ::: tip
         此功能需要启用 [`settings.protocol.bladeren.protocol`](#settings.protocol.bladeren.protocol)。
+        
+        且需要客户端安装 Bladeren Mod。
         :::
     no-block-update-command:
       default: 'false'
-      description: '是否禁用 `/leaves blockupdate` 命令。'
+      description: '是否启用 `/blockupdate` 命令，此命令让玩家可以控制服务器内全局方块更新是否发生。'
     no-tnt-place-update:
       default: 'false'
       description: '是否在放置 TNT 时**不**进行方块更新。'
     raider-die-skip-self-raid-check:
       default: 'false'
-      description: |
-        是否跳过部分袭击检测。
-
-        ::: warning
-        开启后会大幅降低服务器的性能。
-        :::
+      description: '是否跳过小队长是否存在于袭击中的检测。'
     container-passthrough:
       default: 'false'
-      description: '是否允许在主副手均无物品时按下使用键直接打开支撑告示牌的箱子。'
+      description: |
+        是否允许玩家在使用 `告示牌/物品展示框` 时可以直接打开后方的容器。启用后将会改变原有操作逻辑。
+        对于告示牌，只有在手中无物品且潜行时才可编辑文字。
+        对于物品展示框，只有在潜行时才可正常旋转物品。
     avoid-anvil-too-expensive:
       default: 'false'
       description: |
         是否禁用铁砧“过于昂贵！”的惩罚。
 
         ::: tip
-        要正确显示真实的经验消耗等级，需要启用 [`settings.protocol.leaves-carpet-support`](#settings.protocol.leaves-carpet-support) 并安装 [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition/blob/nyan-work/dev/README_ZH_CN.md)。
+        要正确显示真实的经验消耗等级，需要启用 [`settings.protocol.leaves-carpet-support`](#settings.protocol.leaves-carpet-support)。
+        
+        且需要客户端安装 [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition/blob/nyan-work/dev/README_ZH_CN.md)。
         :::
     bow-infinity-fix:
       default: 'false'
       description: '是否在物品栏中无箭矢时仍可使用拥有无限魔咒的弓，就像自身处于创造模式一样。'
     hopper-counter:
       default: 'false'
-      description: '是否启用[漏斗计数器](https://github.com/gnembon/quick-carpet/blob/master/README.md#hoppercounters)与对应的命令 `/leaves counter`。'
+      description: '是否启用类似 Carpet 的[漏斗计数器](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#hoppercounters)与对应的命令 `/leaves counter`。'
     spider-jockeys-drop-gapples:
       default: '-1.0'
-      description: '当蜘蛛骑士被击杀时掉落附魔金苹果的概率。设置为 `-1` 以禁用此功能。'
+      description: '当蜘蛛骑士被击杀时掉落附魔金苹果的概率。设置为 `-1.0` 以禁用此功能。'
     renewable-deepslate:
       default: 'false'
-      description: '是否允许在y0以下，熔岩流在水平方向或上方触碰水源或水流时将会变为深板岩圆石而不是普通圆石，在非水平方向上将变成深板岩而非石头。'
+      description: '是否使得在y0以下时，熔岩流在水平方向或上方触碰水源或水流时将会变为深板岩圆石而不是普通圆石，在非水平方向上将变成深板岩而不是石头。'
     renewable-sponges:
       default: 'false'
       description: '是否允许守卫者在被闪电束击中后转化为远古守卫者。'
@@ -305,24 +314,29 @@ settings:
         - `EXPANDED` 允许使用骨粉催熟珊瑚和珊瑚扇。
     fast-resume:
       default: 'false'
-      description: '是否在服务器关闭时保存区块加载数据并在下次启动时加载。'
-    force-peaceful-mode:
-      default: '-1'
-      description: '指定检测伪和平的频率（游戏刻）。设置为 `-1` 以禁用此功能。'
-    disable-vault-blacklist: 
+      description: '是否在服务器关闭时保存区块加载数据并在下次启动恢复加载。'
+    force-peaceful-mode-switch:
+      tick:
+        default: '-1'
+        description: '指定强制伪和平检测的频率（游戏刻）。设置为 `-1` 以禁用此功能。'
+      types:
+        default:
+          - BLAZE
+          - WITHER
+          - SHULKER
+          - WARDEN
+        description: '指定强制伪和平检测的实体列表。'
+    disable-vault-blacklist:
       default: 'false'
       description: '是否禁用宝库黑名单系统。这将使得所有玩家可以无限次打开一个宝库。'
   performance:
     remove:
       tick-guard-lambda:
         default: 'true'
-        description: '是否**不**使用 `Lambda`。'
-      inventory-contains-iterators:
-        default: 'true'
-        description: '是否在操作物品栏时**不**使用 `Iterator`。'
+        description: '是否在运算实体列表时**不**使用 `Lambda`。'
       damage-lambda:
         default: 'true'
-        description: '是否在伤害检测时**不**使用 `Lambda`。'
+        description: '是否在伤害计算时**不**使用 `Lambda`。'
     optimized-dragon-respawn:
       default: 'false'
       description: |
@@ -354,9 +368,6 @@ settings:
     cache-climb-check:
       default: 'true'
       description: '是否缓存攀爬检查结果。'
-    biome-temperatures-use-aging-cache:
-      default: 'true'
-      description: '是否优化生态群落温度缓存。'
     reduce-chuck-load-and-lookup:
       default: 'true'
       description: '是否减少不必要的区块查找和加载。'
@@ -366,9 +377,6 @@ settings:
     faster-chunk-serialization:
       default: 'true'
       description: '是否使用 [Lithium](https://modrinth.com/mod/lithium) 快速区块保存序列化。'
-    optimize-world-generation-and-block-access:
-      default: 'true'
-      description: '是否在世界生成时优化区块和方块获取流程。'
     skip-secondary-POI-sensor-if-absent:
       default: 'true'
       description: '是否跳过寻找不存在的次要兴趣点。'
@@ -397,7 +405,7 @@ settings:
       description: '是否跳过完全没有移动的实体的位移计算。'
     skip-cloning-advancement-criteria:
       default: 'false'
-      description: '是否跳过进度判断的复制。'
+      description: '是否跳过进度判断时的复制。'
     skip-negligible-planar-movement-multiplication:
       default: 'true'
       description: '是否跳过玩家移动中不必要的乘法计算。'
@@ -439,10 +447,10 @@ settings:
           - `OPS_AND_SELF` 玩家可以同步假人的数据，OP 可以同步所有玩家的数据，每个玩家可以同步自己的数据。
           - `EVERYONE` 所有的玩家数据都可以互相同步。
     appleskin:
-      protocol: 
+      protocol:
         default: 'false'
         description: '是否开启 [AppleSkin](https://modrinth.com/mod/appleskin) 协议支持。'
-      sync-tick-interval: 
+      sync-tick-interval:
         default: '20'
         description: 'AppleSkin 同步频率（单位：游戏刻）。'
     servux:
@@ -451,7 +459,13 @@ settings:
         description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的结构探测支持。'
       entity-protocol:
         default: 'false'
-        description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的生物探测支持。'
+        description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的生物数据支持。'
+      hud-metadata-protocol:
+        default: 'false'
+        description: '是否开启 [Servux](https://modrinth.com/mod/servux) 的世界元数据支持。'
+      hud-metadata-protocol-share-seed:
+        default: 'true'
+        description: '是否在发送世界元数据时包含世界种子。'
     bbor-protocol:
       default: 'false'
       description: '是否开启 [BBOR](https://modrinth.com/mod/bbor) 协议支持。'
@@ -464,11 +478,11 @@ settings:
         指定精确放置协议类型。
         - `NONE` 服务端将会向客户端声明不支持精确放置协议。
         - `CARPET` 服务端将会向客户端声明支持精确放置协议版本 2。
-        - `CARPET_FIX` 服务端将会向客户端声明支持更好的精确放置协议版本 2（需要客户端安装 [MasaGadget](https://github.com/plusls/MasaGadget)以支持）。
+        - `CARPET_FIX` 服务端将会向客户端声明支持精确放置协议版本 2（但需要客户端安装 [MasaGadget](https://github.com/plusls/MasaGadget) 以支持）。
         - `LITEMATICA` 服务端将会向客户端声明支持精确放置协议版本 3。
     xaero-map-protocol:
       default: 'false'
-      description: '是否开启 [Xaero 的世界地图](https://modrinth.com/mod/xaeros-world-map)支持。'
+      description: '是否开启 [Xaero 的世界地图](https://modrinth.com/mod/xaeros-world-map) 协议支持。'
     xaero-map-server-id:
       default: $random$int
       description: |
@@ -479,7 +493,23 @@ settings:
         :::
     leaves-carpet-support:
       default: 'false'
-      description: '是否开启 [Carpet](https://modrinth.com/mod/carpet) 支持。客户端可能会感知此协议，以实现更多 Carpet 功能。'
+      description: |
+        是否开启 [Carpet](https://modrinth.com/mod/carpet) 协议支持。客户端可能会感知此协议，以实现更多 Carpet 功能。
+        
+        ::: tip
+        开启此功能并不相当于在服务端安装了 Carpet Mod，它只会向客户端声明服务端安装了 Carpet。
+        :::
+    lms-paster-protocol:
+      default: 'false'
+      description: '是否开启 [Litematica Server Paster](https://github.com/Fallen-Breath/litematica-server-paster) 协议支持。'
+    rei-server-protocol:
+      default: 'false'
+      description: |
+        是否开启 [REI](https://github.com/shedaniel/RoughlyEnoughItems) 协议支持。
+        
+        ::: warning
+        截止至本条文档更新时（Leaves-1.21.4-21），REI协议并未完成，其暂时不会向客户端发送服务端配方信息。基于技术原因，本协议可能很难甚至无法完成，服务端将会给出替代方案。
+        :::
   misc:
     auto-update:
       enable:
@@ -495,7 +525,6 @@ settings:
         description: |
           指定自动更新下载源，可选值：
           - `application` 将会从 GitHub Releases 下载
-          - `ghproxy` 将会从 mirror.ghproxy.com 下载
           - `cloud` 将会从剑客云下载
       allow-experimental:
         default: 'false'
@@ -542,7 +571,7 @@ settings:
       description: '是否令插件命令不覆盖原版指令。'
     leaves-packet-event:
       default: 'false'
-      description: '是否启用 leaves 提供的 packet 事件系统。可能影响到服务器性能，且目前版本和 Jade 有部分冲突，所以默认关闭。'
+      description: '是否启用 leaves 提供的 packet 事件系统。这可能影响到服务器性能。'
   region:
     format:
       default: 'ANVIL'
@@ -550,10 +579,19 @@ settings:
         指定区域文件格式。
         - `ANVIL` 使用 [Anvil 文件格式](https://zh.minecraft.wiki/w/%E5%8C%BA%E5%9F%9F%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F)（.mca）
         - `LINEAR` 使用 [Linear 文件格式](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools)（.linear）
+        
+        ::: danger
+        `LINEAR` 格式是一个极度危险的实验性功能，它可以极大程度压缩存档占用，但根据报告，它很有可能导致存档和玩家数据丢失等问题。
+        
+        如果你一定要使用 `LINEAR` 格式，请备份你的存档并使用 `V2` 版本的 `LINEAR`。
+        :::
     linear:
-      flush-frequency:
-        default: '10'
-        description: '指定区域保存频率（单位：秒）。'
+      version:
+        default: '`V2`'
+        description: |
+          使用的 Linear 格式版本，这只会影响保存格式，任何版本的 Linear 文件都可以被正常加载。
+          - `V2` 新版本
+          - `V1` 旧版本，此版本已被弃用，请不要使用。
       auto-convert-anvil-to-linear:
         default: 'false'
         description: |
@@ -562,9 +600,19 @@ settings:
           ::: danger
           在开启此选项之前，请确保你已完整地备份世界。
           :::
+          
+          ::: warning
+          截止至本条文档更新时（Leaves-1.21.4-21），此功能暂时失效。
+          :::
       flush-max-threads:
-        default: '1'
+        default: '6'
         description: '指定保存区域时使用的最大线程数。设置为 `-1` 时，则使用全部线程。'
+      flush-delay-ms:
+        default: '100'
+        description: '指定每个区域后保存的等待时间。'
+      use-virtual-thread:
+        default: 'true'
+        description: '是否在保存区域时使用虚拟线程。'
       compression-level:
         default: '1'
         description: '区域文件的压缩等级。应填写 `1` - `22` 之间的数字。'
