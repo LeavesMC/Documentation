@@ -51,7 +51,7 @@ settings:
         default: 'false'
         description: '是否缓存假人皮肤，缓存只会在重启服务器后失效。'
       tick-type:
-        default: '`NETWORK`'
+        default: 'NETWORK'
         description: '假人的默认[实体刻类型](fakeplayer#实体刻类型)'
     minecraft-old:
       block-updater:
@@ -243,11 +243,11 @@ settings:
         :::
     shave-snow-layers:
       default: 'true'
-      description: '是否允许使用锹右键雪时减少雪的层数并掉落雪球。'
+      description: '是否允许使用锹右键雪层或雪块时减少雪层或雪块的层数并掉落雪球。'
     ignore-lc:
       default: 'false'
       description: |
-        是否允许生物生成时忽略最高方块高度（[LC 值](https://zh.minecraft.wiki/w/%E7%94%9F%E6%88%90#cite_note-3)）。
+        是否忽略生物生成最高方块高度（[LC 值](https://zh.minecraft.wiki/w/%E7%94%9F%E6%88%90#cite_note-3)）。
         
         ::: warning
         截止至本条文档更新时（Leaves-1.21.4-21），此功能暂时失效。
@@ -587,7 +587,7 @@ settings:
         :::
     linear:
       version:
-        default: '`V2`'
+        default: 'V2'
         description: |
           使用的 Linear 格式版本，这只会影响保存格式，任何版本的 Linear 文件都可以被正常加载。
           - `V2` 新版本
