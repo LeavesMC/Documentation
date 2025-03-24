@@ -243,7 +243,7 @@ settings:
         :::
     shave-snow-layers:
       default: 'true'
-      description: '是否允许使用锹右键雪层或雪块时减少雪层或雪块的层数并掉落雪球。'
+      description: '是否允许对雪或雪块使用锹时减少雪层并掉落雪球。'
     ignore-lc:
       default: 'false'
       description: |
@@ -301,7 +301,7 @@ settings:
       description: '当蜘蛛骑士被击杀时掉落附魔金苹果的概率。设置为 `-1.0` 以禁用此功能。'
     renewable-deepslate:
       default: 'false'
-      description: '是否使得在y0以下时，熔岩流在水平方向或上方触碰水源或水流时将会变为深板岩圆石而不是普通圆石，在非水平方向上将变成深板岩而不是石头。'
+      description: '是否使得在主世界且 `Y < 0` 时，熔岩流在水平方向或上方触碰水源或水流时将会变为深板岩圆石而不是普通圆石，在非水平方向上将变成深板岩而不是石头。'
     renewable-sponges:
       default: 'false'
       description: '是否允许守卫者在被闪电束击中后转化为远古守卫者。'
@@ -314,7 +314,7 @@ settings:
         - `EXPANDED` 允许使用骨粉催熟珊瑚和珊瑚扇。
     fast-resume:
       default: 'false'
-      description: '是否在服务器关闭时保存区块加载数据并在下次启动恢复加载。'
+      description: '是否在服务器关闭时保存区块加载数据并在下次启动时恢复加载。'
     force-peaceful-mode-switch:
       tick:
         default: '-1'
@@ -336,7 +336,7 @@ settings:
         description: '是否在运算实体列表时**不**使用 `Lambda`。'
       damage-lambda:
         default: 'true'
-        description: '是否在伤害计算时**不**使用 `Lambda`。'
+        description: '是否在计算伤害时**不**使用 `Lambda`。'
     optimized-dragon-respawn:
       default: 'false'
       description: |
@@ -478,7 +478,7 @@ settings:
         指定精确放置协议类型。
         - `NONE` 服务端将会向客户端声明不支持精确放置协议。
         - `CARPET` 服务端将会向客户端声明支持精确放置协议版本 2。
-        - `CARPET_FIX` 服务端将会向客户端声明支持精确放置协议版本 2（但需要客户端安装 [MasaGadget](https://github.com/plusls/MasaGadget) 以支持）。
+        - `CARPET_FIX` 服务端将会向客户端声明支持更好的精确放置协议版本 2（需要客户端安装 [MasaGadget](https://github.com/plusls/MasaGadget)）。
         - `LITEMATICA` 服务端将会向客户端声明支持精确放置协议版本 3。
     xaero-map-protocol:
       default: 'false'
