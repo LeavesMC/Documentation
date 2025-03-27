@@ -250,7 +250,7 @@ settings:
         是否忽略生物生成最高方块高度（[LC 值](https://zh.minecraft.wiki/w/%E7%94%9F%E6%88%90#cite_note-3)）。
         
         ::: warning
-        截止至本条文档更新时（Leaves-1.21.4-21），此功能暂时失效。
+        截止至本条文档更新时（Leaves-1.21.4-24），此功能暂时失效。
         :::
     disable-packet-limit:
       default: 'false'
@@ -508,7 +508,15 @@ settings:
         是否开启 [REI](https://github.com/shedaniel/RoughlyEnoughItems) 协议支持。
         
         ::: warning
-        截止至本条文档更新时（Leaves-1.21.4-21），REI协议并未完成，其暂时不会向客户端发送服务端配方信息。基于技术原因，本协议可能很难甚至无法完成，服务端将会给出替代方案。
+        截止至本条文档更新时（Leaves-1.21.4-24），此协议暂时被移除，但配置项保留。
+        :::
+    recipe-send-all:
+      default: 'false'
+      description: |
+        是否向玩家发送全部配方使 REI 可用，变更后玩家重新进入服务器后生效。
+        
+        ::: warning
+        这是一个替代性方案配置，在完整的 REI 协议修复后，此配置项将被移除。
         :::
   misc:
     auto-update:
@@ -602,7 +610,7 @@ settings:
           :::
           
           ::: warning
-          截止至本条文档更新时（Leaves-1.21.4-21），此功能暂时失效。
+          截止至本条文档更新时（Leaves-1.21.4-24），此功能暂时失效。
           :::
       flush-max-threads:
         default: '6'
