@@ -12,11 +12,11 @@ const onlineConfig = {
 };
 
 if (!configPath) {
-  console.error("Error: Please specify a directory or file.");
+  throw new Error("Please specify a directory or file.");
 }
 
 if (!onlineConfig.hasOwnProperty(software)) {
-  console.error("Error: Unknown software.");
+  throw new Error("Unknown software.");
 }
 
 async function downloadConfig(type) {
@@ -123,7 +123,7 @@ async function updateConfig(files, baseConfig) {
         console.log(`Updated: ${filePath}`);
       } catch (error) {
         console.error(`Failed to update the configuration file: ${filePath}`);
-        console.error(error.stack || error.message);
+        throw new Error(error.stack || error.message);
       }
     })
   );
@@ -137,7 +137,7 @@ try {
     if (path.extname(configPath) === ".yml") {
       await updateConfig([configPath], baseConfig);
     } else {
-      console.error("Error: This is not a valid configuration file.");
+      throw new Error("This is not a valid configuration file.");
     }
   } else if (stats.isDirectory()) {
     const files = await fs.promises.readdir(configPath);
@@ -146,11 +146,11 @@ try {
       .map((file) => path.join(configPath, file));
 
     if (ymlFiles.length === 0) {
-      console.error("Error: No configuration files found in this directory.");
+      throw new Error("No configuration files found in this directory.");
     }
 
     await updateConfig(ymlFiles, baseConfig);
   }
 } catch (error) {
-  console.error("Error:", error.message);
+  throw new Error(error.message);
 }
