@@ -34,7 +34,19 @@ async function downloadConfig(type) {
 
 function valueHandler(value) {
   if (Array.isArray(value)) {
-    return { default: value, description: "" };
+    const array = value.map((item) =>
+      typeof item === "string" && item.includes(":") ? `'${item}'` : item
+    );
+    return { default: array, description: "" };
+  }
+
+  // Hack
+  if (typeof value === "number" && !value.toString().includes(".")) {
+    return { default: value.toString() + ".0", description: "" };
+  }
+
+  if (typeof value === "bigint") {
+    return { default: value.toString(), description: "" };
   }
 
   if (
@@ -43,6 +55,11 @@ function valueHandler(value) {
   ) {
     return { default: `'${value}'`, description: "" };
   }
+
+  if (typeof value === "string" && value === "") {
+    return { default: `''`, description: "" };
+  }
+
   return { default: String(value), description: "" };
 }
 
@@ -88,7 +105,7 @@ async function updateConfig(files, baseConfig) {
           oldConfig = yaml.parse(existingConfig);
         }
 
-        const config = yaml.parse(baseConfig);
+        const config = yaml.parse(baseConfig, { intAsBigInt: true /* Hack */ });
         const updatedConfig = yaml.stringify(configHandler(config, oldConfig));
 
         await fs.promises.writeFile(filePath, updatedConfig, "utf8");
