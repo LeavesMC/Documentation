@@ -32,12 +32,18 @@ async function downloadConfig(type) {
   return config;
 }
 
-function valueHandler(value) {
+function valueHandler(key = "", value) {
   if (Array.isArray(value)) {
     const array = value.map((item) =>
       typeof item === "string" && item.includes(":") ? `'${item}'` : item
     );
     return { default: array, description: "" };
+  }
+
+  const randomKey = ["xaero-map-server-id"];
+
+  if (randomKey.includes(key)) {
+    return { default: "$random$int", description: "" };
   }
 
   // Hack
@@ -63,13 +69,18 @@ function valueHandler(value) {
   return { default: String(value), description: "" };
 }
 
-function configHandler(obj, oldConfig = null, updated = new WeakSet()) {
+function configHandler(
+  obj,
+  oldConfig = null,
+  updated = new WeakSet(),
+  key = ""
+) {
   if (updated.has(obj)) {
     throw new Error("Circular reference found.");
   }
 
   if (Array.isArray(obj)) {
-    const updatedValue = valueHandler(obj);
+    const updatedValue = valueHandler(key, obj);
     if (oldConfig && oldConfig.description) {
       updatedValue.description = oldConfig.description;
     }
@@ -81,13 +92,13 @@ function configHandler(obj, oldConfig = null, updated = new WeakSet()) {
     const result = {};
     for (const [key, value] of Object.entries(obj)) {
       const oldValue = oldConfig?.[key];
-      result[key] = configHandler(value, oldValue, updated);
+      result[key] = configHandler(value, oldValue, updated, key);
     }
     updated.delete(obj);
     return result;
   }
 
-  const updatedValue = valueHandler(obj);
+  const updatedValue = valueHandler(key, obj);
   if (oldConfig && oldConfig.description) {
     updatedValue.description = oldConfig.description;
   }
