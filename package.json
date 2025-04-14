@@ -2,10 +2,12 @@
   "name": "documentation",
   "version": "1.0.0",
   "description": "Documentation for all projects made by the LeavesMC team.",
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "leaves-config": "node scripts/update-config.js src/config-spec/leaves leaves"
   },
   "author": "LittleChest",
   "license": "MPL-2.0",
@@ -17,6 +19,7 @@
     "@nolebase/vitepress-plugin-enhanced-mark": "2.0.0-rc2",
     "@nolebase/vitepress-plugin-enhanced-readabilities": "1.28.0",
     "@types/node": "^20.12.12",
+    "node-fetch": "^3.3.2",
     "prettier": "3.2.5",
     "vitepress": "1.2.2",
     "vitepress-plugin-nprogress": "^0.0.4"
