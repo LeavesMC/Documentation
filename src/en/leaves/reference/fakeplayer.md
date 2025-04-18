@@ -55,6 +55,13 @@ By default, fake players will be removed when the server shuts down. You can mod
 
 You can also use the command `/bot remove <playerName>` to remove a specific fake player.
 
+## Fake Player Loading/Saving
+Fake players can be manually loaded/saved, which is equivalent to the online/offline operation of a normal player. Before and after saving, all information of the fake player (such as position and dimension) will remain consistent.
+
+You can save a fake player using the command `/bot save <playerName>` and load it using `/bot load <playerName>`.
+
+This feature requires enabling `modify.fakeplayer.manual-save-and-load` in the configuration.
+
 ## Fake Player Actions
 
 Actions are an important part of fake players and allow them to perform various tasks. Currently, fake players have a total of 18 actions.
