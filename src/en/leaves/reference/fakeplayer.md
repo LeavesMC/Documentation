@@ -58,9 +58,9 @@ You can also use the command `/bot remove <playerName>` to remove a specific fak
 ## Fake Player Loading/Saving
 Fake players can be manually loaded/saved, which is equivalent to the online/offline operation of a normal player. Before and after saving, all information of the fake player (such as position and dimension) will remain consistent.
 
-You can save a fake player using the command `/bot save <playerName>` and load it using `/bot load <playerName>`.
+You can save a fake player using the command `/bot save <playerName>` and load a fake player using the command `/bot load <playerName>`.
 
-This feature requires enabling `modify.fakeplayer.manual-save-and-load` in the configuration.
+This feature requires enabling [settings.modify.fakeplayer.manual-save-and-load](https://docs.leavesmc.org/en/leaves/reference/configuration#settings.modify.fakeplayer.manual-save-and-load) in the configuration.
 
 ## Fake Player Actions
 
