@@ -68,7 +68,7 @@ Leaves 提供了类似 Carpet 的假人支持，假人的命令为 `/bot` 。
 
 你可以通过 `/bot save <假人名>` 来保存假人，同时使用 `/bot load <假人名>` 来加载假人
 
-使用此功能需要在配置中开启 [`settings.modify.fakeplayer.manual-save-and-load`](https://docs.leavesmc.org/zh_Hans/leaves/reference/configuration#settings.modify.fakeplayer.manual-save-and-load)
+使用此功能需要在配置中开启 [settings.modify.fakeplayer.manual-save-and-load](https://docs.leavesmc.org/zh_Hans/leaves/reference/configuration#settings.modify.fakeplayer.manual-save-and-load)
 
 ## 假人配置
 
