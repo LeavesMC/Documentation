@@ -475,17 +475,17 @@ settings:
         description: 是否开启 [AppleSkin](https://modrinth.com/mod/appleskin) 协议支持。
       sync-tick-interval:
         default: "20"
-        description: AppleSkin 同步频率（单位：游戏刻）。
+        description: 指定 AppleSkin 同步频率（单位：游戏刻）。
     servux:
       structure-protocol:
         default: "false"
-        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的结构探测支持。
+        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的结构探测协议支持。
       entity-protocol:
         default: "false"
-        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的生物数据支持。
+        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的生物数据协议支持。
       hud-metadata-protocol:
         default: "false"
-        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的世界元数据支持。
+        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的世界元数据协议支持。
       hud-metadata-protocol-share-seed:
         default: "true"
         description: 是否在发送世界元数据时包含世界种子。
@@ -503,14 +503,14 @@ settings:
       description: >
         指定精确放置协议类型。
 
-        - `NONE` 服务端将会向客户端声明不支持精确放置协议。
+        - `NONE` 不支持精确放置协议。
 
-        - `CARPET` 服务端将会向客户端声明支持精确放置协议版本 2。
+        - `CARPET` 精确放置协议版本 2。
 
-        - `CARPET_FIX` 服务端将会向客户端声明支持更好的精确放置协议版本 2（需要客户端安装
+        - `CARPET_FIX` 更好的精确放置协议版本 2（需要客户端安装
         [MasaGadget](https://github.com/plusls/MasaGadget)）。
 
-        - `LITEMATICA` 服务端将会向客户端声明支持精确放置协议版本 3。
+        - `LITEMATICA` 精确放置协议版本 3。
     xaero-map-protocol:
       default: "false"
       description: 是否开启 [Xaero 的世界地图](https://modrinth.com/mod/xaeros-world-map) 协议支持。
@@ -564,9 +564,8 @@ settings:
       download-source:
         default: application
         description: |
-          指定自动更新下载源，可选值：
-          - `application` 将会从 GitHub Releases 下载
-          - `cloud` 将会从剑客云下载
+          指定自动更新下载源。
+          - `application` GitHub Releases
       allow-experimental:
         default: "false"
         description: 是否允许下载实验性版本。
@@ -624,15 +623,15 @@ settings:
         ::: danger
         `LINEAR` 格式是一个极度危险的实验性功能，它可以极大程度压缩存档占用，但根据报告，它很有可能导致存档和玩家数据丢失等问题。
 
-        如果你一定要使用 `LINEAR` 格式，请备份你的存档并使用 `V2` 版本的 `LINEAR`。
+        如果你一定要使用 `LINEAR` 格式，请备份你的存档并使用 Linear [`V2`](#settings.region.linear.version)。
         :::
     linear:
       version:
         default: V2
         description: |
           使用的 Linear 格式版本，这只会影响保存格式，任何版本的 Linear 文件都可以被正常加载。
-          - `V2` 新版本
-          - `V1` 旧版本，此版本已被弃用，请不要使用。
+          - `V2`
+          - `V1` 此版本已被弃用，请不要使用。
       auto-convert-anvil-to-linear:
         default: "false"
         description: |
@@ -668,4 +667,4 @@ settings:
         :::
     vanilla-display-name:
       default: "false"
-      description: 是否将聊天中的玩家名解析为文本组件。
+      description: 是否将聊天中的玩家名解析为[文本组件](https://zh.minecraft.wiki/w/%E6%96%87%E6%9C%AC%E7%BB%84%E4%BB%B6s)。

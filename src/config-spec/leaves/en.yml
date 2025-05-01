@@ -471,86 +471,123 @@ settings:
     appleskin:
       protocol:
         default: "false"
-        description: ""
+        description:
+          Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin)
+          protocol support.
       sync-tick-interval:
         default: "20"
-        description: ""
+        description: Specify AppleSkin synchronization frequency (ticks).
     servux:
       structure-protocol:
         default: "false"
-        description: ""
+        description: Whether to enable [Servux](https://modrinth.com/mod/servux)
+          structure protocol support.
       entity-protocol:
         default: "false"
-        description: ""
+        description:
+          Whether to enable [Servux](https://modrinth.com/mod/servux) entity
+          data protocol support.
       hud-metadata-protocol:
         default: "false"
-        description: ""
+        description:
+          Whether to enable [Servux](https://modrinth.com/mod/servux) world
+          metadata protocol support.
       hud-metadata-protocol-share-seed:
         default: "true"
-        description: ""
+        description: Whether to include the world seed when sending world metadata.
       litematics-protocol:
         default: "false"
         description: ""
     bbor-protocol:
       default: "false"
-      description: Whether to enable [BBOR](https://modrinth.com/mod/bbor) support.
+      description: Whether to enable [BBOR](https://modrinth.com/mod/bbor) protocol support.
     jade-protocol:
       default: "false"
-      description: Whether to enable [Jade](https://modrinth.com/mod/jade) support.
+      description: Whether to enable [Jade](https://modrinth.com/mod/jade) protocol support.
     alternative-block-placement:
       default: NONE
       description: >
-        Specifies the type of precise placement protocol.
+        Specify the accurate placement protocol type.
 
-        - `NONE` No precise placement protocol support.
+        - `NONE` No accurate placement protocol support.
 
-        - `CARPET` Precise placement protocol version 2.
+        - `CARPET` Accurate placement protocol version 2.
 
-        - `CARPET_FIX` Better precise placement protocol version 2 (requires
+        - `CARPET_FIX` Fix accurate placement protocol (requires
         [MasaGadget](https://modrinth.com/mod/masa-gadget)).
 
-        - `LITEMATICA` Precise placement protocol version 3.
+        - `LITEMATICA` Accurate placement protocol version 3.
     xaero-map-protocol:
       default: "false"
       description: Whether to enable [Xaero's World
-        Map](https://modrinth.com/mod/xaeros-world-map) support.
+        Map](https://modrinth.com/mod/xaeros-world-map) protocol support.
     xaero-map-server-id:
       default: $random$int
       description: >
-        Xaero's World Map uses this unique identifier to determine the server.
-
+        Xaero's World Map uses this unique identifier to identify the
+        server. Ensure each server uses a unique identifier.
 
         ::: tip
 
-        This is a random value in **int** range. If you are not sure about the
-        range, you can pick the value generated here.
+        This is a random value within the **int** range. If you are unsure of
+        this range, you can use the randomly generated value here.
 
         :::
     leaves-carpet-support:
       default: "false"
-      description: Whether to enable [Carpet](https://modrinth.com/mod/carpet)
-        support. The client may perceive this protocol to enable more features.
+      description: >
+        Whether to enable [Carpet](https://modrinth.com/mod/carpet) protocol
+        support. The client may be aware of this protocol to enable more
+        Carpet features.
+
+        ::: tip
+
+        Enabling this feature does not mean that the Carpet Mod is installed on
+        the server. It only declares to the client that the server has Carpet
+        installed.
+
+        :::
     lms-paster-protocol:
       default: "false"
-      description: ""
+      description: Whether to enable [Litematica Server
+        Paster](https://github.com/Fallen-Breath/litematica-server-paster)
+        protocol support.
     rei-server-protocol:
       default: "false"
-      description: ""
+      description: >
+        Whether to enable [REI](https://github.com/shedaniel/RoughlyEnoughItems)
+        protocol support.
+
+
+        ::: warning
+
+        As of this document update (Leaves-1.21.4-24), this protocol is
+        temporarily removed, but the configuration item is retained.
+
+        :::
     chat-image-protocol:
       default: "false"
-      description: ""
+      description: |
+        Whether to enable [ChatImage](https://github.com/kitUIN/ChatImage) protocol support.
+
+        ::: tip
+        This feature requires [`settings.fix.vanilla-display-name`](#settings.fix.vanilla-display-name) to be enabled.
+        :::
   misc:
     auto-update:
       enable:
         default: "false"
-        description: Whether to enable automatic updates for Leaves.
+        description: |
+          Whether to enable automatic updates for Leaves.
+
+          ::: tip
+          New Leaves will be installed after the server restarts.
+          :::
       download-source:
         default: application
         description: |
-          Specify the automatic update download source, optional values:
-          - `application` Download from GitHub Releases
-          - `ghproxy` Download from mirror.ghproxy.com
-          - `cloud` Download from Swordsman Cloud
+          Specify the automatic update download source.
+          - `application` GitHub Releases
       allow-experimental:
         default: "false"
         description: Whether to allow the download of experimental versions.
@@ -565,7 +602,8 @@ settings:
         description: Whether to enable extra Yggdrasil authentication service.
       login-protect:
         default: "false"
-        description: Whether to enable login protection, which disallows players with
+        description:
+          Whether to enable login protection, which disallows players with
           the same username but different UUIDs from joining.
       urls:
         default:
@@ -573,14 +611,16 @@ settings:
         description: Specify the Yggdrasil API addresses.
     disable-method-profiler:
       default: "true"
-      description: Whether to disable the method profiler. This may impact debugging
+      description:
+        Whether to disable the method profiler. This may impact debugging
         but does not affect production environments and can improve performance.
     no-chat-sign:
       default: "true"
       description: Whether to disable chat reporting.
     dont-respond-ping-before-start-fully:
       default: "true"
-      description: Whether to **not** respond to client requests before the server is
+      description:
+        Whether to **not** respond to client requests before the server is
         fully started.
     server-lang:
       default: en_us
@@ -593,14 +633,15 @@ settings:
       description: Specify the server name.
     bstats-privacy-mode:
       default: "false"
-      description: Whether to enable bStats privacy mode. When enabled, Leaves will
+      description:
+        Whether to enable bStats privacy mode. When enabled, Leaves will
         stop collecting server version, player count, and Java version.
     force-minecraft-command:
       default: "false"
       description: Whether to force the use of vanilla commands over plugin commands.
     leaves-packet-event:
       default: "true"
-      description: ""
+      description: Whether to enable Leaves packet event. This may reduce performance.
   region:
     format:
       default: ANVIL
@@ -608,30 +649,48 @@ settings:
         Specify the region file format.
         - `ANVIL` Use [Anvil file format](https://minecraft.wiki/w/Anvil_file_format) (.mca)
         - `LINEAR` Use [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear)
+
+        ::: danger
+        `LINEAR` format is an extremely dangerous and experimental feature. It can greatly improve world compression, but according to reports, it is likely to cause problems such as loss of world and player data.
+
+        If you must use the `LINEAR` format, please back up your world and use Linear [`V2`](#settings.region.linear.version).
+        :::
     linear:
       version:
         default: V2
-        description: ""
+        description: >
+          The version of the Linear format used. This only affects the save
+          format, any version of Linear files can be loaded normally.
+
+          - `V2`
+
+          - `V1` This version has been deprecated. Please do not use it.
       auto-convert-anvil-to-linear:
         default: "false"
         description: |
           Automatically converts [Anvil file format](https://minecraft.wiki/w/Anvil_file_format) (.mca) to [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear).
           ::: danger
-          Make sure you have a full backup of the world before turning this option on.
+          Make sure you have a full backup of the world before enabling.
+          :::
+
+          ::: warning
+          As of this document update (Leaves-1.21.4-24), this feature is temporarily disabled.
           :::
       flush-max-threads:
         default: "6"
-        description: Specify the maximum number of threads to use when saving regions.
+        description:
+          Specify the maximum number of threads to use when saving regions.
           Set to `-1` to use all threads.
       flush-delay-ms:
         default: "100"
-        description: ""
+        description: Specify the waiting time after each region is saved.
       use-virtual-thread:
         default: "true"
-        description: ""
+        description: Whether to use virtual threads when saving regions.
       compression-level:
         default: "1"
-        description: Compression level for region files. Should be a number between `1`
+        description:
+          Compression level for region files. Should be a number between `1`
           and `22`.
   fix:
     vanilla-hopper:
@@ -639,8 +698,9 @@ settings:
       description: |
         Use an aggressive approach to restore hoppers to their vanilla behavior.
         ::: warning
-        Enabling this may reduce performance.
+        May reduce performance when enabled.
         :::
     vanilla-display-name:
       default: "false"
-      description: ""
+      description: Whether to parse player names in chat as [Text component
+        format](https://minecraft.wiki/w/Text_component_format).
