@@ -16,10 +16,14 @@ settings:
         description: Maximum number of fake players.
       prefix:
         default: "''"
-        description: Prefix for fake player names. Must comply with Minecraft username rules.
+        description:
+          Prefix for fake player names. Must comply with Minecraft username
+          rules.
       suffix:
         default: "''"
-        description: Suffix for fake player names. Must comply with Minecraft username rules.
+        description:
+          Suffix for fake player names. Must comply with Minecraft username
+          rules.
       regen-amount:
         default: "0.0"
         description: Amount of health fake players regenerate per tick.
@@ -28,10 +32,14 @@ settings:
         description: Whether to always send fake player data to players in the same world.
       resident-fakeplayer:
         default: "false"
-        description: Whether to save fake players on server shutdown and restore them on next startup.
+        description:
+          Whether to save fake players on server shutdown and restore them on
+          next startup.
       open-fakeplayer-inventory:
         default: "false"
-        description: Whether to allow players to press the Use key to open fake player inventories.
+        description:
+          Whether to allow players to press the Use key to open fake player
+          inventories.
       skip-sleep-check:
         default: "false"
         description: Whether to **NOT** count fake players towards the sleep requirement.
@@ -40,7 +48,8 @@ settings:
         description: Whether to allow phantoms to spawn for fake players.
       use-action:
         default: "true"
-        description: Whether to allow fake players to use [actions](fakeplayer#fake-player-actions).
+        description: Whether to allow fake players to use
+          [actions](fakeplayer#fake-player-actions).
       modify-config:
         default: "false"
         description: Whether to allow modifying fake player config.
@@ -49,7 +58,9 @@ settings:
         description: Whether to allow manual saving and loading of fake players.
       cache-skin:
         default: "false"
-        description: Whether to cache fake player skins, cache will only be cleared after restarting the server.
+        description:
+          Whether to cache fake player skins, cache will only be cleared
+          after restarting the server.
       tick-type:
         default: NETWORK
         description: Default entity tick type for fake players.
@@ -194,11 +205,15 @@ settings:
         :::
     force-void-trade:
       default: "false"
-      description: Whether to force enable void trading. Players can void trade after passing through an end gateway, without waiting for chunk unload.
+      description:
+        Whether to force enable void trading. Players can void trade after
+        passing through an end gateway, without waiting for chunk unload.
     mc-technical-survival-mode:
       default: "true"
       description: >
-        Whether to enable technical survival mode. Some Paper changes will be disabled, and these config options will be forcibly overridden (values in config file will be ignored):
+        Whether to enable technical survival mode. Some Paper changes will be
+        disabled, and these config options will be forcibly overridden (values
+        in config file will be ignored):
 
         - paper-global.yml `item-validation.resolve-selectors-in-books: true`
 
@@ -225,7 +240,6 @@ settings:
 
         - paper-world.yml
         `unsupported-settings.fix-invulnerable-end-crystal-exploit: false`
-
 
         - spigot.yml `world-settings.max-tnt-per-tick: 2000`
     return-nether-portal-fix:
@@ -429,7 +443,9 @@ settings:
     bladeren:
       protocol:
         default: "true"
-        description: Whether to enable [Bladeren](https://github.com/LeavesMC/Bladeren) protocol support.
+        description:
+          Whether to enable [Bladeren](https://github.com/LeavesMC/Bladeren)
+          protocol support.
       mspt-sync-protocol:
         default: "false"
         description: Whether to enable MSPT sync.
@@ -439,7 +455,9 @@ settings:
     syncmatica:
       enable:
         default: "false"
-        description: Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica) protocol support.
+        description:
+          Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica)
+          protocol support.
       quota:
         default: "false"
         description: Whether to limit projection file size.
@@ -449,7 +467,9 @@ settings:
     pca:
       pca-sync-protocol:
         default: "false"
-        description: Whether to enable [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition/blob/nyan-work/dev/README_ZH_CN.md) data sync.
+        description: Whether to enable [Plusls Carpet
+          Addition](https://github.com/Nyan-Work/plusls-carpet-addition/blob/nyan-work/dev/README_ZH_CN.md)
+          data sync.
       pca-sync-player-entity:
         default: OPS
         description: |
@@ -462,20 +482,27 @@ settings:
     appleskin:
       protocol:
         default: "false"
-        description: Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin) protocol support.
+        description:
+          Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin)
+          protocol support.
       sync-tick-interval:
         default: "20"
         description: AppleSkin sync interval (ticks).
     servux:
       structure-protocol:
         default: "false"
-        description: Whether to enable [Servux](https://modrinth.com/mod/servux) structure protocol support.
+        description: Whether to enable [Servux](https://modrinth.com/mod/servux)
+          structure protocol support.
       entity-protocol:
         default: "false"
-        description: Whether to enable [Servux](https://modrinth.com/mod/servux) entity data protocol support.
+        description:
+          Whether to enable [Servux](https://modrinth.com/mod/servux) entity
+          data protocol support.
       hud-metadata-protocol:
         default: "false"
-        description: Whether to enable [Servux](https://modrinth.com/mod/servux) world metadata protocol support.
+        description:
+          Whether to enable [Servux](https://modrinth.com/mod/servux) world
+          metadata protocol support.
       hud-metadata-protocol-share-seed:
         default: "true"
         description: Whether to include world seed in world metadata.
@@ -497,38 +524,56 @@ settings:
 
         - `CARPET` accurate placement protocol v2.
 
-        - `CARPET_FIX` Fixed accurate placement protocol (requires [MasaGadget](https://github.com/plusls/MasaGadget) on client).
+        - `CARPET_FIX` Fixed accurate placement protocol (requires
+        [MasaGadget](https://github.com/plusls/MasaGadget) on client).
 
         - `LITEMATICA` Accurate placement protocol v3.
     xaero-map-protocol:
       default: "false"
-      description: Whether to enable [Xaero's World Map](https://modrinth.com/mod/xaeros-world-map) protocol support.
+      description: Whether to enable [Xaero's World
+        Map](https://modrinth.com/mod/xaeros-world-map) protocol support.
     xaero-map-server-id:
       default: $random$int
-      description: |
-        Unique identifier for Xaero's World Map to distinguish servers. Ensure each server uses a unique ID.
+      description: >
+        Unique identifier for Xaero's World Map to distinguish servers. Ensure
+        each server uses a unique ID.
+
 
         ::: tip
-        This is a random value within the **int** range. If unsure, use the generated value here.
+
+        This is a random value within the **int** range. If unsure, use the
+        generated value here.
+
         :::
     leaves-carpet-support:
       default: "false"
-      description: |
-        Whether to enable [Carpet](https://modrinth.com/mod/carpet) protocol support. Clients may detect this protocol for more Carpet features.
+      description: >
+        Whether to enable [Carpet](https://modrinth.com/mod/carpet) protocol
+        support. Clients may detect this protocol for more Carpet features.
 
         ::: tip
-        Enabling this does **NOT** mean Carpet Mod is installed on the server; it only announces to clients that Carpet Mod is installed.
+
+        Enabling this does **NOT** mean Carpet Mod is installed on the server;
+        it only announces to clients that Carpet Mod is installed.
+
         :::
     lms-paster-protocol:
       default: "false"
-      description: Whether to enable [Litematica Server Paster](https://github.com/Fallen-Breath/litematica-server-paster) protocol support.
+      description: Whether to enable [Litematica Server
+        Paster](https://github.com/Fallen-Breath/litematica-server-paster)
+        protocol support.
     rei-server-protocol:
       default: "false"
-      description: |
-        Whether to enable [Roughly Enough Items](https://github.com/shedaniel/RoughlyEnoughItems) protocol support.
+      description: >
+        Whether to enable [Roughly Enough
+        Items](https://github.com/shedaniel/RoughlyEnoughItems) protocol
+        support.
 
         ::: warning
-        As of this document update (Leaves-1.21.4-24), this protocol is temporarily removed.
+
+        As of this document update (Leaves-1.21.4-24), this protocol is
+        temporarily removed.
+
         :::
     chat-image-protocol:
       default: "false"
@@ -567,20 +612,26 @@ settings:
         description: Whether to enable extra Yggdrasil authentication servers.
       login-protect:
         default: "false"
-        description: Whether to enable login protection, disallowing players with same username but different UUIDs.
+        description:
+          Whether to enable login protection, disallowing players with same
+          username but different UUIDs.
       urls:
         default:
           - "'https://url.with.authlib-injector-yggdrasil'"
         description: Yggdrasil API URLs.
     disable-method-profiler:
       default: "true"
-      description: Whether to disable method profiler. May affect server debugging, but not production. Disabling can improve performance.
+      description:
+        Whether to disable method profiler. May affect server debugging,
+        but not production. Disabling can improve performance.
     no-chat-sign:
       default: "true"
       description: Whether to disable chat reporting.
     dont-respond-ping-before-start-fully:
       default: "true"
-      description: Whether to **NOT** respond to client requests before server is fully started.
+      description:
+        Whether to **NOT** respond to client requests before server is
+        fully started.
     server-lang:
       default: en_us
       description: |
@@ -592,7 +643,9 @@ settings:
       description: Server name.
     bstats-privacy-mode:
       default: "false"
-      description: Whether to enable bStats privacy mode. Leaves will stop collecting server version, player count, Java version, etc.
+      description:
+        Whether to enable bStats privacy mode. Leaves will stop collecting
+        server version, player count, Java version, etc.
     force-minecraft-command:
       default: "false"
       description: Whether to force the use of vanilla commands over plugin commands.
@@ -615,9 +668,12 @@ settings:
     linear:
       version:
         default: V2
-        description: |
-          Linear format version. Only affects save format; any version can be loaded.
+        description: >
+          Linear format version. Only affects save format; any version can be
+          loaded.
+
           - `V2`
+
           - `V1` Deprecated, **DO NOT** use.
       auto-convert-anvil-to-linear:
         default: "false"
@@ -642,7 +698,9 @@ settings:
         description: Whether to use virtual threads when saving regions.
       compression-level:
         default: "1"
-        description: Compression level for region files. Should be a number between `1` and `22`.
+        description:
+          Compression level for region files. Should be a number between `1`
+          and `22`.
   fix:
     vanilla-hopper:
       default: "false"

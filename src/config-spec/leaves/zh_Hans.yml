@@ -537,11 +537,14 @@ settings:
         Paster](https://github.com/Fallen-Breath/litematica-server-paster) 协议支持。
     rei-server-protocol:
       default: "false"
-      description: |
-        是否开启 [Roughly Enough Items](https://github.com/shedaniel/RoughlyEnoughItems) 协议支持。
+      description: >
+        是否开启 [Roughly Enough
+        Items](https://github.com/shedaniel/RoughlyEnoughItems) 协议支持。
 
         ::: warning
+
         截止至本条文档更新时（Leaves-1.21.4-24），此协议暂时被移除。
+
         :::
     chat-image-protocol:
       default: "false"
