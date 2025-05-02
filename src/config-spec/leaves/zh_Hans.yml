@@ -181,7 +181,7 @@ settings:
         :::
     force-void-trade:
       default: "false"
-      description: 是否强制开启虚空交易。玩家穿过折跃门即视为虚空交易，无需等待区块卸载。
+      description: 是否强制开启虚空交易。玩家穿过折跃门后就可以进行虚空交易，无需等待区块卸载。
     mc-technical-survival-mode:
       default: "true"
       description: >
@@ -236,7 +236,7 @@ settings:
       description: 是否禁用使用物品时的距离检测。
     no-feather-falling-trample:
       default: "false"
-      description: 是否在靴子拥有[摔落缓冲](https://zh.minecraft.wiki/w/%E6%91%94%E8%90%BD%E7%BC%93%E5%86%B2)魔咒时不会导致耕地被踩坏为泥土。
+      description: 是否在靴子拥有摔落缓冲魔咒时不会导致耕地被退化为泥土。
     shared-villager-discounts:
       default: "false"
       description: 是否允许多个玩家玩家共享同一村民折扣。
@@ -463,8 +463,8 @@ settings:
       pca-sync-player-entity:
         default: OPS
         description: |
-          指定哪些玩家将可以进行 [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition/blob/nyan-work/dev/README_ZH_CN.md) 的数据同步。
-          - `NOBODY` 所有玩家的数据都无法进行同步。
+          指定哪些玩家可以同步 [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition/blob/nyan-work/dev/README_ZH_CN.md) 的数据。
+          - `NOBODY` 所有玩家的数据都无法同步。
           - `BOT` 只有假人的数据可以被同步到客户端。
           - `OPS` 假人的数据可以被同步到客户端，OP 可以同步所有玩家的数据。
           - `OPS_AND_SELF` 玩家可以同步假人的数据，OP 可以同步所有玩家的数据，每个玩家可以同步自己的数据。

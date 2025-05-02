@@ -43,16 +43,16 @@ settings:
         description: Whether to allow fake players to use [actions](fakeplayer#fake-player-actions).
       modify-config:
         default: "false"
-        description: Whether to allow modifying [fake player config](fakeplayer#假人配置).
+        description: Whether to allow modifying fake player config.
       manual-save-and-load:
         default: "false"
-        description: ""
+        description: Whether to allow manual saving and loading of fake players.
       cache-skin:
         default: "false"
-        description: ""
+        description: Whether to cache fake player skins, cache will only be cleared after restarting the server.
       tick-type:
         default: NETWORK
-        description: ""
+        description: Default entity tick type for fake players.
     minecraft-old:
       block-updater:
         instant-block-updater-reintroduced:
@@ -88,8 +88,7 @@ settings:
           1 tick.
       zero-tick-plants:
         default: "false"
-        description: Whether to allow [Zero-tick plant
-          farms](https://minecraft.wiki/w/Tutorials/Zero-ticking#Zero-tick_plant_farms).
+        description: Whether to allow [zero-tick plant growth](https://minecraft.wiki/w/Tutorials/Zero-ticking#Zero-tick_plant_farms).
       rng-fishing:
         default: "false"
         description: Whether to allow cracking the fishing random generator.
@@ -195,15 +194,11 @@ settings:
         :::
     force-void-trade:
       default: "false"
-      description: Whether to force enable void trading. Players passing through the
-        end gateway are considered void trading, without waiting for the chunk
-        to unload.
+      description: Whether to force enable void trading. Players can void trade after passing through an end gateway, without waiting for chunk unload.
     mc-technical-survival-mode:
       default: "true"
       description: >
-        Whether to enable the technical survival mode. When enabled, some Paper
-        modifications will be disabled, these configuration items will be
-        forcibly overwritten and ignore the values ​​in the configuration file:
+        Whether to enable technical survival mode. Some Paper changes will be disabled, and these config options will be forcibly overridden (values in config file will be ignored):
 
         - paper-global.yml `item-validation.resolve-selectors-in-books: true`
 
@@ -220,7 +215,6 @@ settings:
 
         - paper-global.yml `unsupported-settings.allow-grindstone-overstacking:
         true`
-
 
         - paper-world.yml `chunks.delay-chunk-unloads-by: 0`
 
@@ -261,8 +255,7 @@ settings:
       description: Whether to disable the distance check when using an item.
     no-feather-falling-trample:
       default: "false"
-      description: Whether to prevent farmland from degrading when the boots have the
-        Feather Falling enchantment.
+      description: Whether farmland will **NOT** degrade to dirt when boots with Feather Falling enchantment.
     shared-villager-discounts:
       default: "false"
       description: Whether to allow multiple players to share the same villager discount.
@@ -343,14 +336,13 @@ settings:
     renewable-coral:
       default: "'FALSE'"
       description: |
-        Whether to allow using bone meal to grow coral plants.
-        - `FALSE` Do not allow using bone meal to grow coral plants.
-        - `TRUE` Allow using bone meal to grow coral.
-        - `EXPANDED` Allow using bone meal to grow coral and coral fans.
+        Whether to allow bonemeal to grow coral plants.
+        - `FALSE` Bonemeal cannot grow coral.
+        - `TRUE` Bonemeal can grow coral.
+        - `EXPANDED` Bonemeal can grow coral and coral fans.
     fast-resume:
       default: "false"
-      description: Whether to save chunk loading data when the server shuts down and
-        load it the next time it starts.
+      description: Whether to save chunk load data on shutdown and restore on next startup.
     force-peaceful-mode-switch:
       tick:
         default: "-1"
@@ -432,24 +424,22 @@ settings:
       description: ""
     fix-villagers-dont-release-memory:
       default: "false"
-      description: ""
+      description: Whether to fix villagers not releasing memory.
   protocol:
     bladeren:
       protocol:
         default: "true"
-        description: Whether to enable [Bladeren](https://github.com/LeavesMC/Bladeren)
-          protocol support.
+        description: Whether to enable [Bladeren](https://github.com/LeavesMC/Bladeren) protocol support.
       mspt-sync-protocol:
         default: "false"
-        description: Whether to enable MSPT synchronization.
+        description: Whether to enable MSPT sync.
       mspt-sync-tick-interval:
         default: "20"
-        description: MSPT synchronization frequency (ticks).
+        description: MSPT sync interval (ticks).
     syncmatica:
       enable:
         default: "false"
-        description: Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica)
-          protocol support.
+        description: Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica) protocol support.
       quota:
         default: "false"
         description: Whether to limit projection file size.
@@ -459,34 +449,33 @@ settings:
     pca:
       pca-sync-protocol:
         default: "false"
-        description: ""
+        description: Whether to enable [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition/blob/nyan-work/dev/README_ZH_CN.md) data sync.
       pca-sync-player-entity:
         default: OPS
-        description: ""
+        description: |
+          Which players can sync [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition/blob/nyan-work/dev/README_ZH_CN.md) data.
+          - `NOBODY` No player data can be synced.
+          - `BOT` Only fake player data can be synced to client.
+          - `OPS` Fake player data can be synced to client, OPs can sync all player data.
+          - `OPS_AND_SELF` Players can sync fake player data, OPs can sync all player data, each player can sync their own data.
+          - `EVERYONE` All player data can be synced to everyone.
     appleskin:
       protocol:
         default: "false"
-        description:
-          Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin)
-          protocol support.
+        description: Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin) protocol support.
       sync-tick-interval:
         default: "20"
-        description: Specify AppleSkin synchronization frequency (ticks).
+        description: AppleSkin sync interval (ticks).
     servux:
       structure-protocol:
         default: "false"
-        description: Whether to enable [Servux](https://modrinth.com/mod/servux)
-          structure protocol support.
+        description: Whether to enable [Servux](https://modrinth.com/mod/servux) structure protocol support.
       entity-protocol:
         default: "false"
-        description:
-          Whether to enable [Servux](https://modrinth.com/mod/servux) entity
-          data protocol support.
+        description: Whether to enable [Servux](https://modrinth.com/mod/servux) entity data protocol support.
       hud-metadata-protocol:
         default: "false"
-        description:
-          Whether to enable [Servux](https://modrinth.com/mod/servux) world
-          metadata protocol support.
+        description: Whether to enable [Servux](https://modrinth.com/mod/servux) world metadata protocol support.
       hud-metadata-protocol-share-seed:
         default: "true"
         description: Whether to include world seed in world metadata.
@@ -633,7 +622,7 @@ settings:
       auto-convert-anvil-to-linear:
         default: "false"
         description: |
-          Automatically convert [Anvil file format](https://zh.minecraft.wiki/w/%E5%8C%BA%E5%9F%9F%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F) (.mca) to [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear).
+          Automatically convert [Anvil file format](https://minecraft.wiki/w/Anvil_file_format) (.mca) to [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear).
 
           ::: danger
           Back up your world before enabling this option.
