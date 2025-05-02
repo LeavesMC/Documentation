@@ -267,7 +267,7 @@ settings:
         值](https://zh.minecraft.wiki/w/%E7%94%9F%E6%88%90#cite_note-3)）。
 
         ::: warning
-        截止至本条文档更新时（1.21.4），此功能暂时失效。
+        截止至本条文档更新时（1.21.4-34），此功能暂时失效。
         :::
     disable-packet-limit:
       default: "false"
@@ -543,7 +543,7 @@ settings:
 
         ::: warning
 
-        截止至本条文档更新时（Leaves-1.21.4-24），此协议暂时被移除。
+        截止至本条文档更新时（1.21.4-34），此协议暂时被移除。
 
         :::
     chat-image-protocol:
@@ -645,7 +645,7 @@ settings:
           :::
 
           ::: warning
-          截止至本条文档更新时（Leaves-1.21.4-24），此功能暂时失效。
+          截止至本条文档更新时（1.21.4-34），此功能暂时失效。
           :::
       flush-max-threads:
         default: "6"

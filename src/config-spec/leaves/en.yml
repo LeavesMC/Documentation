@@ -282,21 +282,28 @@ settings:
     creative-no-clip:
       default: "false"
       description: |
-        Whether to disable the collision box when flying in creative mode.
+        Whether to disable collision while flying in creative mode.
+
         ::: tip
-        This feature requires enabling [`settings.protocol.leaves-carpet-support`](#settings.protocol.leaves-carpet-support).
+        Requires [`settings.protocol.leaves-carpet-support`](#settings.protocol.leaves-carpet-support) enabled and Carpet Mod installed on client.
         :::
     shave-snow-layers:
       default: "true"
-      description: Whether to reduce the snow layers instead of dropping snowballs
-        when using a shovel to break snow.
+      description: Whether to allow shovels to remove snow layers and drop snowballs.
     ignore-lc:
       default: "false"
-      description: Whether to allow mobs to ignore the highest block height (lc value)
-        for spawning.
+      description: >
+        Whether to ignore the highest block for mob spawning.
+
+        ::: warning
+
+        As of this document update (1.21.4-34), this feature is temporarily
+        nonfunctional.
+
+        :::
     disable-packet-limit:
       default: "false"
-      description: Whether to disable the packet limit.
+      description: Whether to disable packet rate limiting.
     lava-riptide:
       default: "false"
       description: |
@@ -571,7 +578,7 @@ settings:
 
         ::: warning
 
-        As of this document update (Leaves-1.21.4-24), this protocol is
+        As of this document update (1.21.4-34), this protocol is
         temporarily removed.
 
         :::
@@ -685,7 +692,7 @@ settings:
           :::
 
           ::: warning
-          As of this document update (Leaves-1.21.4-24), this feature is temporarily nonfunctional.
+          As of this document update (1.21.4-34), this feature is temporarily nonfunctional.
           :::
       flush-max-threads:
         default: "6"
