@@ -31,7 +31,7 @@ settings:
         description: 是否在服务器关闭时保存假人并在下次开启服务器时恢复。
       open-fakeplayer-inventory:
         default: "false"
-        description: 是否允许玩家右键打开假人背包。
+        description: 是否允许玩家按下使用键打开假人背包。
       skip-sleep-check:
         default: "false"
         description: 是否**不**将假人计入需要睡眠的人数。
@@ -158,7 +158,7 @@ settings:
       description: 是否阻止旁观者取得进度。
     stick-change-armorstand-arm-status:
       default: "true"
-      description: 是否允许玩家像基岩版一样，在潜行状态下通过右键对盔甲架使用木棍切换盔甲架手臂的显示状态。
+      description: 是否允许玩家在潜行状态下手持木棍对盔甲架按下使用键切换盔甲架手臂的显示状态。
     snowball-and-egg-can-knockback-player:
       default: "true"
       description: 是否允许鸡蛋和雪球击退玩家。
@@ -538,10 +538,10 @@ settings:
     rei-server-protocol:
       default: "false"
       description: |
-        是否开启 [REI](https://github.com/shedaniel/RoughlyEnoughItems) 协议支持。
+        是否开启 [Roughly Enough Items](https://github.com/shedaniel/RoughlyEnoughItems) 协议支持。
 
         ::: warning
-        截止至本条文档更新时（Leaves-1.21.4-24），此协议暂时被移除，但配置项保留。
+        截止至本条文档更新时（Leaves-1.21.4-24），此协议暂时被移除。
         :::
     chat-image-protocol:
       default: "false"
@@ -577,7 +577,7 @@ settings:
     extra-yggdrasil-service:
       enable:
         default: "false"
-        description: 是否开启额外的 Yggdrasil （登录）验证服务器。
+        description: 是否开启额外的 Yggdrasil 验证服务器。
       login-protect:
         default: "false"
         description: 是否开启登录保护，开启后将不允许用户名相同而 UUID 不同的玩家加入服务器。
@@ -617,8 +617,8 @@ settings:
       default: ANVIL
       description: |
         指定区域文件格式。
-        - `ANVIL` 使用 [Anvil 文件格式](https://zh.minecraft.wiki/w/%E5%8C%BA%E5%9F%9F%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F)（.mca）
-        - `LINEAR` 使用 [Linear 文件格式](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools)（.linear）
+        - `ANVIL` [Anvil 文件格式](https://zh.minecraft.wiki/w/%E5%8C%BA%E5%9F%9F%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F)（.mca）
+        - `LINEAR` [Linear 文件格式](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools)（.linear）
 
         ::: danger
         `LINEAR` 格式是一个极度危险的实验性功能，它可以极大程度压缩存档占用，但根据报告，它很有可能导致存档和玩家数据丢失等问题。

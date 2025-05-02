@@ -1,54 +1,49 @@
 config-version:
   default: "6"
-  description: Leaves configuration file version. DO NOT modify!
+  description: Leaves config file version. **DO NOT** modify!
 settings:
   modify:
     fakeplayer:
       enable:
         default: "true"
-        description: Whether to enable fake player functionality.
+        description: Whether to enable fake player features.
       unable-fakeplayer-names:
         default:
           - player-name
         description: List of names that fake players are not allowed to use.
       limit:
         default: "10"
-        description: Specify the maximum number of fake players.
+        description: Maximum number of fake players.
       prefix:
         default: "''"
-        description: Specify the prefix for fake player names. Must comply with
-          Minecraft username rules.
+        description: Prefix for fake player names. Must comply with Minecraft username rules.
       suffix:
         default: "''"
-        description: Specify the suffix for fake player names. Must comply with
-          Minecraft username rules.
+        description: Suffix for fake player names. Must comply with Minecraft username rules.
       regen-amount:
         default: "0.0"
-        description: The amount of health that fake players regenerate per tick.
+        description: Amount of health fake players regenerate per tick.
       always-send-data:
         default: "true"
         description: Whether to always send fake player data to players in the same world.
       resident-fakeplayer:
         default: "false"
-        description: Whether to save fake players when the server shuts down and restore
-          them when the server restarts.
+        description: Whether to save fake players on server shutdown and restore them on next startup.
       open-fakeplayer-inventory:
         default: "false"
-        description: Whether to allow players to press use on to open fake player inventory.
+        description: Whether to allow players to press the Use key to open fake player inventories.
       skip-sleep-check:
         default: "false"
-        description: Whether to **not** count fake players in the sleep number.
+        description: Whether to **NOT** count fake players towards the sleep requirement.
       spawn-phantom:
         default: "false"
-        description: Whether to allow fake players to spawn phantoms.
+        description: Whether to allow phantoms to spawn for fake players.
       use-action:
         default: "true"
-        description: Whether or not the fake player is allowed to use the
-          [action](fakeplayer#fake-player-actions).
+        description: Whether to allow fake players to use [actions](fakeplayer#fake-player-actions).
       modify-config:
         default: "false"
-        description: Whether to allow the `/bot` command to modify the fake player
-          configuration.
+        description: Whether to allow modifying [fake player config](fakeplayer#假人配置).
       manual-save-and-load:
         default: "false"
         description: ""
@@ -443,7 +438,7 @@ settings:
       protocol:
         default: "true"
         description: Whether to enable [Bladeren](https://github.com/LeavesMC/Bladeren)
-          support.
+          protocol support.
       mspt-sync-protocol:
         default: "false"
         description: Whether to enable MSPT synchronization.
@@ -454,7 +449,7 @@ settings:
       enable:
         default: "false"
         description: Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica)
-          support.
+          protocol support.
       quota:
         default: "false"
         description: Whether to limit projection file size.
@@ -494,7 +489,7 @@ settings:
           metadata protocol support.
       hud-metadata-protocol-share-seed:
         default: "true"
-        description: Whether to include the world seed when sending world metadata.
+        description: Whether to include world seed in world metadata.
       litematics-protocol:
         default: "false"
         description: ""
@@ -507,63 +502,44 @@ settings:
     alternative-block-placement:
       default: NONE
       description: >
-        Specify the accurate placement protocol type.
+        Specify accurate placement protocol type.
 
-        - `NONE` No accurate placement protocol support.
+        - `NONE` No accurate placement protocol.
 
-        - `CARPET` Accurate placement protocol version 2.
+        - `CARPET` accurate placement protocol v2.
 
-        - `CARPET_FIX` Fix accurate placement protocol (requires
-        [MasaGadget](https://modrinth.com/mod/masa-gadget)).
+        - `CARPET_FIX` Fixed accurate placement protocol (requires [MasaGadget](https://github.com/plusls/MasaGadget) on client).
 
-        - `LITEMATICA` Accurate placement protocol version 3.
+        - `LITEMATICA` Accurate placement protocol v3.
     xaero-map-protocol:
       default: "false"
-      description: Whether to enable [Xaero's World
-        Map](https://modrinth.com/mod/xaeros-world-map) protocol support.
+      description: Whether to enable [Xaero's World Map](https://modrinth.com/mod/xaeros-world-map) protocol support.
     xaero-map-server-id:
       default: $random$int
-      description: >
-        Xaero's World Map uses this unique identifier to identify the
-        server. Ensure each server uses a unique identifier.
+      description: |
+        Unique identifier for Xaero's World Map to distinguish servers. Ensure each server uses a unique ID.
 
         ::: tip
-
-        This is a random value within the **int** range. If you are unsure of
-        this range, you can use the randomly generated value here.
-
+        This is a random value within the **int** range. If unsure, use the generated value here.
         :::
     leaves-carpet-support:
       default: "false"
-      description: >
-        Whether to enable [Carpet](https://modrinth.com/mod/carpet) protocol
-        support. The client may be aware of this protocol to enable more
-        Carpet features.
+      description: |
+        Whether to enable [Carpet](https://modrinth.com/mod/carpet) protocol support. Clients may detect this protocol for more Carpet features.
 
         ::: tip
-
-        Enabling this feature does not mean that the Carpet Mod is installed on
-        the server. It only declares to the client that the server has Carpet
-        installed.
-
+        Enabling this does **NOT** mean Carpet Mod is installed on the server; it only announces to clients that Carpet Mod is installed.
         :::
     lms-paster-protocol:
       default: "false"
-      description: Whether to enable [Litematica Server
-        Paster](https://github.com/Fallen-Breath/litematica-server-paster)
-        protocol support.
+      description: Whether to enable [Litematica Server Paster](https://github.com/Fallen-Breath/litematica-server-paster) protocol support.
     rei-server-protocol:
       default: "false"
-      description: >
-        Whether to enable [REI](https://github.com/shedaniel/RoughlyEnoughItems)
-        protocol support.
-
+      description: |
+        Whether to enable [Roughly Enough Items](https://github.com/shedaniel/RoughlyEnoughItems) protocol support.
 
         ::: warning
-
-        As of this document update (Leaves-1.21.4-24), this protocol is
-        temporarily removed, but the configuration item is retained.
-
+        As of this document update (Leaves-1.21.4-24), this protocol is temporarily removed.
         :::
     chat-image-protocol:
       default: "false"
@@ -571,132 +547,119 @@ settings:
         Whether to enable [ChatImage](https://github.com/kitUIN/ChatImage) protocol support.
 
         ::: tip
-        This feature requires [`settings.fix.vanilla-display-name`](#settings.fix.vanilla-display-name) to be enabled.
+        Requires [`settings.fix.vanilla-display-name`](#settings.fix.vanilla-display-name) enabled.
         :::
   misc:
     auto-update:
       enable:
         default: "false"
         description: |
-          Whether to enable automatic updates for Leaves.
+          Whether to enable Leaves auto-update.
 
           ::: tip
-          New Leaves will be installed after the server restarts.
+          New Leaves will be installed after server restart.
           :::
       download-source:
         default: application
         description: |
-          Specify the automatic update download source.
+          Auto-update download source.
           - `application` GitHub Releases
       allow-experimental:
         default: "false"
-        description: Whether to allow the download of experimental versions.
+        description: Whether to allow downloading experimental versions.
       time:
         default:
           - "'14:00'"
           - "'2:00'"
-        description: Time points for automatic updates of Leaves.
+        description: "Times for Leaves auto-update (format: HH:mm)."
     extra-yggdrasil-service:
       enable:
         default: "false"
-        description: Whether to enable extra Yggdrasil authentication service.
+        description: Whether to enable extra Yggdrasil authentication servers.
       login-protect:
         default: "false"
-        description:
-          Whether to enable login protection, which disallows players with
-          the same username but different UUIDs from joining.
+        description: Whether to enable login protection, disallowing players with same username but different UUIDs.
       urls:
         default:
           - "'https://url.with.authlib-injector-yggdrasil'"
-        description: Specify the Yggdrasil API addresses.
+        description: Yggdrasil API URLs.
     disable-method-profiler:
       default: "true"
-      description:
-        Whether to disable the method profiler. This may impact debugging
-        but does not affect production environments and can improve performance.
+      description: Whether to disable method profiler. May affect server debugging, but not production. Disabling can improve performance.
     no-chat-sign:
       default: "true"
       description: Whether to disable chat reporting.
     dont-respond-ping-before-start-fully:
       default: "true"
-      description:
-        Whether to **not** respond to client requests before the server is
-        fully started.
+      description: Whether to **NOT** respond to client requests before server is fully started.
     server-lang:
       default: en_us
       description: |
-        Specify the server language.
+        Server language.
         - `en_us` English (US)
         - `zh_cn` Simplified Chinese (China)
     server-mod-name:
       default: Leaves
-      description: Specify the server name.
+      description: Server name.
     bstats-privacy-mode:
       default: "false"
-      description:
-        Whether to enable bStats privacy mode. When enabled, Leaves will
-        stop collecting server version, player count, and Java version.
+      description: Whether to enable bStats privacy mode. Leaves will stop collecting server version, player count, Java version, etc.
     force-minecraft-command:
       default: "false"
       description: Whether to force the use of vanilla commands over plugin commands.
     leaves-packet-event:
       default: "true"
-      description: Whether to enable Leaves packet event. This may reduce performance.
+      description: Whether to enable Leaves packet event. May reduce server performance.
   region:
     format:
       default: ANVIL
       description: |
-        Specify the region file format.
-        - `ANVIL` Use [Anvil file format](https://minecraft.wiki/w/Anvil_file_format) (.mca)
-        - `LINEAR` Use [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear)
+        Region file format.
+        - `ANVIL` [Anvil file format](https://minecraft.wiki/w/Anvil_file_format) (.mca)
+        - `LINEAR` [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear)
 
         ::: danger
-        `LINEAR` format is an extremely dangerous and experimental feature. It can greatly improve world compression, but according to reports, it is likely to cause problems such as loss of world and player data.
+        `LINEAR` is a highly experimental and dangerous feature. It can greatly reduce world size, but according to reports, it is likely to cause problems such as loss of world and player data.
 
-        If you must use the `LINEAR` format, please back up your world and use Linear [`V2`](#settings.region.linear.version).
+        If you must use `LINEAR`, back up your world and use Linear [`V2`](#settings.region.linear.version).
         :::
     linear:
       version:
         default: V2
-        description: >
-          The version of the Linear format used. This only affects the save
-          format, any version of Linear files can be loaded normally.
-
+        description: |
+          Linear format version. Only affects save format; any version can be loaded.
           - `V2`
-
-          - `V1` This version has been deprecated. Please do not use it.
+          - `V1` Deprecated, **DO NOT** use.
       auto-convert-anvil-to-linear:
         default: "false"
         description: |
-          Automatically converts [Anvil file format](https://minecraft.wiki/w/Anvil_file_format) (.mca) to [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear).
+          Automatically convert [Anvil file format](https://zh.minecraft.wiki/w/%E5%8C%BA%E5%9F%9F%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F) (.mca) to [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear).
+
           ::: danger
-          Make sure you have a full backup of the world before enabling.
+          Back up your world before enabling this option.
           :::
 
           ::: warning
-          As of this document update (Leaves-1.21.4-24), this feature is temporarily disabled.
+          As of this document update (Leaves-1.21.4-24), this feature is temporarily nonfunctional.
           :::
       flush-max-threads:
         default: "6"
-        description:
-          Specify the maximum number of threads to use when saving regions.
-          Set to `-1` to use all threads.
+        description: Maximum threads for saving regions. Set to `-1` to use all threads.
       flush-delay-ms:
         default: "100"
-        description: Specify the waiting time after each region is saved.
+        description: Delay after saving each region (ms).
       use-virtual-thread:
         default: "true"
         description: Whether to use virtual threads when saving regions.
       compression-level:
         default: "1"
-        description:
-          Compression level for region files. Should be a number between `1`
-          and `22`.
+        description: Compression level for region files. Should be a number between `1` and `22`.
   fix:
     vanilla-hopper:
       default: "false"
       description: |
-        Use an aggressive approach to restore hoppers to their vanilla behavior.
+        Aggressively restore hoppers to vanilla behavior.
+
         ::: warning
         May reduce performance when enabled.
         :::
