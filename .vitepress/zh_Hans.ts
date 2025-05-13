@@ -99,14 +99,6 @@ function sidebarLeaves(): DefaultTheme.SidebarItem[] {
             { text: '假人', link: 'fakeplayer' },
           ],
         },
-        {
-          text: '进阶',
-          collapsed: false,
-          base: '/zh_Hans/leaves/advanced/',
-          items: [
-            { text: 'MCDReforged', link: 'mcdreforged' },
-          ],
-        },
       ],
     },
   ]

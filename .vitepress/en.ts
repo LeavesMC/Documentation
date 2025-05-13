@@ -82,16 +82,5 @@ function sidebarLeaves(): DefaultTheme.SidebarItem[] {
         },
       ],
     },
-    {
-      text: 'Advanced',
-      collapsed: false,
-      base: '/en/leaves/advanced/',
-      items: [
-        {
-          text: 'MCDReforged',
-          link: 'mcdreforged',
-        },
-      ],
-    },
   ]
 }
