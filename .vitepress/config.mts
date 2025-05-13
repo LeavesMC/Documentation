@@ -28,7 +28,7 @@ export default defineConfigWithTheme({
   ],
 
   locales: {
-    en: { label: 'English', ...en },
+    en: { label: '[WIP] English', ...en },
     zh_Hans: { label: '简体中文', ...zh_Hans },
   },
 
