@@ -25,7 +25,7 @@ settings:
         description: 假人每游戏刻恢复的生命值。
       always-send-data:
         default: "true"
-        description: 是否一直向位于相同世界的玩家发送假人数据。
+        description: 是否一直向与假人处于同一维度的玩家发送该假人的数据。
       resident-fakeplayer:
         default: "false"
         description: 是否在服务器关闭时保存假人并在下次开启服务器时恢复。
@@ -57,24 +57,39 @@ settings:
       block-updater:
         instant-block-updater-reintroduced:
           default: "false"
-          description: 是否重新引入 1.19 前的瞬时方块更新机制。
+          description: |
+            是否重新引入 1.19 前的瞬时方块更新机制。
+            
+            ::: tip
+            此功能常被用于制造粉版瞬时更新循环抑制器。
+            :::
         cce-update-suppression:
           default: "false"
           description: |
             是否允许利用 ClassCastException 进行更新抑制。
 
             ::: tip
-            有关更详细的说明，请参阅[关于强转抑制器的笔记](https://www.bilibili.com/read/cv24323749/)。
+            有关此功能更详细的说明，请参阅[关于强转抑制器的笔记](https://www.bilibili.com/read/cv24323749/)。
             :::
         sound-update-suppression:
           default: "false"
-          description: 是否允许使用声音抑制器。
+          description: |
+            是否允许利用 IllegalArgumentException 进行更新抑制。
+
+            ::: tip
+            有关此功能更详细的说明，请参阅[【MC】新的更新抑制器：声音抑制 [1.19~1.21]【Igna778】](https://www.bilibili.com/video/BV1Fx4y1s7jW/)。
+            :::
         redstone-ignore-upwards-update:
           default: "false"
-          description: 是否在活板门开启时阻止它四周的红石线连接活板门上侧的红石线，并允许红石粉、红石中继器、红石比较器忽略来自下方的更新。
+          description: 是否在活板门开启时阻止它四周的红石线连接活板门上侧的红石线，并允许红石粉、红石中继器、红石比较器忽略来自下方的状态更新。
         old-block-remove-behaviour:
           default: "false"
-          description: ""
+          description: |
+            是否重新引入 1.21 版本前的方块实体相关行为。这将允许方块被破坏后保留其方块实体，进行方块实体替换等操作。
+            
+            ::: tip
+            有关此功能更详细的说明，请参阅[【JKM】方块实体替换 [1.17.1]](https://www.bilibili.com/video/BV1B8411W7Di/)。
+            :::
       shears-in-dispenser-can-zero-amount:
         default: "false"
         description: 是否允许剪刀在发射器内被使用到负耐久且不会损坏。
@@ -83,16 +98,16 @@ settings:
         description: 是否**不**允许由非玩家生物发射的弹射物破坏盔甲架。
       villager-infinite-discounts:
         default: "false"
-        description: 是否允许村民被多次感染并治愈时，所提供的折扣翻倍。
+        description: 是否重新引入 1.20.2 版本前的机制：村民被多次感染并治愈时，所提供的折扣翻倍。
       copper-bulb-1gt-delay:
         default: "false"
-        description: 是否使铜灯在红石信号变化时延迟 1 游戏刻之后切换状态。
+        description: 是否重新引入 23w46a 版本前的机制：铜灯在红石信号变化时延迟 1 游戏刻之后切换状态。
       crafter-1gt-delay:
         default: "false"
-        description: 是否将合成器输出物品的最高频率改为 1 游戏刻。
+        description: 是否重新引入 23w42a 版本前的机制：合成器输出物品的频率为1游戏刻。
       zero-tick-plants:
         default: "false"
-        description: 是否允许[零刻作物催熟技术](https://zh.minecraft.wiki/w/Tutorial:%E9%9B%B6%E5%88%BB%E4%BD%9C%E7%89%A9%E5%82%AC%E7%86%9F%E6%8A%80%E6%9C%AF)。
+        description: 是否重新引入 1.5 版本前的[零刻作物催熟技术](https://zh.minecraft.wiki/w/Tutorial:%E9%9B%B6%E5%88%BB%E4%BD%9C%E7%89%A9%E5%82%AC%E7%86%9F%E6%8A%80%E6%9C%AF)。
       rng-fishing:
         default: "false"
         description: 是否允许破解钓鱼随机发生器。
