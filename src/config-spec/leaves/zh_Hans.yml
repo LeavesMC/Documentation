@@ -95,10 +95,10 @@ settings:
             :::
       shears-in-dispenser-can-zero-amount:
         default: "false"
-        description: 是否允许剪刀在发射器内被使用到负耐久且不会损坏。
+        description: 是否重新引入 18w44a 版本前的机制：发射器可以将剪刀使用至负耐久度。
       armor-stand-cant-kill-by-mob-projectile:
         default: "false"
-        description: 是否**不**允许由非玩家生物发射的弹射物破坏盔甲架。
+        description: 是否禁用 1.20.2 版本引入的伤害标签 `#always_kills_armor_stands`。这将仅允许由玩家造成的伤害摧毁盔甲架。
       villager-infinite-discounts:
         default: "false"
         description: 是否重新引入 1.20.2 版本前的机制：村民被多次感染并治愈时，所提供的折扣翻倍。
