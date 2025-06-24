@@ -556,7 +556,7 @@ settings:
         description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的世界元数据协议支持。
       hud-metadata-protocol-share-seed:
         default: "true"
-        description: 是否在发送世界元数据时包含世界种子，这允许MiniHud在不使用/seed指令的情况下设置世界种子。
+        description: 是否在发送世界元数据时包含世界种子。
       litematics-protocol:
         default: "false"
         description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的投影粘贴协议支持。
@@ -630,6 +630,7 @@ settings:
         description: |
           指定自动更新下载源。
           - `application` GitHub Releases
+          - `rainyun` 由【雨云】提供的镜像源
       allow-experimental:
         default: "false"
         description: 是否允许下载实验性版本。
