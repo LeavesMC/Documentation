@@ -675,7 +675,7 @@ settings:
       description: 是否令插件命令不覆盖原版指令。
     leaves-packet-event:
       default: "true"
-      description: 是否启用 Leaves 提供的 packet 事件系统。这可能影响到服务器性能。
+      description: 是否启用 Leaves 提供的发包事件系统。这可能影响到服务器性能。
   region:
     format:
       default: ANVIL
