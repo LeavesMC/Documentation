@@ -83,8 +83,8 @@ settings:
           default: "false"
           description: |
             是否重新引入
-            - 1.20版本前的机制：红石粉不会连接四周开启的活板门上的红石粉。
-            - 1.20.2版本前的机制：红石粉、红石中继器和红石比较器收到来自下侧的PP更新时不检查附着。
+            - 1.20 版本前的机制：红石粉不会连接四周开启的活板门上的红石粉。
+            - 1.20.2 版本前的机制：红石粉、红石中继器和红石比较器收到来自下侧的PP更新时不检查附着。
         old-block-remove-behaviour:
           default: "false"
           description: |
@@ -152,7 +152,7 @@ settings:
         description: 是否重新引入 1.21.5 版本前的机制：下界传送门的传送范围相当于一个完整的方块。
       old-zombie-piglin-drop:
         default: "false"
-        description: 是否重新引入 1.21.5 版本前的机制：处于发怒状态的僵尸猪灵被任何因素杀死都会掉落经验和稀有掉落物。。
+        description: 是否重新引入 1.21.5 版本前的机制：处于发怒状态的僵尸猪灵被任何因素杀死都会掉落经验和稀有掉落物。
       revert-raid-changes:
         allow-bad-omen-trigger-raid:
           default: "false"
@@ -162,10 +162,10 @@ settings:
           description: 是否重新引入 1.21 版本前的机制：在袭击外击败袭击队长时给予玩家不祥之兆。
         use-old-find-spawn-position:
           default: "false"
-          description: 是否重新引入 1.21.2 版本前的袭击生成逻辑：袭击会在开始前尝试生成3次，尝试生成的范围与生成次数相关联。
+          description: 是否重新引入 1.21.2 版本前的袭击生成逻辑：袭击会在开始前尝试生成 3 次，尝试生成的范围与生成次数相关联。
         skip-height-check:
           default: "false"
-          description: 是否禁用 1.21.2 版本引入的袭击生成高度检查：灾厄巡逻队如果不能在目标村庄中心垂直96格内找到可生成位置，则袭击不会开始。
+          description: 是否禁用 1.21.2 版本引入的袭击生成高度检查：灾厄巡逻队如果不能在目标村庄中心垂直 96 格内找到可生成位置，则袭击不会开始。
       old-zombie-reinforcement:
         default: "false"
         description: 是否重新引入 1.21.2 版本前的机制：当僵尸村民、尸壳、溺尸或僵尸猪灵被伤害时，它们生成普通僵尸增援。
@@ -630,7 +630,6 @@ settings:
         description: |
           指定自动更新下载源。
           - `application` GitHub Releases
-          - `rainyun` 由【雨云】提供的镜像源
       allow-experimental:
         default: "false"
         description: 是否允许下载实验性版本。
