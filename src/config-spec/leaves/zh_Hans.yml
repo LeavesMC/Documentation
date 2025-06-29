@@ -719,7 +719,7 @@ settings:
         :::
     vanilla-display-name:
       default: "false"
-      description: 是否将聊天中的玩家名解析为 [文本组件](https://zh.minecraft.wiki/w/%E6%96%87%E6%9C%AC%E7%BB%84%E4%BB%B6s)，这会影响到玩家名改变颜色等功能。
+      description: 是否将聊天中的玩家名解析为 [文本组件](https://zh.minecraft.wiki/w/%E6%96%87%E6%9C%AC%E7%BB%84%E4%BB%B6)，这会影响到玩家名改变颜色等功能。
     collision-behavior:
       default: BLOCK_SHAPE_VANILLA
       description: |
