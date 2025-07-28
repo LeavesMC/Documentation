@@ -10,7 +10,7 @@ Leaves 尽力与所有 CraftBukkit、Spigot 或 Paper 插件兼容，但一些�
 
 ### ViaVersion
 
-ViaVersion 只翻译原版游戏数据包，而不会处理模组数据包。这会导致模组协议版本跨度过大无法正确解析。
+ViaVersion 只翻译原版协议，而不会处理模组协议。这会导致模组协议版本跨度过大无法正确解析。
 
 ::: tip
 
