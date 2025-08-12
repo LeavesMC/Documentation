@@ -198,6 +198,14 @@ settings:
       disable-item-damage-check:
         default: "false"
         description: 禁用[物品修复](https://zh.minecraft.wiki/w/%E7%89%A9%E5%93%81%E4%BF%AE%E5%A4%8D)的耐久度检查。
+      old-throwable-projectile-tick-order:
+        default: "false"
+        description: |
+          是否恢复 1.21.4 前的投掷物残留刻复制行为。
+
+          ::: tip
+          有关残留刻的更详细的说明，请参阅 [【MC】这也能复制？！](https://www.bilibili.com/video/BV1Pr421M7tj/)
+          :::
     elytra-aeronautics:
       no-chunk-load:
         default: "false"
