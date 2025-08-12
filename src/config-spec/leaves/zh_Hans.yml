@@ -195,6 +195,9 @@ settings:
       void-trade:
         default: "false"
         description: 是否重新引入 1.21.4 版本前的机制：村民离开交互范围时，村民交易窗口不关闭。
+      disable-item-damage-check:
+        default: "false"
+        description: 禁用[物品修复](https://zh.minecraft.wiki/w/%E7%89%A9%E5%93%81%E4%BF%AE%E5%A4%8D)的耐久度检查。
     elytra-aeronautics:
       no-chunk-load:
         default: "false"
