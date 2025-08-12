@@ -206,6 +206,18 @@ settings:
           ::: tip
           有关残留刻的更详细的说明，请参阅 [【MC】这也能复制？！](https://www.bilibili.com/video/BV1Pr421M7tj/)
           :::
+      keep-leash-connect-when-use-firework:
+        default: "false"
+        description: 拴绳不会在使用烟花火箭加速时断开。
+      tnt-wet-explosion-no-item-damage:
+        default: "false"
+        description: 是否恢复 1.21.2-1.21.5 中 TNT 接触到水但爆炸中心不处于水中时，可以破坏方块但不会炸毁掉落物实体的特性。
+      old-projectile-explosion-behavior:
+        default: "false"
+        description: 是否恢复 1.21.4 对箭矢蓄能的修复。
+      ender-dragon-part-can-use-end-portal:
+        default: "false"
+        description: 是否恢复 1.21 前末影龙部件可穿过末地门的特性。
     elytra-aeronautics:
       no-chunk-load:
         default: "false"
