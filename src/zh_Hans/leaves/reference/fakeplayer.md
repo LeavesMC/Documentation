@@ -152,13 +152,21 @@ Leaves 提供了类似 Carpet 的假人支持，假人的命令为 `/bot` 。
 - **默认值**: `20`
 - **描述**: 执行成功后等待的时间，单位为 tick。
 
+::: tip
+
+此处与Carpet假人的使用周期不同，Carpet的`使用周期=使用时间+等待时间`，而这里仅仅是等待时间。
+对于简单的1tick执行完毕的动作（放置方块等），`使用周期=使用时间+1`，所以对于大部分的基于carpet设计的机器，`周期-1`即为等待时间。
+但对于需要多tick执行完毕的操作（食用食物等），则需要自行计算使用时间
+
+:::
+
 #### DoNumber
 
 - **类型**: `整数`
 - **默认值**: `-1`
 - **描述**: 可以成功执行操作的总次数，如为 `-1` 则为无限。
 
-#### UseTick
+#### UseTickTimeout
 
 - **类型**: `整数`
 - **默认值**: `-1`
@@ -233,7 +241,7 @@ Leaves 提供了类似 Carpet 的假人支持，假人的命令为 `/bot` 。
 ### 模拟右键动作
 
 - **动作名**: `use_auto`
-- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTick]`
+- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTickTimeout]`
 - **描述**: 假人将尝试模拟客户端右键进行使用物品。
 
 ::: danger
@@ -245,7 +253,7 @@ Leaves 提供了类似 Carpet 的假人支持，假人的命令为 `/bot` 。
 ### 物品使用动作
 
 - **动作名**: `use`
-- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTick]`
+- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTickTimeout]`
 - **描述**: 假人将尝试使用主手物品，此动作将不会尝试对方块或实体使用物品。
 
 ::: tip
@@ -257,7 +265,7 @@ Leaves 提供了类似 Carpet 的假人支持，假人的命令为 `/bot` 。
 ### 副手物品使用动作
 
 - **动作名**: `use_offhand`
-- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTick]`
+- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTickTimeout]`
 - **描述**: 假人将尝试使用副手物品，此动作将不会尝试对方块或实体使用物品。
 
 ::: tip
@@ -269,7 +277,7 @@ Leaves 提供了类似 Carpet 的假人支持，假人的命令为 `/bot` 。
 ### 对方块使用物品动作
 
 - **动作名**: `use_on`
-- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTick]`
+- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTickTimeout]`
 - **描述**: 假人将尝试对视线前方的方块使用主手物品。
 
 ::: tip
@@ -288,7 +296,7 @@ Leaves 提供了类似 Carpet 的假人支持，假人的命令为 `/bot` 。
 ### 对方块使用副手物品动作
 
 - **动作名**: `use_on_offhand`
-- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTick]`
+- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTickTimeout]`
 - **描述**: 假人将尝试对视线前方的方块使用副手物品。
 
 ::: tip
@@ -307,7 +315,7 @@ Leaves 提供了类似 Carpet 的假人支持，假人的命令为 `/bot` 。
 ### 对实体使用物品动作
 
 - **动作名**: `use_to`
-- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTick]`
+- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTickTimeout]`
 - **描述**: 假人将尝试对视线前方的实体使用主手物品。
 
 ::: tip
@@ -319,7 +327,7 @@ Leaves 提供了类似 Carpet 的假人支持，假人的命令为 `/bot` 。
 ### 对实体使用副手物品动作
 
 - **动作名**: `use_to_offhand`
-- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTick]`
+- **动作参数**: `[TickDelay] [TickInterval] [DoNumber] [UseTickTimeout]`
 - **描述**: 假人将尝试对视线前方的实体使用副手物品。
 
 ::: tip
