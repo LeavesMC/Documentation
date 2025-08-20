@@ -46,7 +46,7 @@ settings:
         description: 是否允许修改[假人配置](fakeplayer#假人配置)。
       manual-save-and-load:
         default: "false"
-        description: 是否允许[手动保存和加载假人](fakeplayer#假人加载/保存)
+        description: 是否允许[手动保存和加载假人](fakeplayer#假人加载-保存)
       cache-skin:
         default: "false"
         description: 是否缓存假人皮肤，缓存只会在重启服务器后失效。
