@@ -2,222 +2,81 @@ config-version:
   default: "6"
   description: Leaves 配置文件版本号。请勿修改！
 settings:
-  modify:
-    fakeplayer:
+  misc:
+    auto-update:
       enable:
-        default: "true"
-        description: 是否开启假人相关功能。
-      unable-fakeplayer-names:
+        default: "false"
+        description: |
+          是否开启 Leaves 自动更新。
+
+          ::: tip
+          新的 Leaves 更新将在服务器重新启动后安装。
+          :::
+      download-source:
+        default: application
+        description: |
+          指定自动更新下载源。
+          - `application` GitHub Releases
+      allow-experimental:
+        default: "false"
+        description: |
+          是否允许下载实验性版本
+      time:
         default:
-          - player-name
-        description: 禁止假人使用的名称列表。
-      limit:
-        default: "10"
-        description: 指定假人的最大数量。
-      prefix:
-        default: "''"
-        description: 指定假人名称前缀。需要符合 Minecraft 用户名规范。
-      suffix:
-        default: "''"
-        description: 指定假人名称后缀。需要符合 Minecraft 用户名规范。
-      regen-amount:
-        default: "0.0"
-        description: 假人每游戏刻恢复的生命值。
-      always-send-data:
-        default: "true"
-        description: 是否一直向与假人处于同一维度的玩家发送该假人的数据。
-      resident-fakeplayer:
+          - "'14:00'"
+          - "'2:00'"
+        description: Leaves 自动更新的时间点（格式：HH:mm）。
+    extra-yggdrasil-service:
+      enable:
         default: "false"
-        description: 是否在服务器关闭时保存假人并在下次开启服务器时恢复。
-      open-fakeplayer-inventory:
+        description: 是否开启额外的 Yggdrasil 验证服务器。
+      login-protect:
         default: "false"
-        description: 是否允许玩家按下使用键打开假人背包。
-      skip-sleep-check:
-        default: "false"
-        description: 是否**不**将假人计入需要睡眠的人数。
-      spawn-phantom:
-        default: "false"
-        description: 是否允许假人生成幻翼。
-      use-action:
-        default: "true"
-        description: 是否允许假人使用[动作](fakeplayer#假人动作)。
-      modify-config:
-        default: "false"
-        description: 是否允许修改[假人配置](fakeplayer#假人配置)。
-      manual-save-and-load:
-        default: "false"
-        description: 是否允许[手动保存和加载假人](fakeplayer#假人加载-保存)
-      cache-skin:
-        default: "false"
-        description: 是否缓存假人皮肤，缓存只会在重启服务器后失效。
-      tick-type:
-        default: NETWORK
-        description: 假人的默认[实体刻类型](fakeplayer#实体刻类型)
-    minecraft-old:
-      block-updater:
-        instant-block-updater-reintroduced:
-          default: "false"
-          description: |
-            是否重新引入 1.19 版本前的瞬时方块更新机制。
+        description: 是否开启登录保护，开启后将不允许用户名相同而 UUID 不同的玩家加入服务器。
+      urls:
+        default:
+          - "'https://url.with.authlib-injector-yggdrasil'"
+        description: 指定 Yggdrasil API 地址
 
-            ::: tip
-            有关此功能更详细的说明，请参阅 [【我的世界】瞬时科技相关介绍](https://www.bilibili.com/opus/805572243920781426/)。
-            :::
-        cce-update-suppression:
-          default: "false"
-          description: |
-            是否允许利用 ClassCastException 进行更新抑制。
+    disable-method-profiler:
+      default: "true"
+      description: |
+        是否禁用方法检查器。这可能对服务端调试造成影响，但不影响实际生产环境。关闭后可以部分提升服务端性能。
 
-            ::: tip
-            有关此功能更详细的说明，请参阅 [关于强转抑制器的笔记](https://www.bilibili.com/read/cv24323749/)。
-            :::
-        sound-update-suppression:
-          default: "false"
-          description: |
-            是否允许利用 IllegalArgumentException 进行更新抑制。
+    no-chat-sign: 
+      default: "true"
+      description: |
+        是否禁用聊天举报。
+    dont-respond-ping-before-start-fully: 
+      default: "true"
+      description: |
+        在服务器完全启动前是否**不**响应客户端请求。
+    server-lang: 
+      default: "en_us"
+      description: |
+        指定服务器语言。
+    server-mod-name: 
+      default: "Leaves"
+      description: |
+        指定服务器名称。
+    bstats-privacy-mode: 
+      default: "false"
+      description: |
+        是否开启 bStats 隐私模式。开启后，Leaves 将停止收集服务端版本、游玩人数、Java 版本等用户信息。
 
-            ::: tip
-            有关此功能更详细的说明，请参阅 [【MC】新的更新抑制器：声音抑制 [1.19~1.21]【Igna778】](https://www.bilibili.com/video/BV1Fx4y1s7jW/)。
-            :::
-        redstone-ignore-upwards-update:
-          default: "false"
-          description: |
-            是否重新引入
-            - 1.20 版本前的机制：红石粉不会连接四周开启的活板门上的红石粉。
-            - 1.20.2 版本前的机制：红石粉、红石中继器和红石比较器收到来自下侧的状态更新时不检查附着。
-        old-block-remove-behaviour:
-          default: "false"
-          description: |
-            是否重新引入 1.21 版本前的方块实体相关行为。这将允许方块被破坏后保留其方块实体，进行方块实体替换等操作。
-            
-            ::: tip
-            有关此功能更详细的说明，请参阅 [【JKM】方块实体替换 [1.17.1]](https://www.bilibili.com/video/BV1B8411W7Di/)。
-            :::
-      shears-in-dispenser-can-zero-amount:
-        default: "false"
-        description: 是否重新引入 18w44a 版本前的机制：发射器可以将剪刀使用至负耐久度。
-      armor-stand-cant-kill-by-mob-projectile:
-        default: "false"
-        description: 是否禁用 1.20.2 版本引入的伤害标签 `#always_kills_armor_stands`。这将仅允许由玩家造成的伤害摧毁盔甲架。
-      villager-infinite-discounts:
-        default: "false"
-        description: 是否重新引入 1.20.2 版本前的机制：村民被多次感染并治愈时，所提供的折扣翻倍。
-      copper-bulb-1gt-delay:
-        default: "false"
-        description: 是否重新引入 23w46a 版本前的机制：铜灯在红石信号变化时延迟 1 游戏刻之后切换状态。
-      crafter-1gt-delay:
-        default: "false"
-        description: 是否重新引入 23w42a 版本前的机制：合成器输出物品的频率为 1 游戏刻。
-      zero-tick-plants:
-        default: "false"
-        description: 是否重新引入 1.5 版本前的 [零刻作物催熟技术](https://zh.minecraft.wiki/w/Tutorial:%E9%9B%B6%E5%88%BB%E4%BD%9C%E7%89%A9%E5%82%AC%E7%86%9F%E6%8A%80%E6%9C%AF)。
-      rng-fishing:
-        default: "false"
-        description: 是否重新引入 1.20 版本前的机制：利用 RNG 操作战利品表。这将允许破解钓鱼随机发生器。
-      allow-grindstone-overstacking:
-        default: "false"
-        description: |
-          是否重新引入 1.20.5 版本前的机制：使用砂轮能将诅咒附魔书堆叠。
-
-          ::: tip
-          比较器检测容器中的物品数量时，会将堆叠后的诅咒附魔书视作为2组物品。关于此功能的更详细解释和作用请参阅 [【Minecraft|「容器与运输」补充材料】容器通式与强模信号](https://www.bilibili.com/opus/405973919576060533/)。
-          :::
-      allow-entity-portal-with-passenger:
-        default: "true"
-        description: 是否允许带有乘客的实体穿过传送门。关闭后，实体穿过传送门的逻辑将恢复至 1.21 版本前。
-      disable-gateway-portal-entity-ticking:
-        default: "false"
-        description: 是否禁用 1.21 版本引入的机制：实体穿过折跃门时，折跃门方块可以加载区块。
-      disable-LivingEntity-ai-step-alive-check:
-        default: "false"
-        description: |
-          是否禁用 LivingEntity 中 Aistep 的存活检查。
-
-          ::: tip
-          有关此功能更详细的说明，请参阅 [[MC] 鹦鹉复制！活体克隆技术大突破！](https://www.bilibili.com/video/BV1aZ421W7t3/)。
-          :::
-      spawn-invulnerable-time:
-        default: "false"
-        description: 是否重新引入 1.21.4 版本前的机制：允许玩家在进入游戏后的几秒内免疫伤害。
-      old-hopper-suck-in-behavior:
-        default: "false"
-        description: |
-          是否重新引入 1.20.5 版本前的机制：漏斗上方有碰撞箱完整的方块时，仍然会检测物品实体。
-
-          ::: warning
-          开启后可能会降低性能。
-          :::
-      old-nether-portal-collision:
-        default: "false"
-        description: 是否重新引入 1.21.5 版本前的机制：下界传送门的传送范围相当于一个完整的方块。
-      old-zombie-piglin-drop:
-        default: "false"
-        description: 是否重新引入 1.21.5 版本前的机制：处于发怒状态的僵尸猪灵被任何因素杀死都会掉落经验和稀有掉落物。
-      revert-raid-changes:
-        allow-bad-omen-trigger-raid:
-          default: "false"
-          description: 是否重新引入 1.21 版本前的机制：拥有不祥之兆效果的玩家进入村庄后会直接触发袭击。
-        give-bad-omen-when-kill-patrol-leader:
-          default: "false"
-          description: 是否重新引入 1.21 版本前的机制：在袭击外击败袭击队长时给予玩家不祥之兆。
-        use-old-find-spawn-position:
-          default: "false"
-          description: 是否重新引入 1.21.2 版本前的袭击生成逻辑：袭击会在开始前尝试生成 3 次，尝试生成的范围与生成次数相关联。
-        skip-height-check:
-          default: "false"
-          description: 是否禁用 1.21.2 版本引入的袭击生成高度检查：灾厄巡逻队如果不能在目标村庄中心垂直 96 格内找到可生成位置，则袭击不会开始。
-      old-zombie-reinforcement:
-        default: "false"
-        description: 是否重新引入 1.21.2 版本前的机制：当僵尸村民、尸壳、溺尸或僵尸猪灵被伤害时，它们生成普通僵尸增援。
-      allow-anvil-destroy-item-entities:
-        default: "false"
-        description: 是否重新引入 1.20 版本前的机制：下落的铁砧能摧毁地上的物品实体。
-      tripwire-and-hook-behavior:
-        string-tripwire-hook-duplicate:
-          default: "false"
-          description: |
-            是否重新引入 1.21.2 版本前的常亮绊线和绊线复制技术。
-
-            ::: tip
-            有关此功能更详细的说明，请参阅 [这玩意儿啾竟怎么刷的？刷线机原理探讨 - 含手动刷线机和【百万】无人刷线机](https://www.bilibili.com/opus/704820587404460071/)。
-            :::
-        tripwire-behavior:
-          default: VANILLA_21
-          description: |
-            指定末地黑曜石平台与常亮绊线之间的互动行为。
-            - `VANILLA_21` 使用 1.21 版本后的机制：常亮绊线无法阻止平台生成，平台会使被其替代的方块掉落。
-            - `VANILLA_20` 使用 1.21 版本前的机制：常亮绊线可以阻止平台生成，被平台替代的方块不会掉落。
-            - `MIXED` 使用复合机制：常亮绊线可以阻止平台生成，平台会使被其替代的方块掉落。
-
-            ::: tip
-            有关此功能更详细的说明，请参阅 [【MC】1.13-1.19.3+使用常亮绊线删除黑曜石平台【enbyd】](https://www.bilibili.com/video/BV1zM411x7Zq/)。
-            :::
-      void-trade:
-        default: "false"
-        description: 是否重新引入 1.21.4 版本前的机制：村民离开交互范围时，村民交易窗口不关闭。
-      disable-item-damage-check:
-        default: "false"
-        description: 禁用[物品修复](https://zh.minecraft.wiki/w/%E7%89%A9%E5%93%81%E4%BF%AE%E5%A4%8D)的耐久度检查。
-      old-throwable-projectile-tick-order:
-        default: "false"
-        description: |
-          是否恢复 1.21.4 前的投掷物残留刻复制行为。
-
-          ::: tip
-          有关残留刻的更详细的说明，请参阅 [【MC】这也能复制？！](https://www.bilibili.com/video/BV1Pr421M7tj/)
-          :::
-      keep-leash-connect-when-use-firework:
-        default: "false"
-        description: 拴绳不会在使用烟花火箭加速时断开。
-      tnt-wet-explosion-no-item-damage:
-        default: "false"
-        description: 是否恢复 1.21.2-1.21.5 中 TNT 接触到水但爆炸中心不处于水中时，可以破坏方块但不会炸毁掉落物实体的特性。
-      old-projectile-explosion-behavior:
-        default: "false"
-        description: 是否恢复 1.21.4 对箭矢蓄能的修复。
-      ender-dragon-part-can-use-end-portal:
-        default: "false"
-        description: 是否恢复 1.21 前末影龙部件可穿过末地门的特性。
+    force-minecraft-command: 
+      default: "false"
+      description: |
+        是否令使插件命令**不**覆盖原版指令。
+    leaves-packet-event: 
+      default: "true"
+      description: |
+        是否启用 Leaves 提供的发包事件系统。这可能影响到服务器性能。
+    chat-command-max-length: 
+      default: "32767"
+      description: |
+        玩家可发送的命令最大长度。
+  modify:
     elytra-aeronautics:
       no-chunk-load:
         default: "false"
@@ -240,9 +99,9 @@ settings:
     redstone-shears-wrench:
       default: "true"
       description: 是否允许玩家使用剪刀调整部分红石元件方块朝向，并且不会产生更新。
-    budding-amethyst-can-push-by-piston:
+    movable-budding-amethyst: 
       default: "false"
-      description: 是否允许活塞推动紫水晶母岩。
+      description: idk。
     spectator-dont-get-advancement:
       default: "false"
       description: 是否阻止旁观者模式下的玩家获取进度。
@@ -261,7 +120,8 @@ settings:
     renewable-elytra:
       default: "-1.0"
       description: 当潜影贝击杀幻翼时掉落破损的鞘翅的概率。设置为 `-1.0` 以禁用此功能。
-    stackable-shulker-boxes:
+    shulker-box:
+      stackable-shulker-boxes:
       default: "'false'"
       description: |
         指定空潜影盒的最大堆叠数量。应填写 `1` - `64` 之间的数字，设置为 `false` 以禁用此功能。
@@ -270,6 +130,10 @@ settings:
         ::: tip
         空潜影盒在作为掉落物进行合并和被玩家捡起时自动堆叠，如果玩家安装了支持堆叠潜影盒的模组也可以在背包内手动堆叠。为了不破坏机器，空潜影盒不会在漏斗内被堆叠，并且堆叠的空潜影盒会在漏斗运行时被分开。
         :::
+      same-nbt-stackable: 
+        default: "false"
+        description: |
+          是否允许潜影盒具有相同的 NBT 数据被堆叠。
     force-void-trade:
       default: "false"
       description: 是否允许玩家强制进行虚空交易。开启后，将重新引入 1.21.4 版本前的机制：村民离开交互范围时，村民交易窗口不关闭。同时玩家在通过折跃门后，无需等待区块卸载，即可进行虚空交易。
@@ -396,11 +260,18 @@ settings:
     bow-infinity-fix:
       default: "false"
       description: 是否允许生存模式下的玩家在物品栏中无箭矢时仍可使用拥有无限魔咒的弓。
-    hopper-counter:
-      default: "false"
-      description: 是否启用类似 Carpet
-        的 [漏斗计数器](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#hoppercounters) 与对应的命令 `/leaves
-        counter`。
+    counter:
+      enable:
+        default: "false"
+        description: 是否启用类似 Carpet
+          的 [漏斗计数器](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#hoppercounters) 与对应的命令 `/leaves
+          counter`。
+      unlimited-speed: 
+        default: "false"
+        description: |
+          是否开启漏斗计数器的无限速模式。
+          开启后，漏斗计数器将不再限制每游戏刻只能处理 20 个物品（大概吧）。
+
     spider-jockeys-drop-gapples:
       default: "-1.0"
       description: 当蜘蛛骑士死亡时掉落附魔金苹果的概率。设置为 `-1.0` 以禁用此功能。
@@ -418,17 +289,6 @@ settings:
         - `FALSE` 不允许使用骨粉催熟珊瑚类植物。
         - `TRUE` 允许使用骨粉催熟珊瑚。
         - `EXPANDED` 允许使用骨粉催熟珊瑚和珊瑚扇。
-    force-peaceful-mode-switch:
-      tick:
-        default: "-1"
-        description: 指定强制伪和平检测的频率（游戏刻）。设置为 `-1` 以禁用此功能。
-      types:
-        default:
-          - BLAZE
-          - WITHER
-          - SHULKER
-          - WARDEN
-        description: 指定强制伪和平检测的实体列表。
     disable-vault-blacklist:
       default: "false"
       description: 是否禁用宝库黑名单系统。这将使得所有玩家可以无限次打开同一个宝库。
@@ -439,14 +299,269 @@ settings:
         - `FAST` 允许所有模式下的玩家快速吸取经验球。
         - `FAST_CREATIVE` 仅允许创造模式玩家快速吸取经验球。
         - `VANILLA` 使用原版吸取速度，即玩家无法快速吸取经验球。
+
+
+
+    fakeplayer:
+      enable:
+        default: "true"
+        description: 是否开启假人相关功能。
+      unable-fakeplayer-names:
+        default:
+          - player-name
+        description: 禁止假人使用的名称列表。
+      limit:
+        default: "10"
+        description: 指定假人的最大数量。
+      prefix:
+        default: "''"
+        description: 指定假人名称前缀，如`Bot_`。需要符合 Minecraft 用户名规范。
+      suffix:
+        default: "''"
+        description: 指定假人名称后缀。需要符合 Minecraft 用户名规范。
+      regen-amount:
+        default: "0.0"
+        description: 假人每游戏刻恢复的生命值。
+      resident-fakeplayer:
+        default: "false"
+        description: 是否在服务器关闭时保存假人并在下次开启服务器时恢复。
+      open-fakeplayer-inventory:
+        default: "false"
+        description: 是否允许玩家按下使用键打开假人背包。
+      use-action:
+        default: "true"
+        description: 是否允许假人使用[动作](fakeplayer#假人动作)。
+      modify-config:
+        default: "false"
+        description: 是否允许修改[假人配置](fakeplayer#假人配置)。
+      manual-save-and-load:
+        default: "false"
+        description: 是否允许[手动保存和加载假人](fakeplayer#假人加载-保存)
+      cache-skin:
+        default: "false"
+        description: 是否缓存假人皮肤，缓存只会在重启服务器后失效。
+      in-game:
+        always-send-data:
+          default: "true"
+          description: 是否一直向与假人处于同一维度的玩家发送该假人的数据。
+        skip-sleep-check:
+          default: "false"
+          description: 是否**不**将假人计入需要睡眠的人数。
+        spawn-phantom:
+          default: "false"
+          description: 是否允许假人生成幻翼。
+        tick-type:
+          default: NETWORK
+          description: 假人的默认[实体刻类型](fakeplayer#实体刻类型)
+        simulation-distance:
+          default: "-1"
+          description: 假人的默认可见距离，设置为 `-1` 以使用服务器默认值。
+        enable-locator-bar:
+          default: "false"
+          description: 是否允许假人在玩家的定位栏中显示。
+
+
+
+
+
+
+
+
+
+
+
+
+    minecraft-old:
+      shears-in-dispenser-can-zero-amount:
+        default: "false"
+        description: 是否重新引入 18w44a 版本前的机制：发射器可以将剪刀使用至负耐久度。
+      armor-stand-cant-kill-by-mob-projectile:
+        default: "false"
+        description: 是否禁用 1.20.2 版本引入的伤害标签 `#always_kills_armor_stands`。这将仅允许由玩家造成的伤害摧毁盔甲架。
+      villager-infinite-discounts:
+        default: "false"
+        description: 是否重新引入 1.20.2 版本前的机制：村民被多次感染并治愈时，所提供的折扣翻倍。
+      copper-bulb-1gt-delay:
+        default: "false"
+        description: 是否重新引入 23w46a 版本前的机制：铜灯在红石信号变化时延迟 1 游戏刻之后切换状态。
+      crafter-1gt-delay:
+        default: "false"
+        description: 是否重新引入 23w42a 版本前的机制：合成器输出物品的频率为 1 游戏刻。
+      zero-tick-plants:
+        default: "false"
+        description: 是否重新引入 1.5 版本前的 [零刻作物催熟技术](https://zh.minecraft.wiki/w/Tutorial:%E9%9B%B6%E5%88%BB%E4%BD%9C%E7%89%A9%E5%82%AC%E7%86%9F%E6%8A%80%E6%9C%AF)。
+      rng-fishing:
+        default: "false"
+        description: 是否重新引入 1.20 版本前的机制：利用 RNG 操作战利品表。这将允许破解钓鱼随机发生器。
+      allow-grindstone-overstacking:
+        default: "false"
+        description: |
+          是否重新引入 1.20.5 版本前的机制：使用砂轮能将诅咒附魔书堆叠。
+
+          ::: tip
+          比较器检测容器中的物品数量时，会将堆叠后的诅咒附魔书视作为2组物品。关于此功能的更详细解释和作用请参阅 [【Minecraft|「容器与运输」补充材料】容器通式与强模信号](https://www.bilibili.com/opus/405973919576060533/)。
+          :::
+      allow-entity-portal-with-passenger:
+        default: "true"
+        description: 是否允许带有乘客的实体穿过传送门。关闭后，实体穿过传送门的逻辑将恢复至 1.21 版本前。
+      disable-gateway-portal-entity-ticking:
+        default: "false"
+        description: 是否禁用 1.21 版本引入的机制：实体穿过折跃门时，折跃门方块可以加载区块。
+      disable-LivingEntity-ai-step-alive-check:
+        default: "false"
+        description: |
+          是否禁用 LivingEntity 中 Aistep 的存活检查。
+
+          ::: tip
+          有关此功能更详细的说明，请参阅 [[MC] 鹦鹉复制！活体克隆技术大突破！](https://www.bilibili.com/video/BV1aZ421W7t3/)。
+          :::
+      spawn-invulnerable-time:
+        default: "false"
+        description: 是否重新引入 1.21.4 版本前的机制：允许玩家在进入游戏后的几秒内免疫伤害。
+      old-hopper-suck-in-behavior:
+        default: "false"
+        description: |
+          是否重新引入 1.20.5 版本前的机制：漏斗上方有碰撞箱完整的方块时，仍然会检测物品实体。
+
+
+          ::: warning
+          开启后可能会降低性能。
+          :::
+      old-zombie-piglin-drop:
+        default: "false"
+        description: 是否重新引入 1.21.5 版本前的机制：处于发怒状态的僵尸猪灵被任何因素杀死都会掉落经验和稀有掉落物。
+      revert-raid-changes:
+        allow-bad-omen-trigger-raid:
+          default: "false"
+          description: 是否重新引入 1.21 版本前的机制：拥有不祥之兆效果的玩家进入村庄后会直接触发袭击。
+        give-bad-omen-when-kill-patrol-leader:
+          default: "false"
+          description: 是否重新引入 1.21 版本前的机制：在袭击外击败袭击队长时给予玩家不祥之兆。
+        use-old-find-spawn-position:
+          default: "false"
+          description: 是否重新引入 1.21.2 版本前的袭击生成逻辑：袭击会在开始前尝试生成 3 次，尝试生成的范围与生成次数相关联。
+        skip-height-check:
+          default: "false"
+          description: 是否禁用 1.21.2 版本引入的袭击生成高度检查：灾厄巡逻队如果不能在目标村庄中心垂直 96 格内找到可生成位置，则袭击不会开始。
+      old-zombie-reinforcement:
+        default: "false"
+        description: 是否重新引入 1.21.2 版本前的机制：当僵尸村民、尸壳、溺尸或僵尸猪灵被伤害时，它们生成普通僵尸增援。
+      allow-anvil-destroy-item-entities:
+        default: "false"
+        description: 是否重新引入 1.20 版本前的机制：下落的铁砧能摧毁地上的物品实体。
+      tripwire-and-hook-behavior:
+        string-tripwire-hook-duplicate:
+          default: "false"
+          description: |
+            是否重新引入 1.21.2 版本前的常亮绊线和绊线复制技术。
+
+            ::: tip
+            有关此功能更详细的说明，请参阅 [这玩意儿啾竟怎么刷的？刷线机原理探讨 - 含手动刷线机和【百万】无人刷线机](https://www.bilibili.com/opus/704820587404460071/)。
+            :::
+        tripwire-behavior:
+          default: VANILLA_21
+          description: |
+            指定末地黑曜石平台与常亮绊线之间的互动行为。
+            - `VANILLA_21` 使用 1.21 版本后的机制：常亮绊线无法阻止平台生成，平台会使被其替代的方块掉落。
+            - `VANILLA_20` 使用 1.21 版本前的机制：常亮绊线可以阻止平台生成，被平台替代的方块不会掉落。
+            - `MIXED` 使用复合机制：常亮绊线可以阻止平台生成，平台会使被其替代的方块掉落。
+
+            ::: tip
+            有关此功能更详细的说明，请参阅 [【MC】1.13-1.19.3+使用常亮绊线删除黑曜石平台【enbyd】](https://www.bilibili.com/video/BV1zM411x7Zq/)。
+            :::
+      void-trade:
+        default: "false"
+        description: 是否重新引入 1.21.4 版本前的机制：村民离开交互范围时，村民交易窗口不关闭。
+      disable-item-damage-check:
+        default: "false"
+        description: 禁用[物品修复](https://zh.minecraft.wiki/w/%E7%89%A9%E5%93%81%E4%BF%AE%E5%A4%8D)的耐久度检查。
+      old-throwable-projectile-tick-order:
+        default: "false"
+        description: |
+          是否恢复 1.21.4 前的投掷物残留刻复制行为。
+
+          ::: tip
+          有关残留刻的更详细的说明，请参阅 [【MC】这也能复制？！](https://www.bilibili.com/video/BV1Pr421M7tj/)
+          :::
+      keep-leash-connect-when-use-firework:
+        default: "false"
+        description: 拴绳不会在使用烟花火箭加速时断开。
+      tnt-wet-explosion-no-item-damage:
+        default: "false"
+        description: 是否恢复 1.21.2-1.21.5 中 TNT 接触到水但爆炸中心不处于水中时，可以破坏方块但不会炸毁掉落物实体的特性。
+      old-projectile-explosion-behavior:
+        default: "false"
+        description: 是否恢复 1.21.4 对箭矢蓄能的修复。
+      ender-dragon-part-can-use-end-portal:
+        default: "false"
+        description: 是否恢复 1.21 前末影龙部件可穿过末地门的特性。
+      block-updater:
+        instant-block-updater-reintroduced:
+          default: "false"
+          description: |
+            是否重新引入 1.19 版本前的瞬时方块更新机制。
+
+            ::: tip
+            有关此功能更详细的说明，请参阅 [【我的世界】瞬时科技相关介绍](https://www.bilibili.com/opus/805572243920781426/)。
+            :::
+        cce-update-suppression:
+          default: "false"
+          description: |
+            是否允许利用 ClassCastException 进行更新抑制。
+
+            ::: tip
+            有关此功能更详细的说明，请参阅 [关于强转抑制器的笔记](https://www.bilibili.com/read/cv24323749/)。
+            :::
+        sound-update-suppression:
+          default: "false"
+          description: |
+            是否允许利用 IllegalArgumentException 进行更新抑制。
+
+            ::: tip
+            有关此功能更详细的说明，请参阅 [【MC】新的更新抑制器：声音抑制 [1.19~1.21]【Igna778】](https://www.bilibili.com/video/BV1Fx4y1s7jW/)。
+            :::
+        redstone-ignore-upwards-update:
+          default: "false"
+          description: |
+            是否重新引入
+            - 1.20 版本前的机制：红石粉不会连接四周开启的活板门上的红石粉。
+            - 1.20.2 版本前的机制：红石粉、红石中继器和红石比较器收到来自下侧的状态更新时不检查附着。
+        old-block-remove-behaviour:
+          default: "false"
+          description: |
+            是否重新引入 1.21 版本前的方块实体相关行为。这将允许方块被破坏后保留其方块实体，进行方块实体替换等操作。
+            
+            ::: tip
+            有关此功能更详细的说明，请参阅 [【JKM】方块实体替换 [1.17.1]](https://www.bilibili.com/video/BV1B8411W7Di/)。
+            :::
+
+
+
+#      old-nether-portal-collision:
+#        default: "false"
+#        description: 是否重新引入 1.21.5 版本前的机制：下界传送门的传送范围相当于一个完整的方块。
+#          force-peaceful-mode-switch:
+#      tick:
+#        default: "-1"
+#        description: 指定强制伪和平检测的频率（游戏刻）。设置为 `-1` 以禁用此功能。
+#      types:
+#        default:
+#          - BLAZE
+#          - WITHER
+#          - SHULKER
+#          - WARDEN
+#        description: 指定强制伪和平检测的实体列表。
+#
+#
+
+
+
+# 上面这两个好像在新版本的leaves里被删掉了
+    
+    
+
+
   performance:
-    remove:
-      tick-guard-lambda:
-        default: "true"
-        description: 是否在运算实体列表时**不**使用 `Lambda`。
-      damage-lambda:
-        default: "true"
-        description: 是否在计算伤害时**不**使用 `Lambda`。
     optimized-dragon-respawn:
       default: "false"
       description: 是否优化末影龙重生，其功能等同于[Optimized Dragon Respawn](https://modrinth.com/mod/optimized-dragon-respawn)
@@ -522,6 +637,20 @@ settings:
     fix-villagers-dont-release-memory:
       default: "false"
       description: 是否修复村民不释放内存的问题。
+    sleeping-block-entity: 
+      default: "false"
+      description: |
+        是否允许活塞推动紫水晶母岩。
+        原版为活塞推后，直接破坏（无掉落）
+
+    remove:
+      tick-guard-lambda:
+        default: "true"
+        description: 是否在运算实体列表时**不**使用 `Lambda`。
+      damage-lambda:
+        default: "true"
+        description: 是否在计算伤害时**不**使用 `Lambda`。
+
   protocol:
     bladeren:
       protocol:
@@ -567,22 +696,6 @@ settings:
       sync-tick-interval:
         default: "20"
         description: 指定 AppleSkin 同步频率（单位：游戏刻）。
-    servux:
-      structure-protocol:
-        default: "false"
-        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的结构探测协议支持。
-      entity-protocol:
-        default: "false"
-        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的生物数据协议支持。
-      hud-metadata-protocol:
-        default: "false"
-        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的世界元数据协议支持。
-      hud-metadata-protocol-share-seed:
-        default: "true"
-        description: 是否在发送世界元数据时包含世界种子。
-      litematics-protocol:
-        default: "false"
-        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的投影粘贴协议支持。
     bbor-protocol:
       default: "false"
       description: 是否开启 [BBOR](https://modrinth.com/mod/bbor) 协议支持。
@@ -638,67 +751,42 @@ settings:
         ::: tip
         此功能需要启用 [`settings.fix.vanilla-display-name`](#settings.fix.vanilla-display-name)。
         :::
-  misc:
-    auto-update:
-      enable:
-        default: "false"
-        description: |
-          是否开启 Leaves 自动更新。
 
-          ::: tip
-          新的 Leaves 更新将在服务器重新启动后安装。
-          :::
-      download-source:
-        default: application
+
+    servux:
+      structure-protocol:
+        default: "false"
+        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的结构探测协议支持。
+      entity-protocol:
+        default: "false"
+        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的生物数据协议支持。
+      hud-metadata-protocol:
+        default: "false"
+        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的世界元数据协议支持。
+      hud-logger-protocol: 
+        default: "false"
+        description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的 HUD 元素协议支持。
+      hud-enabled-loggers:
+        default:
+        - TPS
+        - MOB_CAPS
         description: |
-          指定自动更新下载源。
-          - `application` GitHub Releases
-      allow-experimental:
-        default: "false"
-        description: 是否允许下载实验性版本。
-      time:
-        default:
-          - "'14:00'"
-          - "'2:00'"
-        description: Leaves 自动更新的时间点（格式：HH:mm）。
-    extra-yggdrasil-service:
-      enable:
-        default: "false"
-        description: 是否开启额外的 Yggdrasil 验证服务器。
-      login-protect:
-        default: "false"
-        description: 是否开启登录保护，开启后将不允许用户名相同而 UUID 不同的玩家加入服务器。
-      urls:
-        default:
-          - "'https://url.with.authlib-injector-yggdrasil'"
-        description: 指定 Yggdrasil API 地址。
-    disable-method-profiler:
-      default: "true"
-      description: 是否禁用方法检查器。这可能对服务端调试造成影响，但不影响实际生产环境。关闭后可以部分提升服务端性能。
-    no-chat-sign:
-      default: "true"
-      description: 是否禁用聊天举报。
-    dont-respond-ping-before-start-fully:
-      default: "true"
-      description: 在服务器完全启动前是否**不**响应客户端请求。
-    server-lang:
-      default: en_us
-      description: |
-        指定服务端的语言。
-        - `en_us` 英语（美国）
-        - `zh_cn` 简体中文（中国）
-    server-mod-name:
-      default: Leaves
-      description: 指定服务端名称。
-    bstats-privacy-mode:
-      default: "false"
-      description: 是否开启 bStats 隐私模式。开启后，Leaves 将停止收集服务端版本、游玩人数、Java 版本等用户信息。
-    force-minecraft-command:
-      default: "false"
-      description: 是否令插件命令不覆盖原版指令。
-    leaves-packet-event:
-      default: "true"
-      description: 是否启用 Leaves 提供的发包事件系统。这可能影响到服务器性能。
+          指定 [Servux](https://modrinth.com/mod/servux) 的世界元数据协议支持的 HUD 元素。
+          - `TPS` 服务器 TPS。
+          - `MOB_CAPS` 怪物上限。
+      hud-update-interval: 
+        default: "1"
+        description: 刷新 HUD 元素的频率（单位：游戏刻）。
+      hud-metadata-protocol-share-seed: 
+        default: "true"
+        description: 是否在发送世界元数据时包含世界种子。
+      litematics:
+        enable:
+          default: "false"
+          description: 是否开启 [Servux](https://modrinth.com/mod/servux) 的投影粘贴协议支持。
+        max-nbt-size: 
+          default: "2097152"
+          description: 投影文件体积上限（单位：字节）。
   region:
     format:
       default: ANVIL
