@@ -5,6 +5,7 @@
 import ConfigViewer from "../../../components/ConfigViewer.vue";
 import { data } from "../../../config-spec/leaves/zhHans.data.mts";
 </script>
+
 ## leaves.yml
 请善用 `Ctrl+F` 进行搜索
 ::: warning

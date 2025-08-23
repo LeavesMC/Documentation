@@ -41,11 +41,6 @@ bun run build
 
 
 This command builds a production-ready deployment into the `.vitepress/dist` directory. These files are ready to be hosted on any static content server.
-### Contributing
-Please use this command to generate the configuration file from [Configuration](https://github.com/LeavesMC/Configuration) for the documentation.
-```bash
-bun run leaves-config
-```
 
 
 ## License
