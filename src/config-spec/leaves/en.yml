@@ -16,36 +16,23 @@ settings:
         description: Maximum number of fake players.
       prefix:
         default: "''"
-        description:
-          Prefix for fake player names. Must comply with Minecraft username
+        description: Prefix for fake player names. Must comply with Minecraft username
           rules.
       suffix:
         default: "''"
-        description:
-          Suffix for fake player names. Must comply with Minecraft username
+        description: Suffix for fake player names. Must comply with Minecraft username
           rules.
       regen-amount:
         default: "0.0"
         description: Amount of health fake players regenerate per tick.
-      always-send-data:
-        default: "true"
-        description: Whether to always send fake player data to players in the same world.
       resident-fakeplayer:
         default: "false"
-        description:
-          Whether to save fake players on server shutdown and restore them on
+        description: Whether to save fake players on server shutdown and restore them on
           next startup.
       open-fakeplayer-inventory:
         default: "false"
-        description:
-          Whether to allow players to press the Use key to open fake player
+        description: Whether to allow players to press the Use key to open fake player
           inventories.
-      skip-sleep-check:
-        default: "false"
-        description: Whether to **NOT** count fake players towards the sleep requirement.
-      spawn-phantom:
-        default: "false"
-        description: Whether to allow phantoms to spawn for fake players.
       use-action:
         default: "true"
         description: Whether to allow fake players to use
@@ -58,12 +45,27 @@ settings:
         description: Whether to allow manual saving and loading of fake players.
       cache-skin:
         default: "false"
-        description:
-          Whether to cache fake player skins, cache will only be cleared
+        description: Whether to cache fake player skins, cache will only be cleared
           after restarting the server.
-      tick-type:
-        default: NETWORK
-        description: Default entity tick type for fake players.
+      in-game:
+        always-send-data:
+          default: "true"
+          description: ""
+        skip-sleep-check:
+          default: "false"
+          description: ""
+        spawn-phantom:
+          default: "false"
+          description: ""
+        tick-type:
+          default: NETWORK
+          description: ""
+        simulation-distance:
+          default: "-1"
+          description: ""
+        enable-locator-bar:
+          default: "false"
+          description: ""
     minecraft-old:
       block-updater:
         instant-block-updater-reintroduced:
@@ -72,10 +74,13 @@ settings:
         cce-update-suppression:
           default: "false"
           description: ""
-        redstone-wire-dont-connect-if-on-trapdoor:
+        sound-update-suppression:
           default: "false"
           description: ""
-        old-block-entity-behaviour:
+        redstone-ignore-upwards-update:
+          default: "false"
+          description: ""
+        old-block-remove-behaviour:
           default: "false"
           description: ""
       shears-in-dispenser-can-zero-amount:
@@ -99,7 +104,8 @@ settings:
           1 tick.
       zero-tick-plants:
         default: "false"
-        description: Whether to allow [zero-tick plant growth](https://minecraft.wiki/w/Tutorials/Zero-ticking#Zero-tick_plant_farms).
+        description: Whether to allow [zero-tick plant
+          growth](https://minecraft.wiki/w/Tutorials/Zero-ticking#Zero-tick_plant_farms).
       rng-fishing:
         default: "false"
         description: Whether to allow cracking the fishing random generator.
@@ -115,26 +121,50 @@ settings:
       disable-LivingEntity-ai-step-alive-check:
         default: "false"
         description: ""
-      fix-fortress-mob-spawn:
+      spawn-invulnerable-time:
         default: "false"
         description: ""
       old-hopper-suck-in-behavior:
         default: "false"
         description: ""
-      revert-raid-changes:
-        allow-bad-omen-trigger-raid:
-          default: "false"
-          description: ""
-        give-bad-omen-when-kill-patrol-leader:
-          default: "false"
-          description: ""
-        skip-height-check:
-          default: "false"
-          description: ""
+      old-zombie-piglin-drop:
+        default: "false"
+        description: ""
+      old-raid-behavior:
+        default: "false"
+        description: ""
+      old-zombie-reinforcement:
+        default: "false"
+        description: ""
       allow-anvil-destroy-item-entities:
         default: "false"
         description: ""
-      string-tripwire-hook-duplicate:
+      tripwire-and-hook-behavior:
+        string-tripwire-hook-duplicate:
+          default: "false"
+          description: ""
+        tripwire-behavior:
+          default: VANILLA_21
+          description: ""
+      void-trade:
+        default: "false"
+        description: ""
+      disable-item-damage-check:
+        default: "false"
+        description: ""
+      old-throwable-projectile-tick-order:
+        default: "false"
+        description: ""
+      keep-leash-connect-when-use-firework:
+        default: "false"
+        description: ""
+      tnt-wet-explosion-no-item-damage:
+        default: "false"
+        description: ""
+      old-projectile-explosion-behavior:
+        default: "false"
+        description: ""
+      ender-dragon-part-can-use-end-portal:
         default: "false"
         description: ""
     elytra-aeronautics:
@@ -160,12 +190,12 @@ settings:
         default: Flight exit cruise mode
         description: The message displayed when players exit the no-chunk-load state.
     redstone-shears-wrench:
-      default: "true"
+      default: "false"
       description: Whether to allow players to use shears to rotate redstone component
         blocks.
-    budding-amethyst-can-push-by-piston:
+    movable-budding-amethyst:
       default: "false"
-      description: Whether to allow pistons to push budding amethysts.
+      description: ""
     spectator-dont-get-advancement:
       default: "false"
       description: Whether to prevent spectators from getting advancements.
@@ -188,25 +218,16 @@ settings:
       default: "-1.0"
       description: The probability of dropping a damaged elytra when a shulker kills a
         phantom. Set to `-1` to disable this feature.
-    stackable-shulker-boxes:
-      default: "'false'"
-      description: >
-        Specify the maximum stack size of empty shulker boxes. Enter a number
-        between `1` and `64`, or set to `false` to disable this feature.
-
-        ::: tip
-
-        Empty shulker boxes automatically stack when dropped and picked up by
-        players, and can also be manually stacked in the inventory if the player
-        has installed a supported mod. To avoid breaking machines, empty shulker
-        boxes will not be stacked in hoppers, and stacked empty shulker boxes
-        will be separated when the hopper runs.
-
-        :::
+    shulker-box:
+      stackable-shulker-boxes:
+        default: "false"
+        description: ""
+      same-nbt-stackable:
+        default: "false"
+        description: ""
     force-void-trade:
       default: "false"
-      description:
-        Whether to force enable void trading. Players can void trade after
+      description: Whether to force enable void trading. Players can void trade after
         passing through an end gateway, without waiting for chunk unload.
     mc-technical-survival-mode:
       default: "true"
@@ -269,7 +290,8 @@ settings:
       description: Whether to disable the distance check when using an item.
     no-feather-falling-trample:
       default: "false"
-      description: Whether farmland will **NOT** degrade to dirt when boots with Feather Falling enchantment.
+      description: Whether farmland will **NOT** degrade to dirt when boots with
+        Feather Falling enchantment.
     shared-villager-discounts:
       default: "false"
       description: Whether to allow multiple players to share the same villager discount.
@@ -290,17 +312,6 @@ settings:
     shave-snow-layers:
       default: "true"
       description: Whether to allow shovels to remove snow layers and drop snowballs.
-    ignore-lc:
-      default: "false"
-      description: >
-        Whether to ignore the highest block for mob spawning.
-
-        ::: warning
-
-        As of this document update (1.21.4-34), this feature is temporarily
-        nonfunctional.
-
-        :::
     disable-packet-limit:
       default: "false"
       description: Whether to disable packet rate limiting.
@@ -338,10 +349,12 @@ settings:
       description: Whether to use a bow with the Infinity enchantment when there are
         no arrows in the inventory, just like being in creative mode.
     hopper-counter:
-      default: "false"
-      description: Whether to enable [hopper
-        counters](https://github.com/gnembon/quick-carpet/blob/master/README.md#hoppercounters)
-        and the corresponding command `/leaves counter`.
+      enable:
+        default: "false"
+        description: ""
+      unlimited-speed:
+        default: "false"
+        description: ""
     spider-jockeys-drop-gapples:
       default: "-1.0"
       description: The probability of dropping an enchanted golden apple when a spider
@@ -361,22 +374,11 @@ settings:
         - `FALSE` Bonemeal cannot grow coral.
         - `TRUE` Bonemeal can grow coral.
         - `EXPANDED` Bonemeal can grow coral and coral fans.
-    fast-resume:
-      default: "false"
-      description: Whether to save chunk load data on shutdown and restore on next startup.
-    force-peaceful-mode-switch:
-      tick:
-        default: "-1"
-        description: ""
-      types:
-        default:
-          - BLAZE
-          - WITHER
-          - SHULKER
-          - WARDEN
-        description: ""
     disable-vault-blacklist:
       default: "false"
+      description: ""
+    exp-orb-absorb-mode:
+      default: VANILLA
       description: ""
   performance:
     remove:
@@ -443,15 +445,14 @@ settings:
     skip-negligible-planar-movement-multiplication:
       default: "true"
       description: ""
-    fix-villagers-dont-release-memory:
+    sleeping-block-entity:
       default: "false"
-      description: Whether to fix villagers not releasing memory.
+      description: ""
   protocol:
     bladeren:
       protocol:
         default: "true"
-        description:
-          Whether to enable [Bladeren](https://github.com/LeavesMC/Bladeren)
+        description: Whether to enable [Bladeren](https://github.com/LeavesMC/Bladeren)
           protocol support.
       mspt-sync-protocol:
         default: "false"
@@ -462,8 +463,7 @@ settings:
     syncmatica:
       enable:
         default: "false"
-        description:
-          Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica)
+        description: Whether to enable [Syncmatica](https://modrinth.com/mod/syncmatica)
           protocol support.
       quota:
         default: "false"
@@ -489,8 +489,7 @@ settings:
     appleskin:
       protocol:
         default: "false"
-        description:
-          Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin)
+        description: Whether to enable [AppleSkin](https://modrinth.com/mod/appleskin)
           protocol support.
       sync-tick-interval:
         default: "20"
@@ -502,20 +501,33 @@ settings:
           structure protocol support.
       entity-protocol:
         default: "false"
-        description:
-          Whether to enable [Servux](https://modrinth.com/mod/servux) entity
+        description: Whether to enable [Servux](https://modrinth.com/mod/servux) entity
           data protocol support.
       hud-metadata-protocol:
         default: "false"
-        description:
-          Whether to enable [Servux](https://modrinth.com/mod/servux) world
+        description: Whether to enable [Servux](https://modrinth.com/mod/servux) world
           metadata protocol support.
+      hud-logger-protocol:
+        default: "false"
+        description: ""
+      hud-enabled-loggers:
+        default:
+          - TPS
+          - MOB_CAPS
+        description: ""
+      hud-update-interval:
+        default: "1"
+        description: ""
       hud-metadata-protocol-share-seed:
         default: "true"
         description: Whether to include world seed in world metadata.
-      litematics-protocol:
-        default: "false"
-        description: ""
+      litematics:
+        enable:
+          default: "false"
+          description: ""
+        max-nbt-size:
+          default: "2097152"
+          description: ""
     bbor-protocol:
       default: "false"
       description: Whether to enable [BBOR](https://modrinth.com/mod/bbor) protocol support.
@@ -564,11 +576,6 @@ settings:
         it only announces to clients that Carpet Mod is installed.
 
         :::
-    lms-paster-protocol:
-      default: "false"
-      description: Whether to enable [Litematica Server
-        Paster](https://github.com/Fallen-Breath/litematica-server-paster)
-        protocol support.
     rei-server-protocol:
       default: "false"
       description: >
@@ -578,8 +585,8 @@ settings:
 
         ::: warning
 
-        As of this document update (1.21.4-34), this protocol is
-        temporarily removed.
+        As of this document update (1.21.4-34), this protocol is temporarily
+        removed.
 
         :::
     chat-image-protocol:
@@ -619,8 +626,7 @@ settings:
         description: Whether to enable extra Yggdrasil authentication servers.
       login-protect:
         default: "false"
-        description:
-          Whether to enable login protection, disallowing players with same
+        description: Whether to enable login protection, disallowing players with same
           username but different UUIDs.
       urls:
         default:
@@ -628,16 +634,14 @@ settings:
         description: Yggdrasil API URLs.
     disable-method-profiler:
       default: "true"
-      description:
-        Whether to disable method profiler. May affect server debugging,
+      description: Whether to disable method profiler. May affect server debugging,
         but not production. Disabling can improve performance.
     no-chat-sign:
       default: "true"
       description: Whether to disable chat reporting.
     dont-respond-ping-before-start-fully:
       default: "true"
-      description:
-        Whether to **NOT** respond to client requests before server is
+      description: Whether to **NOT** respond to client requests before server is
         fully started.
     server-lang:
       default: en_us
@@ -650,15 +654,17 @@ settings:
       description: Server name.
     bstats-privacy-mode:
       default: "false"
-      description:
-        Whether to enable bStats privacy mode. Leaves will stop collecting
+      description: Whether to enable bStats privacy mode. Leaves will stop collecting
         server version, player count, Java version, etc.
     force-minecraft-command:
       default: "false"
       description: Whether to force the use of vanilla commands over plugin commands.
     leaves-packet-event:
-      default: "true"
+      default: "false"
       description: Whether to enable Leaves packet event. May reduce server performance.
+    chat-command-max-length:
+      default: "32767"
+      description: ""
   region:
     format:
       default: ANVIL
@@ -682,18 +688,6 @@ settings:
           - `V2`
 
           - `V1` Deprecated, **DO NOT** use.
-      auto-convert-anvil-to-linear:
-        default: "false"
-        description: |
-          Automatically convert [Anvil file format](https://minecraft.wiki/w/Anvil_file_format) (.mca) to [Linear file format](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools) (.linear).
-
-          ::: danger
-          Back up your world before enabling this option.
-          :::
-
-          ::: warning
-          As of this document update (1.21.4-34), this feature is temporarily nonfunctional.
-          :::
       flush-max-threads:
         default: "6"
         description: Maximum threads for saving regions. Set to `-1` to use all threads.
@@ -705,8 +699,7 @@ settings:
         description: Whether to use virtual threads when saving regions.
       compression-level:
         default: "1"
-        description:
-          Compression level for region files. Should be a number between `1`
+        description: Compression level for region files. Should be a number between `1`
           and `22`.
   fix:
     vanilla-hopper:
@@ -718,6 +711,15 @@ settings:
         May reduce performance when enabled.
         :::
     vanilla-display-name:
-      default: "false"
+      default: "true"
       description: Whether to parse player names in chat as [Text component
         format](https://minecraft.wiki/w/Text_component_format).
+    vanilla-portal-handle:
+      default: "true"
+      description: ""
+    vanilla-fluid-pushing:
+      default: "true"
+      description: ""
+    collision-behavior:
+      default: BLOCK_SHAPE_VANILLA
+      description: ""
