@@ -44,7 +44,7 @@ settings:
       in-game:
         always-send-data:
           default: "true"
-          description: 是否一直向与假人处于同一维度的玩家发送该假人的数据。这将跳过追踪距离的限制
+          description: 是否一直向与假人处于同一维度的玩家发送该假人的数据。这将跳过追踪距离的限制。
         skip-sleep-check:
           default: "false"
           description: 是否**不**将假人计入跳过夜晚所需睡眠的人数。
@@ -180,7 +180,7 @@ settings:
         description: 是否重新引入 1.21.5 版本前的机制：处于发怒状态的僵尸猪灵被任何因素杀死都会掉落经验和稀有掉落物。
       old-raid-behavior:
         default: "false"
-        description: 是否重新引入 1.21 版本前的袭击机制。这将恢复大部分袭击塔的运作。
+        description: 是否重新引入 1.21 版本前的袭击机制。这将使大部分袭击塔恢复运作。
       old-zombie-reinforcement:
         default: "false"
         description: 是否重新引入 1.21.2 版本前的机制：当僵尸村民、尸壳、溺尸或僵尸猪灵被伤害时，它们生成普通僵尸增援。
@@ -284,16 +284,16 @@ settings:
       stackable-shulker-boxes:
         default: "false"
         description: |
-          设置潜影盒的最大堆叠数量
-          - false 不堆叠 (1)
-          - 2-99的数字 设置堆叠数量
+          设置潜影盒的最大堆叠数量。
+          - `false`：不堆叠
+          - `2`-`99`：指定最大堆叠数量
 
           ::: tips
-          该功能不会影响物品本身的数据，并且将会在漏斗中分离，因此理论上不会影响机器正常工作。
+          此功能不会影响物品本身的数据。堆叠的潜影盒将在漏斗中分离，理论上不会影响红石机器正常工作。
           :::
       same-nbt-stackable:
         default: "false"
-        description: 使相同数据 (nbt) 的潜影盒能进行堆叠，而不是仅堆叠空盒子。
+        description: 使相同数据 (NBT) 的潜影盒能进行堆叠，而不是仅堆叠空盒子。
     force-void-trade:
       default: "false"
       description: 是否允许玩家强制进行虚空交易。开启后，将重新引入 1.21.4
@@ -432,7 +432,7 @@ settings:
         description: 是否启用漏斗计数器。
       unlimited-speed:
         default: "false"
-        description: 是否解除漏斗计数器的速度限制，这将提高高效率机器的测试的准确性。
+        description: 是否解除漏斗计数器的速度限制，这将提升测试高效率机器的准确性。
     spider-jockeys-drop-gapples:
       default: "-1.0"
       description: 当蜘蛛骑士死亡时掉落附魔金苹果的概率。设置为 `-1.0` 以禁用此功能。
@@ -468,7 +468,7 @@ settings:
           是否在运算实体列表时**不**使用 `Lambda`。
 
           ::: tips
-          这个功能产生的优化微乎其微
+          这个功能产生的优化微乎其微。
           :::
       damage-lambda:
         default: "true"
@@ -476,7 +476,7 @@ settings:
           是否在计算伤害时**不**使用 `Lambda`。
 
           ::: tips
-          这个功能产生的优化微乎其微
+          这个功能产生的优化微乎其微。
           :::
     optimized-dragon-respawn:
       default: "false"
@@ -500,10 +500,10 @@ settings:
       default: "false"
       description: |
         是否限制非活跃实体的目标查找器的运行。
-        启用此项目后，非活跃实体的目标查找器 (Goal Selector) 将会每 20 游戏刻运行一次，而不是每刻运行
+        启用此项目后，非活跃实体的目标查找器 (Goal Selector) 将会每 20 游戏刻运行一次，而不是每刻运行。
     reduce-entity-allocations:
       default: "true"
-      description: 是否缓存实体的属性实例 (Attribute Instance)，这会少量减少内存的分配。
+      description: 是否缓存实体的属性实例 (Attribute Instance)，这将略微减少内存分配。。
     cache-climb-check:
       default: "true"
       description: 是否缓存攀爬检查结果。
@@ -511,7 +511,7 @@ settings:
       default: "true"
       description: |
         是否减少末影人传送处理的不必要的区块查找和加载。
-        启用此项目后，末影人的内部随机传送和向目标附近传送处理将不再尝试加载未加载的区块，
+        启用此功能后，末影人的`内部随机传送`和`向目标附近传送`将不再尝试传送至未加载的区块，，
         插件或外部产生的传送效果不受影响。
     cache-ignite-odds:
       default: "true"
@@ -523,14 +523,14 @@ settings:
       default: "true"
       description: |
         是否跳过寻找不存在的村民次要兴趣点。
-        启用此项目后，如果村民的次要工作点 (Secondary Job Site) 不存在，将直接跳过并清除村民的该记忆。
+        启用此功能后，如果村民的次要工作点 (Secondary Job Site) 不存在，将直接跳过并清除村民的这部分记忆。
     store-mob-counts-in-array:
       default: "true"
       description: |
         是否在生物生成上限计算时使用数组，而不是映射 (Map)。
 
         ::: tips
-          这个功能产生的优化微乎其微
+          这个功能产生的优化微乎其微。
         :::
     optimize-noise-generation:
       default: "false"
@@ -559,7 +559,7 @@ settings:
       description: 是否跳过完全没有移动的实体的位移计算。
     skip-cloning-advancement-criteria:
       default: "false"
-      description: 是否跳过创建进度时的对准则 (Criteria) 的复制。
+      description: 是否跳过创建进度时对准则 (Criteria) 的复制。
     skip-negligible-planar-movement-multiplication:
       default: "true"
       description: 是否跳过玩家移动中不必要的乘法计算。
@@ -567,7 +567,7 @@ settings:
       default: "false"
       description: |
         是否启用 [Lithium](https://modrinth.com/mod/lithium) 的方块实体休眠功能
-        这将大大减小无效开口漏斗的性能开销
+        这将大大减小无效开口漏斗的性能开销，
   protocol:
     bladeren:
       protocol:
@@ -632,8 +632,8 @@ settings:
           - MOB_CAPS
         description: |
           指定启用哪些记录器
-          - TPS 记录服务器TPS和MSPT
-          - MOB_CAPS 记录服务器生物上限和当前数量
+          - `TPS` 记录服务器TPS和MSPT
+          - `MOB_CAPS` 记录服务器生物上限和当前数量
       hud-update-interval:
         default: "1"
         description: 指定 Servux 记录器同步频率（单位：游戏刻）。
@@ -764,7 +764,7 @@ settings:
       description: 是否启用 Leaves 提供的发包事件系统。这可能影响到服务器性能。
     chat-command-max-length:
       default: "32767"
-      description: 最大命令长度，部分 mod 可能会发送过长命令。启用此项可以使这些 mod 正常工作。
+      description: 最大命令长度，部分模组可能会发送过长命令。启用此项可以使这些模组正常工作。
   region:
     format:
       default: ANVIL
@@ -812,11 +812,10 @@ settings:
         [文本组件](https://zh.minecraft.wiki/w/%E6%96%87%E6%9C%AC%E7%BB%84%E4%BB%B6)，这会影响到玩家名改变颜色等功能。
     vanilla-portal-handle:
       default: "true"
-      description: 是否使用原版原版地狱门传送时间判定，如不启用，则实体接触传送门后被传送的时间较原版快 1
-        游戏刻，这会略微影响到实体过门后的位置和速度，可能导致时序相当精确的跨维度机器无法使用。
+      description: 是否使用原版原版地狱门传送时间判定，如不启用，则实体接触传送门后被传送的时间较原版快 1 游戏刻，这将略微影响实体过门后的位置和速度，可能导致时序相当精确的跨维度机器无法使用。
     vanilla-fluid-pushing:
       default: "true"
-      description: 是否使用原版流体推动行为。这个功能会使部分使用流水的机器回复工作
+      description: 是否使用原版流体推动行为。这个功能将会使部分使用流水的机器恢复工作。
     collision-behavior:
       default: BLOCK_SHAPE_VANILLA
       description: |
