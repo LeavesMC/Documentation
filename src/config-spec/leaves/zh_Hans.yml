@@ -90,12 +90,19 @@ settings:
           default: "false"
           description: |
             是否重新引入
+            
             - 1.20 版本前的机制：红石粉不会连接四周开启的活板门上的红石粉。
             - 1.20.2 版本前的机制：红石粉、红石中继器和红石比较器收到来自下侧的状态更新时不检查附着。
         old-block-remove-behaviour:
           default: "false"
           description: |
-            是否重新引入 1.21 版本前的方块实体相关行为。这将允许方块被破坏后保留其方块实体，进行方块实体替换等操作。
+            是否重新引入 1.21 版本前的方块实体相关行为。
+            
+            这将允许方块被破坏后保留其方块实体，进行方块实体替换等操作。
+            
+            :::warning
+            此功能并不完全与 1.21 前相同，事实上，开启后几乎所有方块实体都可以被保留。故此功能较为危险，请谨慎开启。
+            :::
 
             ::: tip
             有关此功能更详细的说明，请参阅 [【JKM】方块实体替换 [1.17.1]](https://www.bilibili.com/video/BV1B8411W7Di/)。
@@ -177,6 +184,7 @@ settings:
           default: VANILLA_21
           description: |
             指定末地黑曜石平台与常亮绊线之间的互动行为。
+            
             - `VANILLA_21` 使用 1.21 版本后的机制：常亮绊线无法阻止平台生成，平台会使被其替代的方块掉落。
             - `VANILLA_20` 使用 1.21 版本前的机制：常亮绊线可以阻止平台生成，被平台替代的方块不会掉落。
             - `MIXED` 使用复合机制：常亮绊线可以阻止平台生成，平台会使被其替代的方块掉落。
@@ -274,20 +282,47 @@ settings:
     mc-technical-survival-mode:
       default: "true"
       description: |
-        是否开启生电模式。开启后部分 Paper 修改将被禁用，这些配置项将被强制覆盖并**忽略配置文件中的值**：
-        - paper-global.yml `item-validation.resolve-selectors-in-books: true`
-        - paper-global.yml `packet-limiter.all-packets.max-packet-rate: 5000.0`
-        - paper-global.yml `packet-limiter.overrides: {}`
-        - paper-global.yml `unsupported-settings.allow-headless-pistons: true`
-        - paper-global.yml `unsupported-settings.allow-permanent-block-break-exploits: true`
-        - paper-global.yml `unsupported-settings.allow-piston-duplication: true`
-        - paper-global.yml `unsupported-settings.allow-unsafe-end-portal-teleportation: true`
-        - paper-global.yml `unsupported-settings.skip-tripwire-hook-placement-validation: true`
-        - paper-world.yml `chunks.delay-chunk-unloads-by: 0`
-        - paper-world.yml `entities.spawning.count-all-mobs-for-spawning: true`
-        - paper-world.yml `fixes.disable-unloaded-chunk-enderpearl-exploit: false`
-        - paper-world.yml `unsupported-settings.fix-invulnerable-end-crystal-exploit: false`
-        - spigot.yml `world-settings.max-tnt-per-tick: 2000`
+        是否开启生电模式。
+        
+        开启后部分上游修改将被禁用，以下配置项将被强制覆盖为下方的值并**忽略原始配置文件中的值**。
+        
+        paper-global.yml：
+        ```yaml
+        unsupported-settings:
+          allow-piston-duplication: true
+          allow-headless-pistons: true
+          allow-permanent-block-break-exploits: true
+          allow-unsafe-end-portal-teleportation: true
+          skip-tripwire-hook-placement-validation: true
+        packet-limiter:
+          all-packets:
+            max-packet-rate: 5000.0
+          overrides: {}
+        item-validation:
+          resolve-selectors-in-books: true
+        scoreboards:
+          save-empty-scoreboard-teams: true
+        ```
+        
+        paper-world.yml（对所有维度）：
+        ```yaml
+        collisions:
+          allow-player-cramming-damage: true
+        entities:
+          spawning:
+            count-all-mobs-for-spawning: tru
+          behavior:
+            stuck-entity-poi-retry-delay: disabled
+        unsupported-settings:
+          fix-invulnerable-end-crystal-exploit: false
+        hopper:
+          cooldown-when-full: false
+        ```
+        
+        spigot.yml（world-settings下，对所有维度）：
+        ```yaml
+        max-tnt-per-tick: 2000
+        ```
     return-nether-portal-fix:
       default: "false"
       description: |
@@ -347,6 +382,7 @@ settings:
 
         ::: tip
         此功能需要启用 [`settings.protocol.bladeren.protocol`](#settings.protocol.bladeren.protocol)。
+        
         且需要客户端安装 Bladeren Mod。
         :::
     no-block-update-command:
@@ -359,7 +395,9 @@ settings:
       default: "false"
       description: |
         是否允许玩家在使用 `告示牌/物品展示框` 时可以直接打开后方的容器。启用后将会改变原有操作逻辑。
+        
         对于告示牌，只有在手中无物品且潜行时才可编辑文字。
+        
         对于物品展示框，只有在潜行时才可正常旋转物品。
     avoid-anvil-too-expensive:
       default: "false"
@@ -368,6 +406,7 @@ settings:
 
         ::: tip
         要正确显示真实的经验消耗等级，需要启用 [`settings.protocol.leaves-carpet-support`](#settings.protocol.leaves-carpet-support)，
+        
         且需要客户端安装 [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition/blob/nyan-work/dev/README_ZH_CN.md)。
         :::
     bow-infinity-fix:
@@ -393,6 +432,7 @@ settings:
       default: "'FALSE'"
       description: |
         是否允许使用骨粉催熟珊瑚类植物。
+        
         - `FALSE` 不允许使用骨粉催熟珊瑚类植物。
         - `TRUE` 允许使用骨粉催熟珊瑚。
         - `EXPANDED` 允许使用骨粉催熟珊瑚和珊瑚扇。
@@ -403,6 +443,7 @@ settings:
       default: VANILLA
       description: |
         是否允许玩家更快地吸取经验球。
+        
         - `FAST` 允许所有模式下的玩家快速吸取经验球。
         - `FAST_CREATIVE` 仅允许创造模式玩家快速吸取经验球。
         - `VANILLA` 使用原版吸取速度，即玩家无法快速吸取经验球。
@@ -445,6 +486,7 @@ settings:
       default: "false"
       description: |
         是否限制非活跃实体的目标查找器的运行。
+        
         启用此项目后，非活跃实体的目标查找器 (Goal Selector) 将会每 20 游戏刻运行一次，而不是每刻运行。
     reduce-entity-allocations:
       default: "true"
@@ -456,7 +498,9 @@ settings:
       default: "true"
       description: |
         是否减少末影人传送处理的不必要的区块查找和加载。
+        
         启用此功能后，末影人的`内部随机传送`和`向目标附近传送`将不再尝试传送至未加载的区块。
+        
         插件或外部产生的传送效果不受影响。
     cache-ignite-odds:
       default: "true"
@@ -468,6 +512,7 @@ settings:
       default: "true"
       description: |
         是否跳过寻找不存在的村民次要兴趣点。
+        
         启用此功能后，如果村民的次要工作点 (Secondary Job Site) 不存在，将直接跳过并清除村民的这部分记忆。
     store-mob-counts-in-array:
       default: "true"
@@ -507,6 +552,7 @@ settings:
       default: "false"
       description: |
         是否启用 [Lithium](https://modrinth.com/mod/lithium) 的方块实体休眠功能。
+        
         这将大大减小开口漏斗的性能开销，并一定程度上优化其他方块实体。
   protocol:
     bladeren:
@@ -538,6 +584,7 @@ settings:
         default: OPS
         description: |
           指定哪些玩家可以同步 [Plusls Carpet Addition](https://github.com/Nyan-Work/plusls-carpet-addition/blob/nyan-work/dev/README_ZH_CN.md) 的数据。
+          
           - `NOBODY` 所有玩家的数据都无法同步。
           - `BOT` 只有假人的数据可以被同步到客户端。
           - `OPS` 假人的数据可以被同步到客户端，OP 可以同步所有玩家的数据。
@@ -569,6 +616,7 @@ settings:
           - MOB_CAPS
         description: |
           指定启用哪些记录器
+          
           - `TPS` 记录服务器TPS和MSPT
           - `MOB_CAPS` 记录服务器生物上限和当前数量
       hud-update-interval:
@@ -643,10 +691,12 @@ settings:
         default: application
         description: |
           指定自动更新下载源。
+          
           - `application` GitHub Releases
+          - `rainyun` 雨云提供的镜像下载源
       allow-experimental:
         default: "false"
-        description: 是否允许下载实验性版本。
+        description: 是否允许更新到实验性版本。
       time:
         default:
           - "'14:00'"
@@ -681,6 +731,7 @@ settings:
       default: en_us
       description: |
         指定服务端的语言。
+        
         - `en_us` 英语（美国）
         - `zh_cn` 简体中文（中国）
     server-mod-name:
@@ -703,6 +754,7 @@ settings:
       default: ANVIL
       description: |
         指定区域文件格式。
+        
         - `ANVIL` [Anvil 文件格式](https://zh.minecraft.wiki/w/%E5%8C%BA%E5%9F%9F%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F)（.mca）
         - `LINEAR` [Linear 文件格式](https://github.com/xymb-endcrystalme/LinearRegionFileFormatTools)（.linear）
 
@@ -716,6 +768,7 @@ settings:
         default: V2
         description: |
           使用的 Linear 格式版本，这只会影响保存格式，任何版本的 Linear 文件都可以被正常加载。
+          
           - `V2`
           - `V1` 此版本已被弃用，请不要使用。
       flush-max-threads:
@@ -734,7 +787,7 @@ settings:
     vanilla-hopper:
       default: "false"
       description: |
-        开启后会使用激进的方案将漏斗的运行逻辑还原为原版行为。
+        开启后会使用较为激进的方案将漏斗的运行逻辑还原为原版行为。
 
         ::: warning
         开启后可能会轻微降低性能。
@@ -752,8 +805,9 @@ settings:
       default: BLOCK_SHAPE_VANILLA
       description: |
         指定服务器使用何种实体碰撞计算方式。
+        
         - `BLOCK_SHAPE_VANILLA` 对于方块使用 Paper 的计算方式，其它使用原版的计算方式，兼顾性能优化和遵循原版。
-        - `PAPER` 完全使用 Paper 计算方式，拥有较好的优化，但可能破坏原版行为。
+        - `PAPER` 完全使用 Paper 计算方式，拥有较好的优化，但破坏部分原版行为。
         - `VANILLA` 完全使用原版计算方式，可能会降低性能，但完全符合原版行为。
     vanilla-end-void-rings:
       default: "false"
