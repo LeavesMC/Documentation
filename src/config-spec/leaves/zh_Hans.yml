@@ -812,6 +812,6 @@ settings:
     vanilla-end-void-rings:
       default: "false"
       description: |
-        是否重新引入原版中末地的虚空环生成。已经生成的地图不会受到影响
+        是否重新引入原版中末地的虚空环生成。已经生成的地图不会受到影响。
         
-        此特性在 [MC-159283](https://bugs.mojang.com/browse/MC/issues/MC-159283) 中有所记载，Paper 已将其作为 bug 修复。
+        此特性在 [MC-159283](https://bugs.mojang.com/browse/MC/issues/MC-159283) 中有所记载，原版尚未对其进行修复，但 Paper 已将其作为 bug 修复。
