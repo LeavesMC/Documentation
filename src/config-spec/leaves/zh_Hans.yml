@@ -811,4 +811,7 @@ settings:
         - `VANILLA` 完全使用原版计算方式，可能会降低性能，但完全符合原版行为。
     vanilla-end-void-rings:
       default: "false"
-      description: ""
+      description: |
+        是否重新引入原版中末地的虚空环生成。已经生成的地图不会受到影响
+        
+        此特性在 [MC-159283](https://bugs.mojang.com/browse/MC/issues/MC-159283) 中有所记载，Paper 已将其作为 bug 修复。
