@@ -387,7 +387,10 @@ settings:
         :::
     no-block-update-command:
       default: "false"
-      description: 是否启用 `/leaves blockupdate` 命令，此命令让玩家可以控制服务器内全局方块更新是否发生。
+      description: |
+        是否启用 `/leaves blockupdate` 子命令，此命令让玩家可以控制服务器内全局方块更新是否发生。
+        
+        使用 `/leaves blockupdate` 查询当前全局方块更新状态，`/leaves blockupdate enable`开启全局方块更新，`/leaves blockupdate disable`关闭全局方块更新。
     no-tnt-place-update:
       default: "false"
       description: 是否在放置 TNT 时**不**进行方块更新。
