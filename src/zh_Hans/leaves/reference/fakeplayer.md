@@ -354,5 +354,5 @@ Leaves 提供了类似 Carpet 的假人支持，假人的命令为 `/bot` 。
 
 通过使用 `/bot list [世界]` 来查看全局/各个世界的假人。
 
-`[世界]` 是可选参数。默认情况下，可选值为 `world` / `world_nether` / `world_the_end` 。
+默认情况下可选值为 `world` / `world_nether` / `world_the_end` 。
 输入自定义世界的名称以查看位于该世界中的假人。
