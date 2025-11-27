@@ -1,51 +1,47 @@
 # 不兼容的插件
 
-Leaves 核心致力于与所有 CraftBukkit、Spigot 及 Paper 插件保持兼容，但部分插件因技术或功能的冲突，可能需要额外配置或采用替代方案以实现兼容运行。
+Leaves 致力于与所有 CraftBukkit、Spigot 及 Paper 插件保持兼容，但部分插件因技术或功能的冲突，可能需要额外配置或采用替代方案以实现兼容运行。
 
-**对于此类插件引发的兼容性问题，我们无法提供支持服务。如需提交问题反馈，请先暂时移除相关插件以排除干扰。**
+**我们不会处理与这些插件相关的问题，请在报告问题前暂时移除它们并尝试复现问题。**
 
-## 数据转译类插件
+## 数据转译类
 
-Leaves 核心的模组协议功能依赖服务端与客户端之间的准确数据通信，使用涉及数据转译的插件（如 ViaVersion、ViaBackwards、ViaRewind、Geyser）以及代理服务端（如 Velocity、BungeeCord、ViaProxy ）可能造成客户端模组功能异常或玩家无法连接至服务器。
-
-::: tip
-
-对于跨版本需求，请优先考虑在客户端安装[ViaFabricPlus](https://github.com/ViaVersion/ViaVersion)模组**并手动设置连接至服务器所使用的版本。**
-若必须使用上述插件或代理端，请在必要时禁用**所有**模组协议功能。
-
-:::
-
-## 登录插件
-
-常规登录插件（如 AuthMe、AuthMeReloaded、CatSeedLogin）无法正确识别假人，并错误地要求假人进行登录，这将导致假人无法生成或功能执行异常。
+Leaves 的模组协议功能依赖服务端与客户端之间的准确数据通信，使用涉及数据转译的插件（如 ViaVersion、ViaBackwards、ViaRewind）可能造成客户端模组功能异常或玩家无法连接至服务器。
 
 ::: tip
 
-建议使用[AuthMeReReloaded](https://github.com/HaHaWTH/AuthMeReReloaded)登录插件，此插件能正确识别假人并允许其自动绕过登录流程。
-若无法更换登录插件，可安装[LeavesAddons](https://github.com/Lumine1909/LeavesAddons)插件以实现兼容。
+对于跨版本需求，请优先考虑在客户端安装 [ViaFabricPlus](https://github.com/ViaVersion/ViaFabricPlus) 和 [ViaVanillaPlus](https://github.com/ViaVersionAddons/ViaVanillaPlus) 模组**并手动设置连接至服务器所使用的版本。**
+
+若必须使用上述插件，请在必要时禁用**所有**模组协议功能。
 
 :::
 
-## 领地插件
+## 登录
+
+大部分登录插件（如 AuthMe、AuthMeReloaded、CatSeedLogin）无法正确识别假人，并错误地要求假人进行登录，这将导致假人无法生成或功能执行异常。
+
+::: tip
+
+可以尝试以下解决方案：
+
+1.使用 [AuthMeReReloaded](https://github.com/HaHaWTH/AuthMeReReloaded) 登录插件，此插件为 AuthMeReloaded 插件的分支，它能正确识别假人并允许其自动绕过登录流程。
+
+2.安装 [LeavesAddons](https://github.com/Lumine1909/LeavesAddons) 插件以实现兼容。
+
+:::
+
+## 领地
 
 由于假人无法触发事件，领地插件（如 Residence、Dominion）将无法监听假人交互行为，这将导致领地限制对假人失效。
 
-## 多世界插件
-
-在部署多世界插件（如 Multiverse）时，若配置不当可能导致部分实体无法通过传送门进入指定维度，或出现传送功能完全失效的情况。需特别指出，重力方块的复制机制仅适用于末地维度，请务必确保末地传送门正确链接到末地维度。
-
-## 快捷潜影盒插件
+## 快捷潜影盒
 
 部分快捷潜影盒插件在打开潜影盒时未执行堆叠数量校验，若服务端启用潜影盒堆叠功能，使用此类插件时可能触发物品复制漏洞。
 
-## 优化插件
-
-很多红石机器的运作高度依赖游戏的特性和底层机制，而大多数性能优化插件会对原版机制进行不同程度的修改。这些修改在常规游戏场景中通常不会被感知，但在精密的红石机器中，微小的机制偏差将被显著放大，最终导致机器无法正常工作。
-
-### Aki-Async
+## Aki-Async
 
 异步优化通过多线程计算提升服务端性能，但此举必然干扰游戏原生时序逻辑，破坏微时序机制，并引入线程安全隐患和崩溃风险。这将破坏原版特性，并引发功能异常问题，极端情况下甚至造成服务端崩溃。此外，多线程计算非常复杂，错误的优化不仅无法实现预期效果，反而会导致服务器性能损耗加剧，引发卡顿。
 
-### NoCheatPlus
+## NoCheatPlus
 
-NoCheatPlus 插件会强制修改 Paper 核心的部分配置项，导致部分原版特性（如活塞复制、无头活塞，重力方块复制）缺失。
+NoCheatPlus 插件会覆盖 Paper 的部分配置项，即便启用了 Leaves 的 `mc-technical-survival-mode` 配置也无法将其恢复。这将导致部分原版特性（如活塞复制、无头活塞，重力方块复制）被修复。
