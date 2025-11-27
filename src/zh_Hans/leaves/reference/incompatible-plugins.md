@@ -1,6 +1,6 @@
 # 不兼容的插件
 
-Leaves 致力于与所有 CraftBukkit、Spigot 及 Paper 插件保持兼容，但部分插件因技术或功能的冲突，可能需要额外配置或采用替代方案以实现兼容运行。
+Leaves 致力于与所有 CraftBukkit、Spigot 及 Paper 插件保持兼容，但部分插件可能需要额外配置或采用替代方案以实现兼容运行。
 
 **我们不会处理与这些插件相关的问题，请在报告问题前暂时移除它们并尝试复现问题。**
 
@@ -24,9 +24,9 @@ Leaves 的模组协议功能依赖服务端与客户端之间的准确数据通�
 
 可以尝试以下解决方案：
 
-1. 使用 [AuthMeReReloaded](https://hangar.papermc.io/0D00_0721/AuthMeReReloaded) 登录插件，此插件为 AuthMeReloaded 插件的分支，它能正确识别假人并允许其自动绕过登录流程。
+1. 使用 [AuthMeReReloaded](https://hangar.papermc.io/0D00_0721/AuthMeReReloaded) 登录插件，此插件为 AuthMeReloaded 插件的分支，它能正确识别假人并允许其自动绕过登录流程，并支持从其他登录插件迁移数据。
 
-2. 安装 [LeavesAddons](https://github.com/Lumine1909/LeavesAddons) 插件以实现兼容。
+2. 对于 Authme 插件，可以安装 [LeavesAddons](https://github.com/Lumine1909/LeavesAddons) 插件以实现兼容。
 
 :::
 
