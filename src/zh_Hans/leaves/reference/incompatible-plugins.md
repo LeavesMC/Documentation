@@ -10,7 +10,7 @@ Leaves 的模组协议功能依赖服务端与客户端之间的准确数据通�
 
 ::: tip
 
-对于跨版本需求，请优先考虑在客户端安装 [ViaFabricPlus](https://github.com/ViaVersion/ViaFabricPlus) 和 [ViaVanillaPlus](https://github.com/ViaVersionAddons/ViaVanillaPlus) 模组**并手动设置连接至服务器所使用的版本。**
+对于跨版本需求，请优先考虑在客户端安装 [ViaFabricPlus](https://modrinth.com/mod/viafabricplus) 和 [ViaVanillaPlus](https://modrinth.com/mod/viavanillaplus) 模组**并手动设置连接至服务器所使用的版本**。
 
 若必须使用上述插件，请在必要时禁用**所有**模组协议功能。
 
@@ -24,9 +24,9 @@ Leaves 的模组协议功能依赖服务端与客户端之间的准确数据通�
 
 可以尝试以下解决方案：
 
-1.使用 [AuthMeReReloaded](https://github.com/HaHaWTH/AuthMeReReloaded) 登录插件，此插件为 AuthMeReloaded 插件的分支，它能正确识别假人并允许其自动绕过登录流程。
+1. 使用 [AuthMeReReloaded](https://hangar.papermc.io/0D00_0721/AuthMeReReloaded) 登录插件，此插件为 AuthMeReloaded 插件的分支，它能正确识别假人并允许其自动绕过登录流程。
 
-2.安装 [LeavesAddons](https://github.com/Lumine1909/LeavesAddons) 插件以实现兼容。
+2. 安装 [LeavesAddons](https://github.com/Lumine1909/LeavesAddons) 插件以实现兼容。
 
 :::
 
@@ -44,4 +44,4 @@ Leaves 的模组协议功能依赖服务端与客户端之间的准确数据通�
 
 ## NoCheatPlus
 
-NoCheatPlus 插件会覆盖 Paper 的部分配置项，即便启用了 Leaves 的 `mc-technical-survival-mode` 配置也无法将其恢复。这将导致部分原版特性（如活塞复制、无头活塞，重力方块复制）被修复。
+NoCheatPlus 插件会覆盖 Paper 的部分修复项（如活塞复制、无头活塞、重力方块复制），即便启用了 Leaves 的 `mc-technical-survival-mode` 配置也无法将其恢复。
