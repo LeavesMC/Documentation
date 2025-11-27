@@ -1,37 +1,51 @@
 # 不兼容的插件
 
-Leaves 尽力与所有 CraftBukkit、Spigot 或 Paper 插件兼容，但一些插件需要额外的配置甚至使用替代品才能与 Leaves 协同工作。
+Leaves 核心致力于与所有 CraftBukkit、Spigot 及 Paper 插件保持兼容，但部分插件因技术或功能的冲突，可能需要额外配置或采用替代方案以实现兼容运行。
 
-**我们不会处理与这些插件相关的问题，请在报告问题前暂时移除它们。**
+**对于此类插件引发的兼容性问题，我们无法提供支持服务。如需提交问题反馈，请先暂时移除相关插件以排除干扰。**
 
-## 协议
+## 数据转译类插件
 
-这些插件会破坏 Leaves 的协议支持，导致模组无法正常通讯或玩家被踢出。
-
-### ViaVersion
-
-ViaVersion 只翻译原版协议，而不会处理模组协议。这会导致模组协议版本跨度过大无法正确解析。
+Leaves 核心的模组协议功能依赖服务端与客户端之间的准确数据通信，使用涉及数据转译的插件（如 ViaVersion、ViaBackwards、ViaRewind、Geyser）以及代理服务端（如 Velocity、BungeeCord、ViaProxy ）可能造成客户端模组功能异常或玩家无法连接至服务器。
 
 ::: tip
 
-客户端可以安装 [ViaFabricPlus](https://modrinth.com/mod/viafabricplus) 和 [ViaVanillaPlus](https://modrinth.com/mod/viavanillaplus) 以翻译部分模组协议。
+对于跨版本需求，请优先考虑在客户端安装[ViaFabricPlus](https://github.com/ViaVersion/ViaVersion)模组**并手动设置连接至服务器所使用的版本。**
+若必须使用上述插件或代理端，请在必要时禁用**所有**模组协议功能。
 
 :::
 
-## 行为
+## 登录插件
 
-这些插件会与 Leaves 的行为产生冲突或覆盖 Leaves 的行为。
-
-### AuthMeReloaded
-
-AuthMeReloaded 不会正确检测假人并错误的要求假人登录，导致假人无法正确生成。
+常规登录插件（如 AuthMe、AuthMeReloaded、CatSeedLogin）无法正确识别假人，并错误地要求假人进行登录，这将导致假人无法生成或功能执行异常。
 
 ::: tip
 
-请使用替代品 [AuthMeReReloaded](https://hangar.papermc.io/0D00_0721/AuthMeReReloaded)，它添加了对假人的支持，并且与 AuthMeReloaded 的使用近乎相同。
+建议使用[AuthMeReReloaded](https://github.com/HaHaWTH/AuthMeReReloaded)登录插件，此插件能正确识别假人并允许其自动绕过登录流程。
+若无法更换登录插件，可安装[LeavesAddons](https://github.com/Lumine1909/LeavesAddons)插件以实现兼容。
 
 :::
+
+## 领地插件
+
+由于假人无法触发事件，领地插件（如 Residence、Dominion）将无法监听假人交互行为，这将导致领地限制对假人失效。
+
+## 多世界插件
+
+在部署多世界插件（如 Multiverse）时，若配置不当可能导致部分实体无法通过传送门进入指定维度，或出现传送功能完全失效的情况。需特别指出，重力方块的复制机制仅适用于末地维度，请务必确保末地传送门正确链接到末地维度。
+
+## 快捷潜影盒插件
+
+部分快捷潜影盒插件在打开潜影盒时未执行堆叠数量校验，若服务端启用潜影盒堆叠功能，使用此类插件时可能触发物品复制漏洞。
+
+## 优化插件
+
+很多红石机器的运作高度依赖游戏的特性和底层机制，而大多数性能优化插件会对原版机制进行不同程度的修改。这些修改在常规游戏场景中通常不会被感知，但在精密的红石机器中，微小的机制偏差将被显著放大，最终导致机器无法正常工作。
+
+### Aki-Async
+
+异步优化通过多线程计算提升服务端性能，但此举必然干扰游戏原生时序逻辑，破坏微时序机制，并引入线程安全隐患和崩溃风险。这将破坏原版特性，并引发功能异常问题，极端情况下甚至造成服务端崩溃。此外，多线程计算非常复杂，错误的优化不仅无法实现预期效果，反而会导致服务器性能损耗加剧，引发卡顿。
 
 ### NoCheatPlus
 
-NoCheatPlus 会覆盖 Paper 的可配置修复项，导致部分红石机器无法使用。
+NoCheatPlus 插件会强制修改 Paper 核心的部分配置项，导致部分原版特性（如活塞复制、无头活塞，重力方块复制）缺失。
